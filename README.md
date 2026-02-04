@@ -5,7 +5,7 @@
 |:--- |:--- |:--- |
 | Jorge Rodríguez Lázaro | j.rodriguezl.2023@alumnos.urjc | jorgerodriguezlazaro05-svg |
 | Miguel Rey Carballo | m.rey.2024@alumnos.urjc.es | Miguelreey |
-| Pablo Valdés Colomo |  | PabloColomo |
+| Pablo Valdés Colomo | p.valdes.2023@alumnos.urjc.es| PabloColomo |
 
 ---
 
