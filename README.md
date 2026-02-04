@@ -1,125 +1,116 @@
-# Virtus Fitness - Sistema de Gestión de Gimnasio
+# Virtus Fitness - Gym Management System
 
-## 👥 Miembros del Equipo
-| Nombre y Apellidos | Correo URJC | Usuario GitHub |
+## 👥 Team Members
+| Name and Surnames | URJC Email | GitHub Username |
 |:--- |:--- |:--- |
-| Jorge Rodríguez Lázaro | j.rodriguezl.2023@alumnos.urjc | jorgerodriguezlazaro05-svg |
-| Miguel Rey Carballo | m.rey.2024@alumnos.urjc.es | Miguelreey |
-| Pablo Valdés Colomo | p.valdes.2023@alumnos.urjc.es| PabloColomo |
+| Jorge Rodríguez Lázaro | [email]@alumnos.urjc.es | [User1] |
+| Miguel Rey Carballo | [email]@alumnos.urjc.es | [User2] |
+| Pablo Valdés Colomo | [email]@alumnos.urjc.es | [User3] |
 
 ---
 
-## 🎭 **Preparación: Definición del Proyecto**
+## 🎭 **Preparation: Project Definition**
 
-### **Descripción del Tema**
-Virtus Fitness es una plataforma de gestión integral para centros deportivos y gimnasios de alto rendimiento. Pertenece al sector de la salud y el bienestar (Wellness). El valor principal que aporta al usuario es la capacidad de autogestionar su entrenamiento mediante la reserva de clases dirigidas y el acceso a planes de entrenamiento personalizados, facilitando la organización tanto del cliente como del administrador del centro.
+### **Theme Description**
+Virtus Fitness is a comprehensive management platform for sports centers and high-performance gyms. It belongs to the health and wellness sector. The primary value it provides is the ability for users to self-manage their training through class bookings and access to personalized training plans, facilitating organization for both the client and the center administrator.
 
-### **Entidades**
-Indicar las entidades principales que gestionará la aplicación y las relaciones entre ellas:
+### **Entities**
+The following are the 4 main entities managed by the application and their relationships:
 
-1. **Usuario**: Perfil de la persona que accede al sistema (Anónimo, Registrado o Administrador).
-2. **Clase**: Sesiones deportivas programadas (ej: CrossFit, Yoga, HIIT).
-3. **Reserva**: Registro de la asistencia de un usuario a una clase específica.
-4. **Plan de Entrenamiento**: Rutina de ejercicios técnica y personalizada.
+1. **User (Usuario)**: Manages credentials, profile data, and access roles.
+2. **Workout Class (Clase)**: Represents the sessions offered (e.g., CrossFit, Yoga), including description and capacity.
+3. **Booking (Reserva)**: An entity that links a User with a specific Class.
+4. **Training Plan (Plan de Entrenamiento)**: Customized exercise routines assigned to specific users.
 
-**Relaciones entre entidades:**
-- **Usuario - Reserva**: Un usuario puede realizar múltiples reservas para diferentes clases (1:N).
-- **Clase - Reserva**: Una clase puede tener múltiples reservas de distintos usuarios hasta completar aforo (1:N).
-- **Usuario - Plan de Entrenamiento**: Un usuario registrado puede tener asignado un plan de entrenamiento específico, y un plan pertenece a un único usuario (1:1).
-- **Administrador - Clase/Plan**: El administrador gestiona (crea, edita, elimina) todas las Clases y Planes de entrenamiento.
+**Relationships between entities:**
+- **User - Booking**: A user can have multiple bookings for different classes (1:N).
+- **Workout Class - Booking**: A class can have multiple bookings from different users until capacity is reached (1:N).
+- **User - Training Plan**: A registered user has a personalized plan assigned, and each plan belongs to one user (1:1).
+- **Admin - Class/Plan**: The administrator manages (CRUD) all classes and training plans.
 
-### **Permisos de los Usuarios**
-Describir los permisos de cada tipo de usuario e indicar de qué entidades es dueño:
+### **User Permissions**
+Description of the permissions for each user type and their data ownership:
 
-* **Usuario Anónimo**: 
-  - Permisos: Visualización del catálogo de clases, consulta de horarios, acceso a la página de "Sobre nosotros" y registro en la plataforma.
-  - No es dueño de ninguna entidad.
+* **Anonymous User**: 
+  - Permissions: Browsing the class catalog, viewing schedules, and registration.
+  - Ownership: Does not own any entity.
 
-* **Usuario Registrado**: 
-  - Permisos: Gestión de su perfil personal, realización y cancelación de reservas de clases, y visualización de su plan de entrenamiento asignado.
-  - Es dueño de: Sus propias **Reservas** y su **Perfil de Usuario**.
+* **Registered User**: 
+  - Permissions: Profile management, class booking/cancellation, and viewing assigned training plans.
+  - Ownership: Owns their own **Bookings** and their **User Profile**.
 
-* **Administrador**: 
-  - Permisos: Gestión completa (CRUD) de Clases, Usuarios y Planes de Entrenamiento. Supervisión de todas las reservas y acceso a estadísticas globales.
-  - Es dueño de: Las **Clases** y los **Planes de Entrenamiento** del sistema.
+* **Administrator**: 
+  - Permissions: Full management of classes, users, and training plans (CRUD). Access to global statistics.
+  - Ownership: Owns the **Workout Classes** and **Training Plans** within the system.
 
-### **Imágenes**
-Indicar qué entidades tendrán asociadas una o varias imágenes:
+### **Images**
+Entities that will have one or more associated images:
 
-- **Usuario**: Una imagen de perfil (avatar) por usuario.
-- **Clase**: Imagen representativa de la actividad deportiva (ej: foto de la sala de Yoga).
-- **Plan de Entrenamiento**: Imágenes o iconos ilustrativos para los diferentes tipos de rutinas.
+- **User**: One profile image (avatar) per user.
+- **Workout Class**: Descriptive images for each activity type.
+- **Training Plan**: Illustrative icons for the different types of routines.
 
-### **Gráficos**
-Indicar qué información se mostrará usando gráficos y de qué tipo serán:
+### **Charts**
+Information to be displayed using charts:
 
-- **Gráfico 1**: Nivel de actividad mensual - Gráfico de barras (Número de clases asistidas por el usuario al mes).
-- **Gráfico 2**: Ocupación por tipo de clase - Gráfico de tarta (Distribución de reservas entre Yoga, CrossFit, etc.).
-- **Gráfico 3**: Evolución de nuevas altas - Gráfico de líneas (Para uso del administrador).
+- **Chart 1**: Monthly Activity Level - Bar Chart (number of classes attended per month).
+- **Chart 2**: Occupancy by Class Type - Pie Chart (distribution of bookings among Yoga, HIIT, etc.).
+- **Chart 3**: New User Growth - Line Chart (for administrative use).
 
-### **Tecnología Complementaria**
-Indicar qué tecnología complementaria se empleará:
+### **Complementary Technology**
+Complementary technology to be implemented:
 
-- **Generación de PDFs**: Se utilizará la librería **iText** para generar automáticamente un comprobante de reserva en PDF cada vez que un usuario se inscriba en una clase.
+- **PDF Generation**: The system will use the **iText** library to automatically generate booking receipts in PDF format for users.
 
-### **Algoritmo o Consulta Avanzada**
-Indicar cuál será el algoritmo o consulta avanzada que se implementará:
+### **Advanced Algorithm or Query**
+Advanced functionality to be implemented:
 
-- **Algoritmo/Consulta**: Sistema de Gestión de Aforo Dinámico y Prioridad de Lista de Espera.
-- **Descripción**: El algoritmo valida en tiempo real si queda cupo en una Clase. Si el aforo está completo, gestiona una lista de espera que prioriza a los usuarios en función de su antigüedad en el gimnasio y su tasa de asistencia previa (penalizando a quienes reservan y no asisten).
-
----
-
-## 🛠 **Práctica 1: Maquetación de páginas web con HTML y CSS**
-
-### **Diagrama de Navegación**
-![Diagrama de Navegación](images/navigation-diagram.png)
-
-> El usuario puede acceder desde la página principal a las clases disponibles. Los usuarios anónimos son redirigidos al login si intentan reservar. Una vez autenticado, el usuario tiene acceso a su panel personal y sus planes.
-
-### **Capturas de Pantalla y Descripción de Páginas**
-
-#### **1. Página Principal / Home**
-![Página Principal](images/home-page.png)
-> Landing page con banner motivacional, acceso rápido a las clases destacadas y botones de registro/login.
-
-#### **2. Catálogo de Clases**
-> Listado de todas las actividades con filtros por tipo e intensidad.
-
-#### **3. Perfil de Usuario**
-> Espacio personal donde se muestra el avatar, el gráfico de actividad y las reservas activas.
-
-#### **4. Panel de Administración**
-> Interfaz para que el administrador gestione los horarios y los planes de entrenamiento.
+- **Algorithm/Query**: Dynamic Capacity Management and Waiting List Priority.
+- **Description**: A real-time algorithm that validates class capacity. If full, it manages a waiting list prioritizing users based on their seniority and previous attendance rate.
 
 ---
 
-### **Participación de Miembros en la Práctica 1**
+## 🛠 **Part 1: Web Layout with HTML and CSS**
 
-#### **Alumno 1 - Jorge Rodríguez Lázaro**
-Responsable de la definición del modelo de datos y la maquetación de la página principal y el catálogo de clases.
+### **Navigation Diagram**
+![Navigation Diagram](images/navigation-diagram.png)
 
-| Nº    | Commits      | Files      |
-|:------------: |:------------:| :------------:|
-|1| [Initial README setup](URL)  | [README.md](URL)   |
+> Anonymous users can access public areas, while registered users gain access to their personal dashboard and booking management after logging in.
+
+### **Screenshots and Page Descriptions**
+
+#### **1. Home Page**
+![Home Page](images/home-page.png)
+> Landing page showing featured classes and login/registration access.
+
+#### **[ADD REMAINING PAGES HERE DURING PART 1]**
+
+### **Member Participation in Part 1**
+
+#### **Jorge Rodríguez Lázaro**
+Responsible for the data model definition and layout of the main landing page and class catalog.
+
+| No. | Commits | Files |
+|:---:|:---:|:---:|
+| 1 | [Initial README setup](URL) | [README.md](URL) |
 
 ---
 
-#### **Alumno 2 - Miguel Rey Carballo**
-Responsable del diseño de los perfiles de usuario y la lógica de navegación entre roles.
+#### **Miguel Rey Carballo**
+Responsible for user profile design and navigation logic between roles.
 
-| Nº    | Commits      | Files      |
-|:------------: |:------------:| :------------:|
-|1| [User profile layout](URL)  | [profile.html](URL)   |
+| No. | Commits | Files |
+|:---:|:---:|:---:|
+| 1 | [Initial project structure](URL) | [index.html](URL) |
 
 ---
 
-#### **Alumno 3 - Pablo Valdés Colomo**
-Responsable de la maquetación de los paneles de administración y el diseño del sistema de gráficos.
+#### **Pablo Valdés Colomo**
+Responsible for administrative dashboard layouts and chart system design.
 
-| Nº    | Commits      | Files      |
-|:------------: |:------------:| :------------:|
-|1| [Admin dashboard mockup](URL)  | [admin.html](URL)   |
+| No. | Commits | Files |
+|:---:|:---:|:---:|
+| 1 | [Permission logic definition](URL) | [README.md](URL) |
 
 ## 🛠 **Práctica 2: Web con HTML generado en servidor**
 
