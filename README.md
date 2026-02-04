@@ -3,9 +3,9 @@
 ## 👥 Miembros del Equipo
 | Nombre y Apellidos | Correo URJC | Usuario GitHub |
 |:--- |:--- |:--- |
-| Jorge Rodríguez Lázaro | [correo]@alumnos.urjc.es | [User_Jorge] |
-| Miguel Rey Carballo | [correo]@alumnos.urjc.es | [User_Miguel] |
-| Pablo Valdés Colomo | [correo]@alumnos.urjc.es | [User_Pablo] |
+| Jorge Rodríguez Lázaro | j.rodriguezl.2023@alumnos.urjc | jorgerodriguezlazaro05-svg |
+| Miguel Rey Carballo | m.rey.2024@alumnos.urjc.es | Miguelreey |
+| Pablo Valdés Colomo |  | PabloColomo |
 
 ---
 
