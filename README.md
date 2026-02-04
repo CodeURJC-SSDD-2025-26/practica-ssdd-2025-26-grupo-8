@@ -1,154 +1,125 @@
-# [Nombre de la Aplicación]
+# Virtus Fitness - Sistema de Gestión de Gimnasio
 
 ## 👥 Miembros del Equipo
 | Nombre y Apellidos | Correo URJC | Usuario GitHub |
 |:--- |:--- |:--- |
-| [Nombre 1] | [email1]@alumnos.urjc.es | [User1] |
-| [Nombre 2] | [email2]@alumnos.urjc.es | [User2] |
-| [Nombre 3] | [email3]@alumnos.urjc.es | [User3] |
-| [Nombre 4] | [email4]@alumnos.urjc.es | [User4] |
+| Jorge Rodríguez Lázaro | [correo]@alumnos.urjc.es | [User_Jorge] |
+| Miguel Rey Carballo | [correo]@alumnos.urjc.es | [User_Miguel] |
+| Pablo Valdés Colomo | [correo]@alumnos.urjc.es | [User_Pablo] |
 
 ---
 
 ## 🎭 **Preparación: Definición del Proyecto**
 
 ### **Descripción del Tema**
-[Escribe aquí una descripción breve y concisa de qué trata tu aplicación, el sector al que pertenece y qué valor aporta al usuario].
+Virtus Fitness es una plataforma de gestión integral para centros deportivos y gimnasios de alto rendimiento. Pertenece al sector de la salud y el bienestar (Wellness). El valor principal que aporta al usuario es la capacidad de autogestionar su entrenamiento mediante la reserva de clases dirigidas y el acceso a planes de entrenamiento personalizados, facilitando la organización tanto del cliente como del administrador del centro.
 
 ### **Entidades**
 Indicar las entidades principales que gestionará la aplicación y las relaciones entre ellas:
 
-1. **[Entidad 1]**: [Ej: Usuario]
-2. **[Entidad 2]**: [Ej: Producto]
-3. **[Entidad 3]**: [Ej: Pedido]
-4. **[Entidad 4]**: [Ej: Categoría]
+1. **Usuario**: Perfil de la persona que accede al sistema (Anónimo, Registrado o Administrador).
+2. **Clase**: Sesiones deportivas programadas (ej: CrossFit, Yoga, HIIT).
+3. **Reserva**: Registro de la asistencia de un usuario a una clase específica.
+4. **Plan de Entrenamiento**: Rutina de ejercicios técnica y personalizada.
 
 **Relaciones entre entidades:**
-- [Ej: Usuario - Pedido: Un usuario puede tener múltiples pedidos (1:N)]
-- [Ej: Pedido - Producto: Un pedido puede contener múltiples productos y un producto puede estar en múltiples pedidos (N:M)]
-- [Ej: Producto - Categoría: Un producto pertenece a una categoría (N:1)]
-- [Descripción de otras relaciones relevantes]
+- **Usuario - Reserva**: Un usuario puede realizar múltiples reservas para diferentes clases (1:N).
+- **Clase - Reserva**: Una clase puede tener múltiples reservas de distintos usuarios hasta completar aforo (1:N).
+- **Usuario - Plan de Entrenamiento**: Un usuario registrado puede tener asignado un plan de entrenamiento específico, y un plan pertenece a un único usuario (1:1).
+- **Administrador - Clase/Plan**: El administrador gestiona (crea, edita, elimina) todas las Clases y Planes de entrenamiento.
 
 ### **Permisos de los Usuarios**
 Describir los permisos de cada tipo de usuario e indicar de qué entidades es dueño:
 
 * **Usuario Anónimo**: 
-  - Permisos: [Ej: Visualización de catálogo, búsqueda de productos, registro]
-  - No es dueño de ninguna entidad
+  - Permisos: Visualización del catálogo de clases, consulta de horarios, acceso a la página de "Sobre nosotros" y registro en la plataforma.
+  - No es dueño de ninguna entidad.
 
 * **Usuario Registrado**: 
-  - Permisos: [Ej: Gestión de perfil, realizar pedidos, crear valoraciones]
-  - Es dueño de: [Ej: Sus propios Pedidos, su Perfil de Usuario, sus Valoraciones]
+  - Permisos: Gestión de su perfil personal, realización y cancelación de reservas de clases, y visualización de su plan de entrenamiento asignado.
+  - Es dueño de: Sus propias **Reservas** y su **Perfil de Usuario**.
 
 * **Administrador**: 
-  - Permisos: [Ej: Gestión completa de productos (CRUD), visualización de estadísticas, moderación de contenido]
-  - Es dueño de: [Ej: Productos, Categorías, puede gestionar todos los Pedidos y Usuarios]
+  - Permisos: Gestión completa (CRUD) de Clases, Usuarios y Planes de Entrenamiento. Supervisión de todas las reservas y acceso a estadísticas globales.
+  - Es dueño de: Las **Clases** y los **Planes de Entrenamiento** del sistema.
 
 ### **Imágenes**
 Indicar qué entidades tendrán asociadas una o varias imágenes:
 
-- **[Entidad con imágenes 1]**: [Ej: Usuario - Una imagen de avatar por usuario]
-- **[Entidad con imágenes 2]**: [Ej: Producto - Múltiples imágenes por producto (galería)]
-- **[Entidad con imágenes 3]**: [Ej: Categoría - Una imagen representativa por categoría]
+- **Usuario**: Una imagen de perfil (avatar) por usuario.
+- **Clase**: Imagen representativa de la actividad deportiva (ej: foto de la sala de Yoga).
+- **Plan de Entrenamiento**: Imágenes o iconos ilustrativos para los diferentes tipos de rutinas.
 
 ### **Gráficos**
 Indicar qué información se mostrará usando gráficos y de qué tipo serán:
 
-- **Gráfico 1**: [Ej: Ventas mensuales - Gráfico de barras]
-- **Gráfico 2**: [Ej: Productos más vendidos - Gráfico de tarta/circular]
-- **Gráfico 3**: [Ej: Evolución de usuarios registrados - Gráfico de líneas]
-- **Gráfico 4**: [Ej: Distribución de pedidos por categoría - Gráfico de barras horizontales]
+- **Gráfico 1**: Nivel de actividad mensual - Gráfico de barras (Número de clases asistidas por el usuario al mes).
+- **Gráfico 2**: Ocupación por tipo de clase - Gráfico de tarta (Distribución de reservas entre Yoga, CrossFit, etc.).
+- **Gráfico 3**: Evolución de nuevas altas - Gráfico de líneas (Para uso del administrador).
 
 ### **Tecnología Complementaria**
 Indicar qué tecnología complementaria se empleará:
 
-- [Ej: Envío de correos electrónicos automáticos mediante JavaMailSender]
-- [Ej: Generación de PDFs de facturas usando iText o similar]
+- **Generación de PDFs**: Se utilizará la librería **iText** para generar automáticamente un comprobante de reserva en PDF cada vez que un usuario se inscriba en una clase.
 
 ### **Algoritmo o Consulta Avanzada**
 Indicar cuál será el algoritmo o consulta avanzada que se implementará:
 
-- **Algoritmo/Consulta**: [Ej: Sistema de recomendaciones basado en el historial de compras del usuario]
-- **Descripción**: [Ej: Analiza los productos comprados previamente y sugiere productos similares o complementarios utilizando filtrado colaborativo]
-- **Alternativa**: [Ej: Consulta compleja que agrupe ventas por categoría, mes y región, con cálculo de tendencias]
+- **Algoritmo/Consulta**: Sistema de Gestión de Aforo Dinámico y Prioridad de Lista de Espera.
+- **Descripción**: El algoritmo valida en tiempo real si queda cupo en una Clase. Si el aforo está completo, gestiona una lista de espera que prioriza a los usuarios en función de su antigüedad en el gimnasio y su tasa de asistencia previa (penalizando a quienes reservan y no asisten).
 
 ---
 
 ## 🛠 **Práctica 1: Maquetación de páginas web con HTML y CSS**
 
 ### **Diagrama de Navegación**
-Diagrama que muestra cómo se navega entre las diferentes páginas de la aplicación:
-
 ![Diagrama de Navegación](images/navigation-diagram.png)
 
-> [Descripción opcional del flujo de navegación: Ej: "El usuario puede acceder desde la página principal a todas las secciones mediante el menú de navegación. Los usuarios anónimos solo tienen acceso a las páginas públicas, mientras que los registrados pueden acceder a su perfil y panel de usuario."]
+> El usuario puede acceder desde la página principal a las clases disponibles. Los usuarios anónimos son redirigidos al login si intentan reservar. Una vez autenticado, el usuario tiene acceso a su panel personal y sus planes.
 
 ### **Capturas de Pantalla y Descripción de Páginas**
 
 #### **1. Página Principal / Home**
 ![Página Principal](images/home-page.png)
+> Landing page con banner motivacional, acceso rápido a las clases destacadas y botones de registro/login.
 
-> [Descripción breve: Ej: "Página de inicio que muestra los productos destacados, categorías principales y un banner promocional. Incluye barra de navegación y acceso a registro/login para usuarios no autenticados."]
+#### **2. Catálogo de Clases**
+> Listado de todas las actividades con filtros por tipo e intensidad.
 
-#### **AQUÍ AÑADIR EL RESTO DE PÁGINAS**
+#### **3. Perfil de Usuario**
+> Espacio personal donde se muestra el avatar, el gráfico de actividad y las reservas activas.
+
+#### **4. Panel de Administración**
+> Interfaz para que el administrador gestione los horarios y los planes de entrenamiento.
+
+---
 
 ### **Participación de Miembros en la Práctica 1**
 
-#### **Alumno 1 - [Nombre Completo]**
-
-[Descripción de las tareas y responsabilidades principales del alumno en el proyecto]
-
-| Nº    | Commits      | Files      |
-|:------------: |:------------:| :------------:|
-|1| [Descripción commit 1](URL_commit_1)  | [Archivo1](URL_archivo_1)   |
-|2| [Descripción commit 2](URL_commit_2)  | [Archivo2](URL_archivo_2)   |
-|3| [Descripción commit 3](URL_commit_3)  | [Archivo3](URL_archivo_3)   |
-|4| [Descripción commit 4](URL_commit_4)  | [Archivo4](URL_archivo_4)   |
-|5| [Descripción commit 5](URL_commit_5)  | [Archivo5](URL_archivo_5)   |
-
----
-
-#### **Alumno 2 - [Nombre Completo]**
-
-[Descripción de las tareas y responsabilidades principales del alumno en el proyecto]
+#### **Alumno 1 - Jorge Rodríguez Lázaro**
+Responsable de la definición del modelo de datos y la maquetación de la página principal y el catálogo de clases.
 
 | Nº    | Commits      | Files      |
 |:------------: |:------------:| :------------:|
-|1| [Descripción commit 1](URL_commit_1)  | [Archivo1](URL_archivo_1)   |
-|2| [Descripción commit 2](URL_commit_2)  | [Archivo2](URL_archivo_2)   |
-|3| [Descripción commit 3](URL_commit_3)  | [Archivo3](URL_archivo_3)   |
-|4| [Descripción commit 4](URL_commit_4)  | [Archivo4](URL_archivo_4)   |
-|5| [Descripción commit 5](URL_commit_5)  | [Archivo5](URL_archivo_5)   |
+|1| [Initial README setup](URL)  | [README.md](URL)   |
 
 ---
 
-#### **Alumno 3 - [Nombre Completo]**
-
-[Descripción de las tareas y responsabilidades principales del alumno en el proyecto]
+#### **Alumno 2 - Miguel Rey Carballo**
+Responsable del diseño de los perfiles de usuario y la lógica de navegación entre roles.
 
 | Nº    | Commits      | Files      |
 |:------------: |:------------:| :------------:|
-|1| [Descripción commit 1](URL_commit_1)  | [Archivo1](URL_archivo_1)   |
-|2| [Descripción commit 2](URL_commit_2)  | [Archivo2](URL_archivo_2)   |
-|3| [Descripción commit 3](URL_commit_3)  | [Archivo3](URL_archivo_3)   |
-|4| [Descripción commit 4](URL_commit_4)  | [Archivo4](URL_archivo_4)   |
-|5| [Descripción commit 5](URL_commit_5)  | [Archivo5](URL_archivo_5)   |
+|1| [User profile layout](URL)  | [profile.html](URL)   |
 
 ---
 
-#### **Alumno 4 - [Nombre Completo]**
-
-[Descripción de las tareas y responsabilidades principales del alumno en el proyecto]
+#### **Alumno 3 - Pablo Valdés Colomo**
+Responsable de la maquetación de los paneles de administración y el diseño del sistema de gráficos.
 
 | Nº    | Commits      | Files      |
 |:------------: |:------------:| :------------:|
-|1| [Descripción commit 1](URL_commit_1)  | [Archivo1](URL_archivo_1)   |
-|2| [Descripción commit 2](URL_commit_2)  | [Archivo2](URL_archivo_2)   |
-|3| [Descripción commit 3](URL_commit_3)  | [Archivo3](URL_archivo_3)   |
-|4| [Descripción commit 4](URL_commit_4)  | [Archivo4](URL_archivo_4)   |
-|5| [Descripción commit 5](URL_commit_5)  | [Archivo5](URL_archivo_5)   |
-
----
+|1| [Admin dashboard mockup](URL)  | [admin.html](URL)   |
 
 ## 🛠 **Práctica 2: Web con HTML generado en servidor**
 
