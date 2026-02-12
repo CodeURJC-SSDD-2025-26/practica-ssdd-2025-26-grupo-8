@@ -3,7 +3,7 @@
 ## 👥 Team Members
 | Name and Surnames | URJC Email | GitHub Username |
 |:--- |:--- |:--- |
-| Jorge Rodríguez Lázaro | j.rodriguezl.2023@alumnos.urjc.es | jorgerodriguezlazaro05-svg |
+| Jorge Rodríguez Lázaro | j.rodriguezl.2023@alumnos.urjc.es | jorgeRL05 |
 | Miguel Rey Carballo | m.rey.2023@alumnos.urjc.es | Migelreey |
 | Pablo Valdés Colomo | p.valdes.2023@alumnos.urjc.es | Pablo Colomo |
 
