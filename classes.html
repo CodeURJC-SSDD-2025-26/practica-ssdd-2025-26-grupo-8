@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clases - Virtus Fitness</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/classes.css">
+
+</head>
+<body>
+
+    <!-- ========== NAVBAR ========== -->
+        <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">
+                <i class="bi bi-lightning-charge-fill text-warning"></i> Virtus Fitness
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link " href="index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="classes.html">Clases</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="schedule.html">Horarios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="pricing.html">Precios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="contact.html">Contacto</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="about.html">Sobre Nosotros</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="login.html">Iniciar Sesión</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ========== PAGE HERO ========== -->
+    <section class="page-hero mt-5" aria-label="Cabecera de la sección Clases">
+        <div class="hero-overlay"></div>
+        <div class="hero-content animate-fade-in">
+            <h1 class="display-4 fw-bold mb-3">Nuestras Clases</h1>
+            <p class="lead mb-0">Encuentra la disciplina que transformará tu entrenamiento</p>
+        </div>
+    </section>
+
+    <!-- ========== CLASSES GRID ========== -->
+    <section class="classes-section py-5">
+        <div class="container">
+
+            <!-- Section intro -->
+            <div class="text-center mb-5">
+                <h2 class="section-title">Elige Tu Clase</h2>
+                <p class="text-muted mt-4">6 disciplinas impartidas por entrenadores certificados, diseñadas para todos los niveles</p>
+            </div>
+
+            <!-- Row 1 – 3 cards -->
+            <div class="row g-4 mb-4">
+
+                <!-- Yoga Flow -->
+                <div class="col-sm-6 col-lg-4">
+                    <article class="class-card">
+                        <div class="class-card-img-wrapper">
+                            <img
+                                src="images/yoga.jpg"
+                                alt="Clase Yoga Flow"
+                                class="class-image"
+                                loading="lazy"
+                            >
+                        </div>
+                        <div class="class-body">
+                            <span class="class-level-badge level-beginner">Principiante</span>
+                            <h5>Yoga Flow</h5>
+                            <p>Secuencias fluidas de asanas que conectan movimiento y respiración. Mejora tu flexibilidad, equilibrio y bienestar mental en Sala 1.</p>
+                            <a href="boxeo.html" class="btn btn-dark btn-sm">Ver Clase</a>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- CrossFit WOD -->
+                <div class="col-sm-6 col-lg-4">
+                    <article class="class-card">
+                        <div class="class-card-img-wrapper">
+                            <img
+                                src="images/crossfit.jpg"
+                                alt="Clase CrossFit WOD"
+                                class="class-image"
+                                loading="lazy"
+                            >
+                        </div>
+                        <div class="class-body">
+                            <span class="class-level-badge level-advanced">Avanzado</span>
+                            <h5>CrossFit WOD</h5>
+                            <p>Workout of the Day con movimientos funcionales de alta intensidad: levantamientos olímpicos, gimnasia y cardio en el Box.</p>
+                            <a href="boxeo.html" class="btn btn-dark btn-sm">Ver Clase</a>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Indoor Cycling -->
+                <div class="col-sm-6 col-lg-4">
+                    <article class="class-card">
+                        <div class="class-card-img-wrapper">
+                            <img
+                                src="images/cycling.jpg"
+                                alt="Clase Indoor Cycling"
+                                class="class-image"
+                                loading="lazy"
+                            >
+                        </div>
+                        <div class="class-body">
+                            <span class="class-level-badge level-medium">Intermedio</span>
+                            <h5>Indoor Cycling</h5>
+                            <p>Ciclismo de alta energía en Sala Spin con música motivadora. Quema hasta 700 kcal y mejora tu resistencia cardiovascular.</p>
+                            <a href="boxeo.html" class="btn btn-dark btn-sm">Ver Clase</a>
+                        </div>
+                    </article>
+                </div>
+
+            </div>
+
+            <!-- Row 2 – 3 cards -->
+            <div class="row g-4">
+
+                <!-- Boxing Pro -->
+                <div class="col-sm-6 col-lg-4">
+                    <article class="class-card">
+                        <div class="class-card-img-wrapper">
+                            <img
+                                src="images/pilates.jpg"
+                                alt="Clase Boxing Pro"
+                                class="class-image"
+                                loading="lazy"
+                            >
+                        </div>
+                        <div class="class-body">
+                            <span class="class-level-badge level-all">Todos los niveles</span>
+                            <h5>Boxing Pro</h5>
+                            <p>Técnica profesional de boxeo con trabajo de sacos y manoplas en Sala 2. Potencia, coordinación y descarga de estrés garantizados.</p>
+                            <a href="boxeo.html" class="btn btn-dark btn-sm">Ver Clase</a>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Pilates Reformer -->
+                <div class="col-sm-6 col-lg-4">
+                    <article class="class-card">
+                        <div class="class-card-img-wrapper">
+                            <img
+                                src="images/strength.jpg"
+                                alt="Clase Pilates Reformer"
+                                class="class-image"
+                                loading="lazy"
+                            >
+                        </div>
+                        <div class="class-body">
+                            <span class="class-level-badge level-medium">Intermedio</span>
+                            <h5>Pilates Reformer</h5>
+                            <p>Entrenamiento en máquina reformer que fortalece el core, mejora la alineación postural y previene lesiones. Sala 2.</p>
+                            <a href="boxeo.html" class="btn btn-dark btn-sm">Ver Clase</a>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Zumba Dance -->
+                <div class="col-sm-6 col-lg-4">
+                    <article class="class-card">
+                        <div class="class-card-img-wrapper">
+                            <img
+                                src="images/boxing-class.jpg"
+                                alt="Clase Zumba Dance"
+                                class="class-image"
+                                loading="lazy"
+                            >
+                        </div>
+                        <div class="class-body">
+                            <span class="class-level-badge level-beginner">Principiante</span>
+                            <h5>Zumba Dance</h5>
+                            <p>Fitness con ritmos latinos en Sala 1. Coreografías divertidas y energéticas para quemar calorías sin que parezca un entrenamiento.</p>
+                            <a href="boxeo.html" class="btn btn-dark btn-sm">Ver Clase</a>
+                        </div>
+                    </article>
+                </div>
+
+            </div><!-- /row 2 -->
+        </div><!-- /container -->
+    </section>
+
+    <!-- ========== CTA STRIP ========== -->
+    <section class="newsletter-section py-5 text-center text-white">
+        <div class="container">
+            <h3 class="fw-bold mb-2">¿Listo para empezar?</h3>
+            <p class="mb-4">Regístrate hoy y obtén tu primera semana gratis en cualquier clase.</p>
+            <a href="register.html" class="btn btn-warning btn-lg fw-semibold px-5">Unirme Ahora</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+        <!-- Footer -->
+    <footer class="footer bg-dark text-white py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <h5 class="fw-bold mb-3">
+                        <i class="bi bi-lightning-charge-fill text-warning"></i> Virtus Fitness
+                    </h5>
+                    <p class="text-white">Tu destino para alcanzar tus objetivos fitness con entrenamiento profesional e instalaciones de élite.</p>
+                    <div class="social-links mt-3">
+                        <a href="#" class="text-white me-3"><i class="bi bi-facebook fs-4"></i></a>
+                        <a href="#" class="text-white me-3"><i class="bi bi-instagram fs-4"></i></a>
+                        <a href="#" class="text-white me-3"><i class="bi bi-twitter fs-4"></i></a>
+                        <a href="#" class="text-white"><i class="bi bi-youtube fs-4"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <h6 class="fw-bold mb-3">Enlaces</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="index.html" class="text-white text-decoration-none">Inicio</a></li>
+                        <li class="mb-2"><a href="classes.html" class="text-white text-decoration-none">Clases</a></li>
+                        <li class="mb-2"><a href="schedule.html" class="text-white text-decoration-none">Horarios</a></li>
+                        <li class="mb-2"><a href="pricing.html" class="text-white text-decoration-none">Precios</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h6 class="fw-bold mb-3">Contacto</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="bi bi-geo-alt me-2"></i>Calle Principal, 123</li>
+                        <li class="mb-2"><i class="bi bi-phone me-2"></i>+34 123 456 789</li>
+                        <li class="mb-2"><i class="bi bi-envelope me-2"></i>info@virtusfitness.com</li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h6 class="fw-bold mb-3">Horario</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2">Lun - Vie: 6:00 - 22:00</li>
+                        <li class="mb-2">Sábado: 8:00 - 20:00</li>
+                        <li class="mb-2">Domingo: 9:00 - 18:00</li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-4 bg-secondary">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0">&copy; 2026 Virtus Fitness. Todos los derechos reservados.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to top button -->
+    <button id="backToTop" class="btn btn-warning rounded-circle shadow" title="Volver arriba">
+        <i class="bi bi-arrow-up"></i>
+    </button>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="js/main.js"></script>
+
+    <script src="js/classes.js"></script>
+</body>
+</html>
