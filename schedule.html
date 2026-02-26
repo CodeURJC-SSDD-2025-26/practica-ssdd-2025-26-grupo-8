@@ -11,3 +11,386 @@
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/schedule.css">
 </head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">
+                <i class="bi bi-lightning-charge-fill text-warning"></i> Virtus Fitness
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="classes.html">Clases</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="schedule.html">Horarios</a></li>
+                    <li class="nav-item"><a class="nav-link" href="pricing.html">Precios</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contacto</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">Sobre Nosotros</a></li>
+                    <li class="nav-item nav-login"><a class="nav-link" href="login.html">Iniciar Sesión</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="schedule-hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>Horario de Actividades</h1>
+            <p>Entrenamiento de alto rendimiento · Lunes a Viernes · 09:00 – 21:00</p>
+        </div>
+    </section>
+
+    <!-- Schedule Section -->
+    <section class="schedule-page">
+        <div class="container">
+
+            <!-- Table -->
+            <div class="schedule-wrapper table-responsive">
+                <table class="schedule-table">
+                    <thead>
+                        <tr>
+                            <th>Hora</th>
+                            <th>Lunes</th>
+                            <th>Martes</th>
+                            <th>Miércoles</th>
+                            <th>Jueves</th>
+                            <th>Viernes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- 09:00 – 11:00 -->
+                        <tr>
+                            <td class="time-cell">
+                                <span class="time-range">09:00 – 11:00</span>
+                                <span class="time-duration">2 horas</span>
+                            </td>
+                            <td>
+                                <div class="activity-slot act-yoga">
+                                    <span class="act-name">Yoga Flow</span>
+                                    <span class="act-room">Sala 1</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="activity-slot act-crossfit">
+                                    <span class="act-name">CrossFit WOD</span>
+                                    <span class="act-room">Box</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="activity-slot act-yoga">
+                                    <span class="act-name">Yoga Flow</span>
+                                    <span class="act-room">Sala 1</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="activity-slot act-crossfit">
+                                    <span class="act-name">CrossFit WOD</span>
+                                    <span class="act-room">Box</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="activity-slot act-pilates">
+                                    <span class="act-name">Pilates Reformer</span>
+                                    <span class="act-room">Sala 2</span>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <!-- 11:00 – 13:00 -->
+                        <tr>
+                            <td class="time-cell">
+                                <span class="time-range">11:00 – 13:00</span>
+                                <span class="time-duration">2 horas</span>
+                            </td>
+                            <td>
+                                <div class="activity-slot act-cycling">
+                                    <span class="act-name">Indoor Cycling</span>
+                                    <span class="act-room">Sala Spin</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="activity-slot act-boxing">
+                                    <span class="act-name">Boxing Pro</span>
+                                    <span class="act-room">Sala 2</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="activity-slot act-cycling">
+                                    <span class="act-name">Indoor Cycling</span>
+                                    <span class="act-room">Sala Spin</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="activity-slot act-boxing">
+                                    <span class="act-name">Boxing Pro</span>
+                                    <span class="act-room">Sala 2</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="activity-slot act-zumba">
+                                    <span class="act-name">Zumba Dance</span>
+                                    <span class="act-room">Sala 1</span>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <!-- 13:00 – 15:00 -->
+                        <tr>
+                            <td class="time-cell">
+                                <span class="time-range">13:00 – 15:00</span>
+                                <span class="time-duration">2 horas</span>
+                            </td>
+                            <td>
+                                <div class="activity-slot act-crossfit">
+                                    <span class="act-name">CrossFit WOD</span>
+                                    <span class="act-room">Box</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="activity-slot act-pilates">
+                                    <span class="act-name">Pilates Reformer</span>
+                                    <span class="act-room">Sala 2</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="activity-slot act-crossfit">
+                                    <span class="act-name">CrossFit WOD</span>
+                                    <span class="act-room">Box</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="activity-slot act-pilates">
+                                    <span class="act-name">Pilates Reformer</span>
+                                    <span class="act-room">Sala 2</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="activity-slot act-cycling">
+                                    <span class="act-name">Indoor Cycling</span>
+                                    <span class="act-room">Sala Spin</span>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <!-- 15:00 – 17:00 -->
+                        <tr>
+                            <td class="time-cell">
+                                <span class="time-range">15:00 – 17:00</span>
+                                <span class="time-duration">2 horas</span>
+                            </td>
+                            <td>
+                                <div class="activity-slot act-boxing">
+                                    <span class="act-name">Boxing Pro</span>
+                                    <span class="act-room">Sala 2</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="activity-slot act-zumba">
+                                    <span class="act-name">Zumba Dance</span>
+                                    <span class="act-room">Sala 1</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="activity-slot act-boxing">
+                                    <span class="act-name">Boxing Pro</span>
+                                    <span class="act-room">Sala 2</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="activity-slot act-zumba">
+                                    <span class="act-name">Zumba Dance</span>
+                                    <span class="act-room">Sala 1</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="activity-slot act-yoga">
+                                    <span class="act-name">Yoga Flow</span>
+                                    <span class="act-room">Sala 1</span>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <!-- 17:00 – 19:00 -->
+                        <tr>
+                            <td class="time-cell">
+                                <span class="time-range">17:00 – 19:00</span>
+                                <span class="time-duration">2 horas</span>
+                            </td>
+                            <td>
+                                <div class="activity-slot act-yoga">
+                                    <span class="act-name">Yoga Flow</span>
+                                    <span class="act-room">Sala 1</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="activity-slot act-crossfit">
+                                    <span class="act-name">CrossFit WOD</span>
+                                    <span class="act-room">Box</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="activity-slot act-yoga">
+                                    <span class="act-name">Yoga Flow</span>
+                                    <span class="act-room">Sala 1</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="activity-slot act-crossfit">
+                                    <span class="act-name">CrossFit WOD</span>
+                                    <span class="act-room">Box</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="activity-slot act-pilates">
+                                    <span class="act-name">Pilates Reformer</span>
+                                    <span class="act-room">Sala 2</span>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <!-- 19:00 – 21:00 -->
+                        <tr>
+                            <td class="time-cell">
+                                <span class="time-range">19:00 – 21:00</span>
+                                <span class="time-duration">2 horas</span>
+                            </td>
+                            <td>
+                                <div class="activity-slot act-cycling">
+                                    <span class="act-name">Indoor Cycling</span>
+                                    <span class="act-room">Sala Spin</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="activity-slot act-boxing">
+                                    <span class="act-name">Boxing Pro</span>
+                                    <span class="act-room">Sala 2</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="activity-slot act-cycling">
+                                    <span class="act-name">Indoor Cycling</span>
+                                    <span class="act-room">Sala Spin</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="activity-slot act-boxing">
+                                    <span class="act-name">Boxing Pro</span>
+                                    <span class="act-room">Sala 2</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="activity-slot act-zumba">
+                                    <span class="act-name">Zumba Dance</span>
+                                    <span class="act-room">Sala 1</span>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Legend -->
+            <div class="schedule-legend">
+                <div class="legend-item">
+                    <span class="legend-dot" style="background:#00d9b1;"></span>
+                    Yoga Flow
+                </div>
+                <div class="legend-item">
+                    <span class="legend-dot" style="background:#ff5e5e;"></span>
+                    CrossFit WOD
+                </div>
+                <div class="legend-item">
+                    <span class="legend-dot" style="background:#4d8cff;"></span>
+                    Indoor Cycling
+                </div>
+                <div class="legend-item">
+                    <span class="legend-dot" style="background:#ff3d6e;"></span>
+                    Boxing Pro
+                </div>
+                <div class="legend-item">
+                    <span class="legend-dot" style="background:#b06bff;"></span>
+                    Pilates Reformer
+                </div>
+                <div class="legend-item">
+                    <span class="legend-dot" style="background:#ff8c42;"></span>
+                    Zumba Dance
+                </div>
+            </div>
+
+            <!-- Info box -->
+            <div class="schedule-info-box">
+                <i class="bi bi-info-circle-fill info-icon"></i>
+                <div>
+                    <h5>Información de Reserva</h5>
+                    <p>Todas las sesiones tienen una duración máxima de 90 minutos para permitir la limpieza de las salas entre turnos. Es obligatorio reservar a través de la App o el Perfil de Usuario.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer bg-dark text-white py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <h5 class="fw-bold mb-3">
+                        <i class="bi bi-lightning-charge-fill text-warning"></i> Virtus Fitness
+                    </h5>
+                    <p class="text-white">Tu destino para alcanzar tus objetivos fitness con entrenamiento profesional e instalaciones de élite.</p>
+                    <div class="social-links mt-3">
+                        <a href="#" class="text-white me-3"><i class="bi bi-facebook fs-4"></i></a>
+                        <a href="#" class="text-white me-3"><i class="bi bi-instagram fs-4"></i></a>
+                        <a href="#" class="text-white me-3"><i class="bi bi-twitter fs-4"></i></a>
+                        <a href="#" class="text-white"><i class="bi bi-youtube fs-4"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <h6 class="fw-bold mb-3">Enlaces</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="index.html" class="text-white text-decoration-none">Inicio</a></li>
+                        <li class="mb-2"><a href="classes.html" class="text-white text-decoration-none">Clases</a></li>
+                        <li class="mb-2"><a href="schedule.html" class="text-white text-decoration-none">Horarios</a></li>
+                        <li class="mb-2"><a href="pricing.html" class="text-white text-decoration-none">Precios</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h6 class="fw-bold mb-3">Contacto</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="bi bi-geo-alt me-2"></i>Calle Principal, 123</li>
+                        <li class="mb-2"><i class="bi bi-phone me-2"></i>+34 123 456 789</li>
+                        <li class="mb-2"><i class="bi bi-envelope me-2"></i>info@virtusfitness.com</li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h6 class="fw-bold mb-3">Horario</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2">Lun – Vie: 6:00 – 22:00</li>
+                        <li class="mb-2">Sábado: 8:00 – 20:00</li>
+                        <li class="mb-2">Domingo: 9:00 – 18:00</li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-4 bg-secondary">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0">&copy; 2026 Virtus Fitness. Todos los derechos reservados.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to top -->
+    <button id="backToTop" class="btn btn-warning rounded-circle shadow" title="Volver arriba">
+        <i class="bi bi-arrow-up"></i>
+    </button>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
