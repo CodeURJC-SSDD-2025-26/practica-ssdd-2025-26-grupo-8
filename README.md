@@ -111,7 +111,7 @@ Responsible for administrative dashboard layouts and chart system design.
 
 | No. | Commits | Files |
 |:---:|:---:|:---:|
-| 1 | [Permission logic definition](URL) | [README.md](URL) |
+| 1 | [Add complete classes.html page structure and content](https://github.com/CodeURJC-SSDD-2025-26/ssdd-2025-26-project-base/commit/7ed1164a301a90f775e6b8e21fa6218016345eae) | [classes.html](https://github.com/CodeURJC-SSDD-2025-26/practica-ssdd-2025-26-grupo-8/blob/main/classes.html) |
 
 ## 🛠 **Práctica 2: Web con HTML generado en servidor**
 
