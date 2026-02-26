@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Precios - Virtus Fitness</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/pricing.css">
+
+</head>
+<body>
+
+    <!-- ========== NAVBAR ========== -->
+        <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">
+                <i class="bi bi-lightning-charge-fill text-warning"></i> Virtus Fitness
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link " href="index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="classes.html">Clases</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="schedule.html">Horarios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="pricing.html">Precios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="contact.html">Contacto</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="about.html">Sobre Nosotros</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="login.html">Iniciar Sesión</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ========== PAGE HERO ========== -->
+    <section class="page-hero mt-5" aria-label="Cabecera de Precios">
+        <div class="hero-overlay"></div>
+        <div class="hero-content animate-fade-in">
+            <h1 class="display-4 fw-bold mb-2">Planes y Precios</h1>
+            <p class="lead mb-0">Sin letra pequeña. Elige la cuota que mejor se adapte a ti.</p>
+        </div>
+    </section>
+
+    <!-- ========== FILTER BAR ========== -->
+    <section class="filter-section py-3" aria-label="Filtros de precio">
+        <div class="container">
+            <div class="row g-3 align-items-end">
+
+                <!-- Filter 1: Permanencia -->
+                <div class="col-auto">
+                    <p class="filter-title mb-1">Permanencia</p>
+                    <div class="filter-group" role="group" aria-label="Filtro permanencia">
+                        <button class="filter-btn active" data-filter="permanencia" data-value="con">Con permanencia</button>
+                        <button class="filter-btn"         data-filter="permanencia" data-value="sin">Sin permanencia</button>
+                    </div>
+                </div>
+
+                <!-- Filter 2: Familia numerosa -->
+                <div class="col-auto">
+                    <p class="filter-title mb-1">Familia numerosa</p>
+                    <div class="filter-group" role="group" aria-label="Filtro familia numerosa">
+                        <button class="filter-btn active" data-filter="familia" data-value="no">No</button>
+                        <button class="filter-btn"         data-filter="familia" data-value="si">Sí (descuento 15%)</button>
+                    </div>
+                </div>
+
+                <!-- Filter 3: Edad -->
+                <div class="col-auto">
+                    <p class="filter-title mb-1">Edad</p>
+                    <div class="filter-group" role="group" aria-label="Filtro edad">
+                        <button class="filter-btn active" data-filter="edad" data-value="adulto">Adulto (+18)</button>
+                        <button class="filter-btn"         data-filter="edad" data-value="nino">Niño (12–17)</button>
+                    </div>
+                </div>
+
+                <!-- Summary -->
+                <div class="col ms-auto text-end d-none d-md-block">
+                    <p class="filter-summary mb-0" id="filterSummary"></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== PRICING CARDS ========== -->
+    <section class="pricing-section py-5">
+        <div class="container">
+
+            <div class="text-center mb-5">
+                <h2 class="section-title">Elige Tu Plan</h2>
+                <p class="text-muted mt-4" id="pricingSubtitle">Precios adaptados a tu situación personal</p>
+            </div>
+
+            <div class="row g-4 justify-content-center align-items-stretch">
+
+                <!-- ── BÁSICO ── -->
+                <div class="col-md-4">
+                    <div class="pricing-card">
+                        <div class="pricing-header plan-basic">
+                            <p class="plan-name">Plan Básico</p>
+                            <p class="plan-tagline">Lo esencial para empezar</p>
+                            <div class="price-display">
+                                <span class="price-currency">€</span>
+                                <span class="price-amount" id="price-basic">29</span>
+                                <span class="price-cents" id="cents-basic">,90</span>
+                            </div>
+                            <p class="price-period">/mes · IVA incluido</p>
+                            <p class="permanence-note" id="perm-basic">Permanencia 12 meses</p>
+                            <span class="discount-tag d-none" id="discount-basic">
+                                <i class="bi bi-tag"></i> Descuento familia numerosa aplicado
+                            </span>
+                        </div>
+                        <div class="pricing-body">
+                            <ul class="feature-list">
+                                <li><i class="bi bi-check-circle-fill feat-yes"></i> Acceso sala de fitness</li>
+                                <li><i class="bi bi-check-circle-fill feat-yes"></i> Vestuarios y duchas</li>
+                                <li><i class="bi bi-check-circle-fill feat-yes"></i> 2 clases grupales / semana</li>
+                                <li><i class="bi bi-check-circle-fill feat-yes"></i> App Virtus Fitness</li>
+                                <li class="disabled"><i class="bi bi-x-circle-fill feat-no"></i> Entrenamiento personal</li>
+                                <li class="disabled"><i class="bi bi-x-circle-fill feat-no"></i> Zona spa y sauna</li>
+                                <li class="disabled"><i class="bi bi-x-circle-fill feat-no"></i> Asesoramiento nutricional</li>
+                            </ul>
+                            <a href="register.html" class="btn btn-outline-dark w-100">Elegir Plan Básico</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ── PREMIUM ── -->
+                <div class="col-md-4">
+                    <div class="pricing-card featured">
+                        <div class="pricing-header plan-premium">
+                            <span class="popular-badge">Más popular</span>
+                            <p class="plan-name">Plan Premium</p>
+                            <p class="plan-tagline">El favorito de nuestros socios</p>
+                            <div class="price-display">
+                                <span class="price-currency">€</span>
+                                <span class="price-amount" id="price-premium">49</span>
+                                <span class="price-cents" id="cents-premium">,90</span>
+                            </div>
+                            <p class="price-period">/mes · IVA incluido</p>
+                            <p class="permanence-note" id="perm-premium">Permanencia 12 meses</p>
+                            <span class="discount-tag d-none" id="discount-premium" style="background:#fff3cd;color:#856404;">
+                                <i class="bi bi-tag"></i> Descuento familia numerosa aplicado
+                            </span>
+                        </div>
+                        <div class="pricing-body">
+                            <ul class="feature-list">
+                                <li><i class="bi bi-check-circle-fill feat-yes"></i> Acceso sala de fitness</li>
+                                <li><i class="bi bi-check-circle-fill feat-yes"></i> Vestuarios y duchas</li>
+                                <li><i class="bi bi-check-circle-fill feat-yes"></i> Clases grupales ilimitadas</li>
+                                <li><i class="bi bi-check-circle-fill feat-yes"></i> App Virtus Fitness</li>
+                                <li><i class="bi bi-check-circle-fill feat-yes"></i> 2 sesiones / mes entrenador personal</li>
+                                <li><i class="bi bi-check-circle-fill feat-yes"></i> Zona spa y sauna</li>
+                                <li class="disabled"><i class="bi bi-x-circle-fill feat-no"></i> Asesoramiento nutricional</li>
+                            </ul>
+                            <a href="register.html" class="btn btn-warning w-100">Elegir Plan Premium</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ── ELITE ── -->
+                <div class="col-md-4">
+                    <div class="pricing-card">
+                        <div class="pricing-header plan-elite">
+                            <p class="plan-name">Plan Elite</p>
+                            <p class="plan-tagline">La experiencia fitness completa</p>
+                            <div class="price-display">
+                                <span class="price-currency">€</span>
+                                <span class="price-amount" id="price-elite">79</span>
+                                <span class="price-cents" id="cents-elite">,90</span>
+                            </div>
+                            <p class="price-period">/mes · IVA incluido</p>
+                            <p class="permanence-note" id="perm-elite">Permanencia 12 meses</p>
+                            <span class="discount-tag d-none" id="discount-elite">
+                                <i class="bi bi-tag"></i> Descuento familia numerosa aplicado
+                            </span>
+                        </div>
+                        <div class="pricing-body">
+                            <ul class="feature-list">
+                                <li><i class="bi bi-check-circle-fill feat-yes"></i> Acceso sala de fitness</li>
+                                <li><i class="bi bi-check-circle-fill feat-yes"></i> Vestuarios y duchas</li>
+                                <li><i class="bi bi-check-circle-fill feat-yes"></i> Clases grupales ilimitadas</li>
+                                <li><i class="bi bi-check-circle-fill feat-yes"></i> App Virtus Fitness (premium)</li>
+                                <li><i class="bi bi-check-circle-fill feat-yes"></i> Entrenador personal ilimitado</li>
+                                <li><i class="bi bi-check-circle-fill feat-yes"></i> Zona spa y sauna</li>
+                                <li><i class="bi bi-check-circle-fill feat-yes"></i> Asesoramiento nutricional</li>
+                            </ul>
+                            <a href="register.html" class="btn btn-dark w-100">Elegir Plan Elite</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div><!-- /row -->
+
+            <!-- Comparison note -->
+            <p class="text-center text-muted small mt-4">
+                <i class="bi bi-shield-check me-1"></i>
+                Todos los planes incluyen acceso a vestuarios, consignas y zona de estiramientos. Cancelación según condiciones de permanencia seleccionada.
+            </p>
+        </div>
+    </section>
+
+    <!-- ========== NOTES ========== -->
+    <section class="notes-section py-5">
+        <div class="container">
+            <div class="text-center mb-4">
+                <h2 class="section-title">Condiciones Generales</h2>
+            </div>
+            <div class="row g-4 mt-2">
+                <div class="col-md-6">
+                    <div class="note-item">
+                        <i class="bi bi-calendar-check"></i>
+                        <div>
+                            <h6 class="fw-bold mb-1">Permanencia</h6>
+                            <p class="text-muted small mb-0">El precio <em>con permanencia</em> requiere un compromiso mínimo de 12 meses. La baja anticipada conlleva una penalización equivalente a 2 mensualidades. Sin permanencia podrás darte de baja con 30 días de preaviso.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="note-item">
+                        <i class="bi bi-people"></i>
+                        <div>
+                            <h6 class="fw-bold mb-1">Familia Numerosa</h6>
+                            <p class="text-muted small mb-0">Descuento del 15 % aplicable a titulares de carné de familia numerosa vigente. Es necesario presentar documentación acreditativa en recepción al formalizar la inscripción.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="note-item">
+                        <i class="bi bi-person-badge"></i>
+                        <div>
+                            <h6 class="fw-bold mb-1">Precio Joven (12–17 años)</h6>
+                            <p class="text-muted small mb-0">Tarifa reducida para menores de 18 años. La matrícula debe ser firmada por un tutor legal. Los menores solo podrán acceder a clases dirigidas y sala de fitness con supervisión de instructor.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="note-item">
+                        <i class="bi bi-credit-card"></i>
+                        <div>
+                            <h6 class="fw-bold mb-1">Forma de Pago</h6>
+                            <p class="text-muted small mb-0">Domiciliación bancaria los primeros 5 días de cada mes. Se añade una matrícula única de inscripción de 20 € que se condona en campañas promocionales. Consulta las ofertas vigentes en recepción.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== CTA ========== -->
+    <section class="newsletter-section py-5 text-center text-white">
+        <div class="container">
+            <h3 class="fw-bold mb-2">¿Tienes dudas sobre qué plan elegir?</h3>
+            <p class="mb-4">Nuestro equipo te asesora sin compromiso. Visítanos o contáctanos online.</p>
+            <a href="contact.html" class="btn btn-warning btn-lg fw-semibold px-5 me-2">Contactar</a>
+            <a href="register.html" class="btn btn-dark btn-lg px-5">Registrarme</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+        <!-- Footer -->
+    <footer class="footer bg-dark text-white py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <h5 class="fw-bold mb-3">
+                        <i class="bi bi-lightning-charge-fill text-warning"></i> Virtus Fitness
+                    </h5>
+                    <p class="text-white">Tu destino para alcanzar tus objetivos fitness con entrenamiento profesional e instalaciones de élite.</p>
+                    <div class="social-links mt-3">
+                        <a href="#" class="text-white me-3"><i class="bi bi-facebook fs-4"></i></a>
+                        <a href="#" class="text-white me-3"><i class="bi bi-instagram fs-4"></i></a>
+                        <a href="#" class="text-white me-3"><i class="bi bi-twitter fs-4"></i></a>
+                        <a href="#" class="text-white"><i class="bi bi-youtube fs-4"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <h6 class="fw-bold mb-3">Enlaces</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="index.html" class="text-white text-decoration-none">Inicio</a></li>
+                        <li class="mb-2"><a href="classes.html" class="text-white text-decoration-none">Clases</a></li>
+                        <li class="mb-2"><a href="schedule.html" class="text-white text-decoration-none">Horarios</a></li>
+                        <li class="mb-2"><a href="pricing.html" class="text-white text-decoration-none">Precios</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h6 class="fw-bold mb-3">Contacto</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="bi bi-geo-alt me-2"></i>Calle Principal, 123</li>
+                        <li class="mb-2"><i class="bi bi-phone me-2"></i>+34 123 456 789</li>
+                        <li class="mb-2"><i class="bi bi-envelope me-2"></i>info@virtusfitness.com</li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h6 class="fw-bold mb-3">Horario</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2">Lun - Vie: 6:00 - 22:00</li>
+                        <li class="mb-2">Sábado: 8:00 - 20:00</li>
+                        <li class="mb-2">Domingo: 9:00 - 18:00</li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-4 bg-secondary">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0">&copy; 2026 Virtus Fitness. Todos los derechos reservados.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to top button -->
+    <button id="backToTop" class="btn btn-warning rounded-circle shadow" title="Volver arriba">
+        <i class="bi bi-arrow-up"></i>
+    </button>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="js/main.js"></script>
+
+    <script src="js/pricing.js"></script>
+</body>
+</html>
