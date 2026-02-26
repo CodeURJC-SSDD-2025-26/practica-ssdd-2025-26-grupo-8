@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boxeo - Virtus Fitness</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/boxeo.css">
+
+</head>
+<body>
+
+    <!-- ========== NAVBAR ========== -->
+        <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">
+                <i class="bi bi-lightning-charge-fill text-warning"></i> Virtus Fitness
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link " href="index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="classes.html">Clases</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="schedule.html">Horarios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="pricing.html">Precios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="contact.html">Contacto</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="about.html">Sobre Nosotros</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="login.html">Iniciar Sesión</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ========== HERO ========== -->
+    <section class="boxeo-hero mt-5" aria-label="Hero clase de Boxeo">
+        <div class="hero-overlay"></div>
+        <div class="hero-content animate-fade-in">
+            <span class="level-pill mb-3 d-inline-block">Todos los niveles</span>
+            <h1 class="display-3 fw-bold mb-3">Boxeo</h1>
+            <p class="lead mb-4 animate-fade-in-delay">
+                Técnica, potencia y disciplina. Entrena como un campeón con nuestros instructores profesionales.
+            </p>
+            <div class="hero-buttons animate-fade-in-delay-2">
+                <a href="register.html" class="btn btn-warning btn-lg me-2">Inscribirme Ahora</a>
+                <a href="schedule.html" class="btn btn-outline-light btn-lg">Ver Horarios</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== BREADCRUMB ========== -->
+    <section class="breadcrumb-section py-2">
+        <div class="container">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb mb-0 small">
+                    <li class="breadcrumb-item"><a href="index.html">Inicio</a></li>
+                    <li class="breadcrumb-item"><a href="classes.html">Clases</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Boxeo</li>
+                </ol>
+            </nav>
+        </div>
+    </section>
+
+    <!-- ========== INFO STRIP ========== -->
+    <section class="info-strip" aria-label="Datos clave de la clase">
+        <div class="container">
+            <div class="row row-cols-2 row-cols-md-4 g-0">
+                <div class="col border-end border-secondary">
+                    <div class="info-item px-3">
+                        <i class="bi bi-clock"></i>
+                        <div>
+                            <span class="info-label">Duración</span>
+                            <span class="info-value">60 minutos</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col border-end border-secondary">
+                    <div class="info-item px-3">
+                        <i class="bi bi-fire"></i>
+                        <div>
+                            <span class="info-label">Calorías quemadas</span>
+                            <span class="info-value">600 – 800 kcal</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col border-end border-secondary">
+                    <div class="info-item px-3">
+                        <i class="bi bi-people"></i>
+                        <div>
+                            <span class="info-label">Plazas por sesión</span>
+                            <span class="info-value">Máx. 16 personas</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="info-item px-3">
+                        <i class="bi bi-bar-chart-steps"></i>
+                        <div>
+                            <span class="info-label">Nivel</span>
+                            <span class="info-value">Todos los niveles</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== DESCRIPTION ========== -->
+    <section class="class-description-section py-5">
+        <div class="container">
+            <div class="row align-items-center g-5">
+
+                <!-- Text -->
+                <div class="col-lg-6">
+                    <h2 class="section-title mb-4">Sobre la Clase</h2>
+                    <p class="lead mt-4">
+                        Nuestra clase de boxeo combina técnica auténtica con un entrenamiento físico completo. No importa si nunca has puesto un guante en tu vida o llevas años practicando: el programa está diseñado para adaptarse a tu nivel y hacerte progresar sesión a sesión.
+                    </p>
+                    <p class="text-muted mt-3" style="line-height: 1.8;">
+                        Cada sesión arranca con un calentamiento dinámico, seguido de trabajo técnico sobre sacos y manoplas, combos de golpeo, desplazamientos y defensa. Cerramos con trabajo de suelo y estiramientos. El resultado: más fuerza, mejor resistencia y una confianza que notas desde la primera semana.
+                    </p>
+                    <p class="text-muted" style="line-height: 1.8;">
+                        El material básico (guantes y vendas) está disponible en recepción para los nuevos alumnos. Se recomienda traer ropa cómoda y calzado de deporte con buena sujeción lateral.
+                    </p>
+                </div>
+
+                <!-- Image -->
+                <div class="col-lg-6">
+                    <div style="border-radius: 10px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.15);">
+                        <img
+                            src="images/boxing-main.jpg"
+                            alt="Entrenamiento de Boxeo en Virtus Fitness"
+                            class="img-fluid d-block"
+                        >
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== BENEFITS ========== -->
+    <section class="benefits-section py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title">Beneficios del Boxeo</h2>
+                <p class="text-muted mt-4">Más que un deporte: una transformación integral</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6">
+
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="bi bi-heart-pulse"></i></div>
+                        <div class="benefit-text">
+                            <h6>Mejora Cardiovascular</h6>
+                            <p>Aumenta la capacidad pulmonar y fortalece el corazón con entrenamientos de alta exigencia aeróbica.</p>
+                        </div>
+                    </div>
+
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="bi bi-lightning-charge"></i></div>
+                        <div class="benefit-text">
+                            <h6>Potencia y Fuerza</h6>
+                            <p>El trabajo con sacos y manoplas desarrolla la fuerza explosiva en hombros, brazos, core y piernas.</p>
+                        </div>
+                    </div>
+
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="bi bi-diagram-3"></i></div>
+                        <div class="benefit-text">
+                            <h6>Coordinación y Reflejos</h6>
+                            <p>Los patrones de golpeo y desplazamiento mejoran la coordinación visomotora y los tiempos de reacción.</p>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-md-6">
+
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="bi bi-emoji-smile"></i></div>
+                        <div class="benefit-text">
+                            <h6>Alivio del Estrés</h6>
+                            <p>Golpear un saco libera tensión acumulada y estimula la producción de endorfinas de forma inmediata.</p>
+                        </div>
+                    </div>
+
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="bi bi-shield-check"></i></div>
+                        <div class="benefit-text">
+                            <h6>Autodefensa Real</h6>
+                            <p>Aprenderás movimientos efectivos de defensa personal aplicables a situaciones cotidianas.</p>
+                        </div>
+                    </div>
+
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="bi bi-trophy"></i></div>
+                        <div class="benefit-text">
+                            <h6>Confianza y Disciplina</h6>
+                            <p>La superación constante en cada sesión fortalece la mentalidad y eleva la autoestima de forma progresiva.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== SCHEDULE ========== -->
+    <section class="schedule-section py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title">Horarios Semanales</h2>
+                <p class="text-muted mt-4">Reserva tu plaza con 24 horas de antelación</p>
+            </div>
+
+            <div class="table-responsive">
+                <table class="table schedule-table table-bordered align-middle text-center">
+                    <thead>
+                        <tr>
+                            <th scope="col">Día</th>
+                            <th scope="col">Horario</th>
+                            <th scope="col">Instructor</th>
+                            <th scope="col">Plazas libres</th>
+                            <th scope="col">Reservar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="fw-semibold">Lunes</td>
+                            <td>07:00 – 08:00</td>
+                            <td>Carlos Ruiz</td>
+                            <td><span class="slot-available"><i class="bi bi-check-circle me-1"></i>10 plazas</span></td>
+                            <td><a href="register.html" class="btn btn-warning btn-sm">Reservar</a></td>
+                        </tr>
+                        <tr>
+                            <td class="fw-semibold">Lunes</td>
+                            <td>19:00 – 20:00</td>
+                            <td>Ana Morales</td>
+                            <td><span class="slot-few"><i class="bi bi-exclamation-circle me-1"></i>3 plazas</span></td>
+                            <td><a href="register.html" class="btn btn-warning btn-sm">Reservar</a></td>
+                        </tr>
+                        <tr>
+                            <td class="fw-semibold">Miércoles</td>
+                            <td>07:00 – 08:00</td>
+                            <td>Carlos Ruiz</td>
+                            <td><span class="slot-available"><i class="bi bi-check-circle me-1"></i>12 plazas</span></td>
+                            <td><a href="register.html" class="btn btn-warning btn-sm">Reservar</a></td>
+                        </tr>
+                        <tr>
+                            <td class="fw-semibold">Miércoles</td>
+                            <td>20:00 – 21:00</td>
+                            <td>David Sánchez</td>
+                            <td><span class="slot-available"><i class="bi bi-check-circle me-1"></i>7 plazas</span></td>
+                            <td><a href="register.html" class="btn btn-warning btn-sm">Reservar</a></td>
+                        </tr>
+                        <tr>
+                            <td class="fw-semibold">Viernes</td>
+                            <td>18:30 – 19:30</td>
+                            <td>Ana Morales</td>
+                            <td><span class="slot-few"><i class="bi bi-exclamation-circle me-1"></i>2 plazas</span></td>
+                            <td><a href="register.html" class="btn btn-warning btn-sm">Reservar</a></td>
+                        </tr>
+                        <tr>
+                            <td class="fw-semibold">Sábado</td>
+                            <td>10:00 – 11:00</td>
+                            <td>David Sánchez</td>
+                            <td><span class="slot-available"><i class="bi bi-check-circle me-1"></i>9 plazas</span></td>
+                            <td><a href="register.html" class="btn btn-warning btn-sm">Reservar</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p class="text-muted text-center small mt-3">
+                <i class="bi bi-info-circle me-1"></i>
+                Plazas actualizadas en tiempo real. La reserva se confirma al completar el registro.
+            </p>
+        </div>
+    </section>
+
+    <!-- ========== INSTRUCTORS ========== -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title">Nuestros Instructores</h2>
+                <p class="text-muted mt-4">Profesionales certificados con años de experiencia</p>
+            </div>
+            <div class="row g-4 justify-content-center">
+
+                <!-- Instructor 1 -->
+                <div class="col-md-4">
+                    <div class="instructor-card p-4 text-center">
+                        <img
+                            src="images/trainer-b1.jpg"
+                            alt="Instructor Carlos Ruiz"
+                            class="instructor-avatar mb-3"
+                        >
+                        <h5 class="fw-bold mb-1">Carlos Ruiz</h5>
+                        <p class="text-warning fw-semibold small mb-2">Instructor Principal</p>
+                        <p class="text-muted small">Ex-campeón regional amateur. Certificado RFEK y entrenador personal con 10 años de experiencia.</p>
+                    </div>
+                </div>
+
+                <!-- Instructor 2 -->
+                <div class="col-md-4">
+                    <div class="instructor-card p-4 text-center">
+                        <img
+                            src="images/trainer-b2.jpg"
+                            alt="Instructora Ana Morales"
+                            class="instructor-avatar mb-3"
+                        >
+                        <h5 class="fw-bold mb-1">Ana Morales</h5>
+                        <p class="text-warning fw-semibold small mb-2">Instructora de Boxeo Femenino</p>
+                        <p class="text-muted small">Especializada en boxeo fitness para todos los géneros. Formadora certificada nivel III por la RFEK.</p>
+                    </div>
+                </div>
+
+                <!-- Instructor 3 -->
+                <div class="col-md-4">
+                    <div class="instructor-card p-4 text-center">
+                        <img
+                            src="images/trainer-b3.jpg"
+                            alt="Instructor David Sánchez"
+                            class="instructor-avatar mb-3"
+                        >
+                        <h5 class="fw-bold mb-1">David Sánchez</h5>
+                        <p class="text-warning fw-semibold small mb-2">Instructor de Kick Boxing</p>
+                        <p class="text-muted small">Combina boxeo y kickboxing en sus sesiones. 8 años entrenando atletas de competición y aficionados.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== CTA ========== -->
+    <section class="cta-section py-5 text-center text-white">
+        <div class="container">
+            <h2 class="fw-bold mb-3">¿Preparado para subir al ring?</h2>
+            <p class="lead mb-4">Regístrate ahora y consigue tu primera semana de boxeo totalmente gratis.</p>
+            <div class="hero-buttons">
+                <a href="register.html" class="btn btn-warning btn-lg me-2 fw-semibold">Inscribirme</a>
+                <a href="classes.html" class="btn btn-outline-light btn-lg">Ver Más Clases</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+        <!-- Footer -->
+    <footer class="footer bg-dark text-white py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <h5 class="fw-bold mb-3">
+                        <i class="bi bi-lightning-charge-fill text-warning"></i> Virtus Fitness
+                    </h5>
+                    <p class="text-white">Tu destino para alcanzar tus objetivos fitness con entrenamiento profesional e instalaciones de élite.</p>
+                    <div class="social-links mt-3">
+                        <a href="#" class="text-white me-3"><i class="bi bi-facebook fs-4"></i></a>
+                        <a href="#" class="text-white me-3"><i class="bi bi-instagram fs-4"></i></a>
+                        <a href="#" class="text-white me-3"><i class="bi bi-twitter fs-4"></i></a>
+                        <a href="#" class="text-white"><i class="bi bi-youtube fs-4"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <h6 class="fw-bold mb-3">Enlaces</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="index.html" class="text-white text-decoration-none">Inicio</a></li>
+                        <li class="mb-2"><a href="classes.html" class="text-white text-decoration-none">Clases</a></li>
+                        <li class="mb-2"><a href="schedule.html" class="text-white text-decoration-none">Horarios</a></li>
+                        <li class="mb-2"><a href="pricing.html" class="text-white text-decoration-none">Precios</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h6 class="fw-bold mb-3">Contacto</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="bi bi-geo-alt me-2"></i>Calle Principal, 123</li>
+                        <li class="mb-2"><i class="bi bi-phone me-2"></i>+34 123 456 789</li>
+                        <li class="mb-2"><i class="bi bi-envelope me-2"></i>info@virtusfitness.com</li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h6 class="fw-bold mb-3">Horario</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2">Lun - Vie: 6:00 - 22:00</li>
+                        <li class="mb-2">Sábado: 8:00 - 20:00</li>
+                        <li class="mb-2">Domingo: 9:00 - 18:00</li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-4 bg-secondary">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0">&copy; 2026 Virtus Fitness. Todos los derechos reservados.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to top button -->
+    <button id="backToTop" class="btn btn-warning rounded-circle shadow" title="Volver arriba">
+        <i class="bi bi-arrow-up"></i>
+    </button>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="js/main.js"></script>
+
+    <script src="js/boxeo.js"></script>
+</body>
+</html>
