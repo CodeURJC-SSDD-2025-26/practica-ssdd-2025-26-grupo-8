@@ -1,17 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Virtus Fitness - Premium Gym</title>
-    
+
+    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    
+
+    <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
-    
+
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+    <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container">
             <a class="navbar-brand fw-bold" href="index.html">
@@ -26,9 +30,6 @@
                         <a class="nav-link active" href="index.html">Inicio</a>
                     </li>
                     <li class="nav-item">
-                     <a class="nav-link" href="about.html">Sobre Nosotros</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" href="classes.html">Clases</a>
                     </li>
                     <li class="nav-item">
@@ -41,38 +42,101 @@
                         <a class="nav-link" href="contact.html">Contacto</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="login.html">Iniciar Sesión</a>
+                        <a class="nav-link" href="about.html">Sobre Nosotros</a>
                     </li>
                     <li class="nav-item">
-                        <a class="btn btn-warning btn-sm ms-2" href="register.html">Registrarse</a>
+                        <a class="nav-link" href="login.html">Iniciar Sesión</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <section class="hero-section mt-5 py-5 bg-dark text-white text-center">
-        <div class="container py-5">
-            <h1 class="display-3 fw-bold mb-4">Transforma Tu Cuerpo y Mente</h1>
-            <p class="lead mb-4">Únete a Virtus Fitness y vive la experiencia fitness definitiva con entrenadores profesionales y equipamiento de última generación</p>
-            <div class="hero-buttons">
-                <a href="register.html" class="btn btn-warning btn-lg me-3">Comenzar Ahora</a>
-                <a href="classes.html" class="btn btn-outline-light btn-lg">Ver Clases</a>
+    <!-- Hero Section -->
+    <section class="hero-section" id="inicio">
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+            <div class="animate-fade-in">
+            </div>
+            <h1 class="display-3 fw-bold animate-fade-in-delay">
+                <span class="hero-line">Transforma</span>
+                <span class="hero-line hero-accent">Tu Cuerpo</span>
+                <span class="hero-line">y Mente</span>
+            </h1>
+            <p class="lead animate-fade-in-delay">Únete a Virtus Fitness y vive la experiencia fitness definitiva con entrenadores profesionales y equipamiento de última generación</p>
+            <div class="hero-buttons animate-fade-in-delay-2">
+                <a href="register.html" class="btn-primary-cta">Comenzar Ahora <i class="bi bi-arrow-right"></i></a>
+                <a href="#clases" class="btn-secondary-cta">Ver Clases</a>
             </div>
         </div>
     </section>
 
-    <section class="services-section py-5">
+    <!-- Ticker Strip -->
+    <div class="ticker-strip" id="ticker">
+        <div class="ticker-track">
+            <span>Transforma Tu Cuerpo</span><span class="ticker-dot">◆</span>
+            <span>Entrena Con Élite</span><span class="ticker-dot">◆</span>
+            <span>16 Años De Experiencia</span><span class="ticker-dot">◆</span>
+            <span>Únete Ahora</span><span class="ticker-dot">◆</span>
+            <span>1879 Miembros Activos</span><span class="ticker-dot">◆</span>
+            <span>Equipamiento Premium</span><span class="ticker-dot">◆</span>
+            <!-- Duplicate for seamless loop -->
+            <span>Transforma Tu Cuerpo</span><span class="ticker-dot">◆</span>
+            <span>Entrena Con Élite</span><span class="ticker-dot">◆</span>
+            <span>16 Años De Experiencia</span><span class="ticker-dot">◆</span>
+            <span>Únete Ahora</span><span class="ticker-dot">◆</span>
+            <span>1879 Miembros Activos</span><span class="ticker-dot">◆</span>
+            <span>Equipamiento Premium</span><span class="ticker-dot">◆</span>
+        </div>
+    </div>
+
+    <!-- Stats Section -->
+    <section class="stats-section" id="estadisticas">
+        <div class="stats-grid">
+            <div class="stat-block stat-item">
+                <div class="stat-index">01</div>
+                <div class="stat-num-wrap">
+                    <h2 class="stat-num" data-count="1879">0</h2>
+                    <span class="stat-plus">+</span>
+                </div>
+                <p class="stat-label">Miembros Activos</p>
+            </div>
+            <div class="stat-block stat-item">
+                <div class="stat-index">02</div>
+                <div class="stat-num-wrap">
+                    <h2 class="stat-num" data-count="75">0</h2>
+                </div>
+                <p class="stat-label">Clases Semanales</p>
+            </div>
+            <div class="stat-block stat-item">
+                <div class="stat-index">03</div>
+                <div class="stat-num-wrap">
+                    <h2 class="stat-num" data-count="25">0</h2>
+                </div>
+                <p class="stat-label">Entrenadores</p>
+            </div>
+            <div class="stat-block stat-item">
+                <div class="stat-index">04</div>
+                <div class="stat-num-wrap">
+                    <h2 class="stat-num" data-count="16">0</h2>
+                </div>
+                <p class="stat-label">Años de Experiencia</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-section py-5" id="servicios">
         <div class="container">
             <div class="text-center mb-5">
-                <h2 class="section-title">¿Por Qué Elegir Virtus Fitness?</h2>
-                <p class="text-muted">Todo lo que necesitas para alcanzar tus objetivos fitness</p>
+                <h2 class="section-title">¿Por Qué Elegir <span class="acc">Virtus?</span></h2>
+                <p class="text-muted mt-4">Todo lo que necesitas para alcanzar tus objetivos fitness</p>
             </div>
             <div class="row g-4">
                 <div class="col-md-4">
                     <div class="service-card text-center p-4 shadow-sm rounded">
-                        <div class="service-icon mb-3 fs-1 text-warning">
-                            <i class="bi bi-person-workspace"></i>
+                        <div class="service-icon mx-auto mb-3">
+                            <i class="bi bi-person-workspace text-warning fs-1"></i>
                         </div>
                         <h4>Entrenadores Expertos</h4>
                         <p class="text-muted">Profesionales certificados dedicados a tu éxito y seguridad</p>
@@ -80,17 +144,17 @@
                 </div>
                 <div class="col-md-4">
                     <div class="service-card text-center p-4 shadow-sm rounded">
-                        <div class="service-icon mb-3 fs-1 text-warning">
-                            <i class="bi bi-calendar-check"></i>
+                        <div class="service-icon mx-auto mb-3">
+                            <i class="bi bi-calendar-check text-warning fs-1"></i>
                         </div>
                         <h4>Horarios Flexibles</h4>
-                        <p class="text-muted">Clases disponibles 7 días a la semana de 6:00 a 22:00</p>
+                        <p class="text-muted">Clases disponibles 7 días a la semana de 9:00 a 21:00</p>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="service-card text-center p-4 shadow-sm rounded">
-                        <div class="service-icon mb-3 fs-1 text-warning">
-                            <i class="bi bi-trophy"></i>
+                        <div class="service-icon mx-auto mb-3">
+                            <i class="bi bi-trophy text-warning fs-1"></i>
                         </div>
                         <h4>Equipamiento Premium</h4>
                         <p class="text-muted">Última tecnología y equipamiento de gimnasio de máxima calidad</p>
@@ -100,40 +164,68 @@
         </div>
     </section>
 
-    <section class="popular-classes py-5 bg-light">
+    <!-- Popular Classes Section -->
+    <section class="popular-classes py-5 bg-light" id="clases">
         <div class="container">
             <div class="text-center mb-5">
-                <h2 class="section-title">Clases Populares</h2>
-                <p class="text-muted">Descubre nuestros programas fitness más solicitados</p>
+                <h2 class="section-title">Clases <span class="acc">Populares</span></h2>
+                <p class="text-muted mt-4">Descubre nuestros programas fitness más solicitados</p>
             </div>
             <div class="row g-4">
                 <div class="col-md-4">
-                    <div class="card h-100 shadow-sm border-0">
-                        <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=600&h=400&fit=crop" alt="CrossFit" class="card-img-top">
-                        <div class="card-body p-4">
+                    <div class="card class-card h-100 shadow-sm border-0">
+                        <img src="images/crossfit.jpg" alt="CrossFit" class="card-img-top class-image">
+                        <div class="card-body class-body p-4">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <span class="badge bg-danger">Alta Intensidad</span>
+                                <span class="text-muted"><i class="bi bi-clock"></i> 45 min</span>
+                            </div>
                             <h5>Entrenamiento CrossFit</h5>
                             <p class="text-muted mb-3">Movimientos funcionales de alta intensidad para resultados máximos</p>
-                            <a href="classes.html" class="btn btn-dark btn-sm">Más Información</a>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <a href="classes.html" class="btn btn-dark btn-sm">Más Información</a>
+                                <button class="btn btn-outline-warning btn-sm" onclick="reserveClass('CrossFit')">
+                                    <i class="bi bi-calendar-plus"></i> Reservar
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="card h-100 shadow-sm border-0">
-                        <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?w=600&h=400&fit=crop" alt="Yoga" class="card-img-top">
-                        <div class="card-body p-4">
+                    <div class="card class-card h-100 shadow-sm border-0">
+                        <img src="images/yoga.jpg" alt="Yoga" class="card-img-top class-image">
+                        <div class="card-body class-body p-4">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <span class="badge bg-success">Relajación</span>
+                                <span class="text-muted"><i class="bi bi-clock"></i> 60 min</span>
+                            </div>
                             <h5>Yoga y Meditación</h5>
                             <p class="text-muted mb-3">Encuentra equilibrio y flexibilidad con nuestros instructores expertos</p>
-                            <a href="classes.html" class="btn btn-dark btn-sm">Más Información</a>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <a href="classes.html" class="btn btn-dark btn-sm">Más Información</a>
+                                <button class="btn btn-outline-warning btn-sm" onclick="reserveClass('Yoga')">
+                                    <i class="bi bi-calendar-plus"></i> Reservar
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="card h-100 shadow-sm border-0">
-                        <img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=600&h=400&fit=crop" alt="Cycling" class="card-img-top">
-                        <div class="card-body p-4">
+                    <div class="card class-card h-100 shadow-sm border-0">
+                        <img src="images/cycling.jpg" alt="Cycling" class="card-img-top class-image">
+                        <div class="card-body class-body p-4">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <span class="badge bg-warning text-dark">Cardio</span>
+                                <span class="text-muted"><i class="bi bi-clock"></i> 50 min</span>
+                            </div>
                             <h5>Cycling Indoor</h5>
                             <p class="text-muted mb-3">Quema calorías con música energizante e instructores motivadores</p>
-                            <a href="classes.html" class="btn btn-dark btn-sm">Más Información</a>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <a href="classes.html" class="btn btn-dark btn-sm">Más Información</a>
+                                <button class="btn btn-outline-warning btn-sm" onclick="reserveClass('Cycling')">
+                                    <i class="bi bi-calendar-plus"></i> Reservar
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -141,22 +233,144 @@
         </div>
     </section>
 
+    <!-- Testimonials Section -->
+    <section class="testimonials-section py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title">Lo Que Dicen <span class="acc">Nuestros Miembros</span></h2>
+                <p class="text-muted mt-4">Historias reales de transformación</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="testimonial-card p-4">
+                        <div class="stars mb-3 text-warning">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                        </div>
+                        <p class="testimonial-text">"Virtus Fitness cambió mi vida. Los entrenadores son increíbles y el ambiente es muy motivador. ¡He perdido 15kg en 6 meses!"</p>
+                        <div class="testimonial-author">
+                            <strong>María García</strong>
+                            <small class="text-muted d-block">Miembro desde 2023</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="testimonial-card p-4">
+                        <div class="stars mb-3 text-warning">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                        </div>
+                        <p class="testimonial-text">"Las clases de CrossFit son desafiantes pero adictivas. El equipo está siempre limpio y moderno. ¡100% recomendado!"</p>
+                        <div class="testimonial-author">
+                            <strong>Carlos Ruiz</strong>
+                            <small class="text-muted d-block">Miembro desde 2022</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="testimonial-card p-4">
+                        <div class="stars mb-3 text-warning">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                        </div>
+                        <p class="testimonial-text">"El yoga aquí es transformador. Después de meses de estrés, encontré paz y equilibrio. Los instructores son maravillosos."</p>
+                        <div class="testimonial-author">
+                            <strong>Laura Martínez</strong>
+                            <small class="text-muted d-block">Miembro desde 2024</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter-section py-5 bg-dark text-white">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 mb-4 mb-md-0">
+                    <h3 class="fw-bold mb-2">¿Listo para empezar tu transformación?</h3>
+                    <p class="mb-0">Recibe consejos, ofertas especiales y novedades directamente en tu email</p>
+                </div>
+                <div class="col-md-6">
+                    <form id="newsletterForm" class="d-flex gap-2">
+                        <input type="email" class="form-control" placeholder="Tu correo electrónico" required>
+                        <button type="submit" class="btn btn-warning">Suscribirse</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer class="footer bg-dark text-white py-5">
         <div class="container">
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <h5 class="fw-bold mb-3">
+                        <i class="bi bi-lightning-charge-fill text-warning"></i> Virtus Fitness
+                    </h5>
+                    <p class="text-white">Tu destino para alcanzar tus objetivos fitness con entrenamiento profesional e instalaciones de élite.</p>
+                    <div class="social-links mt-3">
+                        <a href="#" class="text-white me-3"><i class="bi bi-facebook fs-4"></i></a>
+                        <a href="#" class="text-white me-3"><i class="bi bi-instagram fs-4"></i></a>
+                        <a href="#" class="text-white me-3"><i class="bi bi-twitter fs-4"></i></a>
+                        <a href="#" class="text-white"><i class="bi bi-youtube fs-4"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <h6 class="fw-bold mb-3">Enlaces</h6>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><a href="index.html" class="text-white text-decoration-none">Inicio</a></li>
+                            <li class="mb-2"><a href="classes.html" class="text-white text-decoration-none">Clases</a></li>
+                            <li class="mb-2"><a href="schedule.html" class="text-white text-decoration-none">Horarios</a></li>
+                            <li class="mb-2"><a href="pricing.html" class="text-white text-decoration-none">Precios</a></li>
+                        </ul>
+                </div>
+                <div class="col-md-3">
+                    <h6 class="fw-bold mb-3">Contacto</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="bi bi-geo-alt me-2"></i>Calle Principal, 123</li>
+                        <li class="mb-2"><i class="bi bi-phone me-2"></i>+34 123 456 789</li>
+                        <li class="mb-2"><i class="bi bi-envelope me-2"></i>info@virtusfitness.com</li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h6 class="fw-bold mb-3">Horario</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2">Lun - Vie: 6:00 - 22:00</li>
+                        <li class="mb-2">Sábado: 8:00 - 20:00</li>
+                        <li class="mb-2">Domingo: 9:00 - 18:00</li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-4 bg-secondary">
             <div class="row">
                 <div class="col-md-6 text-center text-md-start">
-                    <h5>Virtus Fitness</h5>
-                    <p class="text-muted mb-0">&copy; 2026 Virtus Fitness. All rights reserved.</p>
-                </div>
-                <div class="col-md-6 text-center text-md-end">
-                    <p class="text-muted mb-0">Sistemas Distribuidos Project | URJC Engineering</p>
+                    <p class="mb-0">&copy; 2026 Virtus Fitness. Todos los derechos reservados.</p>
                 </div>
             </div>
         </div>
     </footer>
 
+    <!-- Back to top button -->
+    <button id="backToTop" class="btn btn-warning rounded-circle shadow" title="Volver arriba">
+        <i class="bi bi-arrow-up"></i>
+    </button>
+
+    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    
+
+    <!-- Custom JS -->
     <script src="js/main.js"></script>
 </body>
 </html>
