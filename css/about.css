@@ -1,0 +1,99 @@
+/* ============================================================
+   VIRTUS FITNESS — About Page — Dark Theme
+   ============================================================ */
+
+/* About hero */
+.hero-about {
+  position: relative;
+  background: linear-gradient(rgba(8,8,8,0.72), rgba(8,8,8,0.88)),
+              url('../images/history.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 50vh;
+  min-height: 340px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  overflow: hidden;
+}
+
+.hero-about::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(200,255,0,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(200,255,0,0.025) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+.hero-about h1,
+.hero-about h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 2px;
+}
+
+/* Story left border */
+.story-border {
+  border-left: 2px solid #C8FF00;
+  padding-left: 2rem;
+  box-shadow: -4px 0 20px rgba(200,255,0,0.08);
+}
+
+/* Trainer cards */
+.trainer-card {
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 12px;
+  overflow: hidden;
+  background: #111;
+  transition: all 0.3s ease;
+}
+
+.trainer-card:hover {
+  border-color: rgba(200,255,0,0.2);
+  transform: translateY(-6px);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+}
+
+.trainer-card img {
+  transition: transform 0.5s ease, filter 0.5s ease;
+  filter: grayscale(50%) brightness(0.82);
+  height: 380px;
+  object-fit: cover;
+}
+
+.trainer-card:hover img {
+  transform: scale(1.04);
+  filter: grayscale(0%) brightness(0.9);
+}
+
+/* Section title override for about page */
+.section-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-weight: 400;
+  letter-spacing: 2px;
+  color: #F0F0F0;
+  line-height: 1;
+}
+
+.section-title::after {
+  background: #C8FF00;
+  box-shadow: 0 0 8px rgba(200,255,0,0.3);
+}
+
+/* Values / features on about page */
+.card {
+  background: #111 !important;
+  border: 1px solid rgba(255,255,255,0.06) !important;
+  border-radius: 10px;
+}
+
+.card:hover {
+  border-color: rgba(200,255,0,0.18) !important;
+}
+
+/* Text overrides */
+.text-muted { color: #777 !important; }
+p           { color: #888; }
+h1, h2, h3, h4, h5, h6 { color: #F0F0F0; }
