@@ -88,8 +88,7 @@ Advanced functionality to be implemented:
 ### **Member Participation in Part 1**
 
 #### **Jorge Rodríguez Lázaro**
-Responsible for the data model definition and layout of the main landing page and class catalog.
-
+Developed HTML and CSS layouts for the "About Us" and "Schedules" pages.
 | No. | Commits | Files |
 |:---:|:---:|:---:|
 | 1 | [Initial README setup](URL) | [README.md](URL) |
