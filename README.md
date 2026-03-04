@@ -20,7 +20,7 @@ The following are the 4 main entities managed by the application and their relat
 1. **User (Usuario)**: Manages credentials, profile data, and access roles.
 2. **Workout Class (Clase)**: Represents the sessions offered (e.g., CrossFit, Yoga), including description and capacity.
 3. **Booking (Reserva)**: An entity that links a User with a specific Class.
-4. **Training Plan (Plan de Entrenamiento)**: Customized exercise routines assigned to specific users.
+4. **Class Coment(Comentario de clase)**: Allows a User to leave a comment or feedback on a specific Class, enabling users to share their experience or opinion about the session.
 
 **Relationships between entities:**
 - **User - Booking**: A user can have multiple bookings for different classes (1:N).
