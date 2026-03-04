@@ -1,0 +1,75 @@
+main.container { padding-top: 90px; }
+
+/* Section title */
+.section-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  position: relative;
+  margin-bottom: 1.5rem;
+  color: #F0F0F0;
+  line-height: 1;
+}
+
+.section-title::after {
+  content: '';
+  display: block;
+  width: 36px;
+  height: 2px;
+  background: #C8FF00;
+  margin-top: 12px;
+  box-shadow: 0 0 8px rgba(200,255,0,0.3);
+}
+
+/* Form inputs */
+.form-control-lg {
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.04);
+  color: #F0F0F0;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+
+.form-control-lg:focus {
+  border-color: rgba(200,255,0,0.3);
+  box-shadow: 0 0 0 3px rgba(200,255,0,0.08);
+  background: rgba(255,255,255,0.06);
+  color: #F0F0F0;
+  outline: none;
+}
+
+.form-control-lg::placeholder { color: #444; }
+
+textarea.form-control-lg {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  color: #F0F0F0;
+}
+
+/* Info card */
+.position-relative.shadow-lg {
+  border: 1px solid rgba(255,255,255,0.06) !important;
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+}
+
+.position-relative.shadow-lg:hover { transform: translateY(-4px); }
+
+/* Dark info block */
+.bg-dark.text-white.p-4 {
+  background: #111 !important;
+  border-top: 2px solid #C8FF00 !important;
+  border-radius: 0 0 12px 12px;
+}
+
+/* Icon alignment */
+.bi { vertical-align: middle; }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .section-title { font-size: 2rem; }
+  .section-title::after { margin: 12px 0; }
+}
