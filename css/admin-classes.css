@@ -1,0 +1,412 @@
+/* ============================================================
+   VIRTUS FITNESS — Admin Classes Page Styles
+   ============================================================ */
+
+.admin-page {
+    padding-top: 0;
+    padding-bottom: 60px;
+    min-height: 100vh;
+}
+
+/* ── Admin Header ── */
+.admin-header {
+    background: linear-gradient(135deg, var(--c-bg-card-alt) 0%, var(--c-bg) 100%);
+    border-bottom: 1px solid var(--c-border-acc);
+    padding: 2.5rem 0;
+    margin-bottom: 2.5rem;
+}
+
+.admin-header .back-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--c-primary);
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--t);
+    padding: 0.45rem 1rem;
+    background: var(--c-primary-dim);
+    border: 1px solid var(--c-border-acc);
+    border-radius: var(--r);
+    margin-bottom: 1.25rem;
+    font-size: 0.9rem;
+}
+
+.admin-header .back-button:hover {
+    background: var(--c-primary-glow);
+    color: var(--c-primary);
+    transform: translateX(-4px);
+}
+
+.admin-header h1 {
+    color: var(--c-text);
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.admin-header h1 i { color: var(--c-primary); }
+
+.admin-header .breadcrumb { background: transparent; padding: 0; margin: 0; }
+.admin-header .breadcrumb-item a { color: var(--c-primary); text-decoration: none; }
+.admin-header .breadcrumb-item.active { color: var(--c-text-sec); }
+.admin-header .breadcrumb-item + .breadcrumb-item::before { color: var(--c-text-muted); }
+
+/* ── Stats Cards ── */
+.stats-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.stat-card {
+    background: var(--c-bg-card);
+    border: 1px solid var(--c-border);
+    border-radius: var(--r-lg);
+    padding: 1.5rem;
+    transition: var(--t);
+    border-left: 3px solid var(--c-border-acc);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.stat-card:hover {
+    border-color: var(--c-border-acc);
+    transform: translateY(-3px);
+}
+
+.stat-card.total     { border-left-color: var(--c-primary); }
+.stat-card.active    { border-left-color: #4caf50; }
+.stat-card.instructors { border-left-color: #4fc3f7; }
+.stat-card.sessions  { border-left-color: #ce93d8; }
+
+.stat-card-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: var(--r);
+    background: var(--c-primary-dim);
+    border: 1px solid var(--c-border-acc);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.stat-card-icon i { font-size: 1.5rem; color: var(--c-primary); }
+
+.stat-card-info p {
+    color: var(--c-text-sec);
+    font-size: 0.82rem;
+    margin: 0 0 0.2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.stat-card-info h3 {
+    color: var(--c-text);
+    font-size: 1.8rem;
+    margin: 0;
+    line-height: 1;
+}
+
+/* ── Admin Container ── */
+.admin-container {
+    background: var(--c-bg-card);
+    border: 1px solid var(--c-border);
+    border-radius: var(--r-lg);
+    overflow: hidden;
+}
+
+/* ── Toolbar ── */
+.admin-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+    border-bottom: 1px solid var(--c-border);
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.admin-toolbar h2 {
+    color: var(--c-text);
+    font-size: 1.1rem;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.admin-toolbar h2 i { color: var(--c-primary); }
+
+/* ── Search Box ── */
+.search-box {
+    position: relative;
+    min-width: 260px;
+}
+
+.search-box i {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--c-text-sec);
+    font-size: 0.9rem;
+    pointer-events: none;
+}
+
+.search-box input {
+    background: var(--c-bg-card-alt);
+    border: 1px solid var(--c-border);
+    border-radius: var(--r);
+    color: var(--c-text);
+    padding: 0.5rem 0.75rem 0.5rem 2.25rem;
+    font-size: 0.9rem;
+    transition: var(--t);
+    width: 100%;
+}
+
+.search-box input::placeholder { color: var(--c-text-muted); }
+
+.search-box input:focus {
+    outline: none;
+    border-color: var(--c-primary);
+    box-shadow: 0 0 0 0.2rem var(--c-primary-dim);
+    color: var(--c-text);
+}
+
+/* ── Add Class Button ── */
+.btn-add-class {
+    background: var(--c-primary);
+    color: #000;
+    font-weight: 700;
+    padding: 0.6rem 1.5rem;
+    border-radius: var(--r);
+    border: none;
+    transition: var(--t);
+    box-shadow: 0 4px 15px var(--c-primary-glow);
+    font-size: 0.9rem;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.btn-add-class:hover {
+    background: var(--c-primary);
+    color: #000;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px var(--c-primary-glow);
+}
+
+/* ── Table ── */
+.table-responsive {
+    border-radius: 0;
+    overflow: hidden;
+}
+
+.admin-table {
+    width: 100%;
+    margin-bottom: 0;
+    border-collapse: collapse;
+}
+
+.admin-table thead tr {
+    background: var(--c-bg);
+    border-bottom: 1px solid var(--c-border-acc);
+}
+
+.admin-table thead th {
+    border: none;
+    padding: 1rem 1.25rem;
+    color: var(--c-text-sec);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.admin-table tbody tr {
+    border-bottom: 1px solid var(--c-border);
+    transition: var(--t);
+}
+
+.admin-table tbody tr:last-child { border-bottom: none; }
+
+.admin-table tbody tr:hover td { background-color: var(--c-bg-card-alt); }
+
+.admin-table tbody td {
+    padding: 1rem 1.25rem;
+    vertical-align: middle;
+    color: var(--c-text);
+    font-size: 0.92rem;
+    background-color: var(--c-bg-card);
+}
+
+/* ── Class ID ── */
+.class-id {
+    font-weight: 700;
+    color: var(--c-text-sec);
+    font-family: 'Courier New', monospace;
+    font-size: 0.85rem;
+}
+
+/* ── Class Name ── */
+.class-name {
+    font-weight: 600;
+    color: var(--c-text);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.class-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: var(--r);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    color: white;
+    flex-shrink: 0;
+}
+
+.icon-crossfit   { background: linear-gradient(135deg, #dc3545, #c82333); }
+.icon-yoga       { background: linear-gradient(135deg, #28a745, #218838); }
+.icon-spinning   { background: linear-gradient(135deg, #007bff, #0056b3); }
+.icon-boxing     { background: linear-gradient(135deg, #fd7e14, #e8590c); }
+.icon-pilates    { background: linear-gradient(135deg, #6f42c1, #5a32a3); }
+.icon-hiit       { background: linear-gradient(135deg, #e83e8c, #c72863); }
+.icon-zumba      { background: linear-gradient(135deg, #a0cc00, #C8FF00); }
+
+/* ── Instructor ── */
+.instructor-info {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.instructor-avatar {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--c-primary) 0%, #a0cc00 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #000;
+    font-weight: 700;
+    font-size: 0.8rem;
+    flex-shrink: 0;
+}
+
+.instructor-name {
+    font-weight: 500;
+    color: var(--c-text-sec);
+}
+
+/* ── Schedule Badge ── */
+.schedule-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.35rem 0.8rem;
+    border-radius: 20px;
+    background: var(--c-primary-dim);
+    border: 1px solid var(--c-border-acc);
+    color: var(--c-primary);
+    font-weight: 600;
+    font-size: 0.82rem;
+}
+
+/* ── Action Buttons ── */
+.action-buttons {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: flex-start;
+}
+
+.btn-action {
+    padding: 0.4rem 0.9rem;
+    border-radius: var(--r);
+    font-weight: 600;
+    font-size: 0.82rem;
+    transition: var(--t);
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    cursor: pointer;
+}
+
+.btn-edit {
+    background: rgba(13, 202, 240, 0.15);
+    color: #4fc3f7;
+    border: 1px solid rgba(13, 202, 240, 0.25);
+}
+
+.btn-edit:hover {
+    background: rgba(13, 202, 240, 0.25);
+    transform: translateY(-2px);
+}
+
+.btn-delete {
+    background: rgba(220, 53, 69, 0.15);
+    color: #ff6b6b;
+    border: 1px solid rgba(220, 53, 69, 0.25);
+}
+
+.btn-delete:hover {
+    background: rgba(220, 53, 69, 0.25);
+    transform: translateY(-2px);
+}
+
+/* ── Empty State ── */
+.empty-state {
+    text-align: center;
+    padding: 4rem 2rem;
+    color: var(--c-text-sec);
+}
+
+.empty-state i {
+    font-size: 4rem;
+    color: var(--c-text-muted);
+    margin-bottom: 1rem;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+    .admin-toolbar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .search-box {
+        min-width: 100%;
+    }
+
+    .action-buttons {
+        flex-direction: column;
+    }
+
+    .btn-action {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .stats-cards {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .stats-cards {
+        grid-template-columns: 1fr;
+    }
+}
