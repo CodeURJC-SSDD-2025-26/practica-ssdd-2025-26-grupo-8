@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Virtus Fitness - Panel de Administración">
+    <title>Panel de Administración - Virtus Fitness</title>
+
+    <!-- Bootstrap 5.3 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+
+    <div class="admin-dashboard">
+
+        <!-- Page Header -->
+        <div class="admin-page-header">
+            <div class="container">
+                <a href="index.html" class="back-button">
+                    <i class="bi bi-arrow-left-circle"></i>
+                    Volver al Inicio
+                </a>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index.html">Inicio</a></li>
+                        <li class="breadcrumb-item active">Administración</li>
+                    </ol>
+                </nav>
+                <h1>
+                    <i class="bi bi-speedometer2"></i>
+                    Panel de Administración
+                </h1>
+                <p>Selecciona el área que deseas gestionar</p>
+            </div>
+        </div>
+
+        <!-- Admin Content -->
+        <div class="container">
+            <div class="admin-content">
+
+                <!-- Left: Panel Cards -->
+                <div class="admin-panels">
+
+                    <!-- Gestión de Clases -->
+                    <a href="admin-classes.html" class="panel-card">
+                        <div class="panel-card-hero">
+                            <div class="panel-card-icon">
+                                <i class="bi bi-calendar-check"></i>
+                            </div>
+                            <div class="panel-card-text">
+                                <h2>Gestión de Clases</h2>
+                                <p>Añade, edita y elimina clases. Gestiona horarios, instructores y capacidades.</p>
+                            </div>
+                        </div>
+                        <div class="panel-card-stats">
+                            <div class="panel-stat">
+                                <strong>7</strong>
+                                <span>Clases</span>
+                            </div>
+                            <div class="panel-stat">
+                                <strong>7</strong>
+                                <span>Activas</span>
+                            </div>
+                            <div class="panel-stat">
+                                <strong>42</strong>
+                                <span>Sesiones/sem</span>
+                            </div>
+                        </div>
+                        <div class="panel-card-footer">
+                            <span>Gestionar clases</span>
+                            <i class="bi bi-arrow-right"></i>
+                        </div>
+                    </a>
+
+                    <!-- Gestión de Usuarios -->
+                    <a href="admin-users.html" class="panel-card">
+                        <div class="panel-card-hero">
+                            <div class="panel-card-icon">
+                                <i class="bi bi-people-fill"></i>
+                            </div>
+                            <div class="panel-card-text">
+                                <h2>Gestión de Usuarios</h2>
+                                <p>Consulta y administra los usuarios registrados, roles y estados de cuenta.</p>
+                            </div>
+                        </div>
+                        <div class="panel-card-stats">
+                            <div class="panel-stat">
+                                <strong>12</strong>
+                                <span>Usuarios</span>
+                            </div>
+                            <div class="panel-stat">
+                                <strong>10</strong>
+                                <span>Activos</span>
+                            </div>
+                            <div class="panel-stat">
+                                <strong>2</strong>
+                                <span>Admins</span>
+                            </div>
+                        </div>
+                        <div class="panel-card-footer">
+                            <span>Gestionar usuarios</span>
+                            <i class="bi bi-arrow-right"></i>
+                        </div>
+                    </a>
+
+                </div>
+
+                <!-- Right: Chart Card -->
+                <div class="chart-card">
+                    <div class="chart-card-header">
+                        <div>
+                            <h3><i class="bi bi-graph-up-arrow"></i> Usuarios por Mes</h3>
+                            <p>Nuevos registros en los últimos 12 meses</p>
+                        </div>
+                        <span class="chart-year-badge">2025</span>
+                    </div>
+                    <div class="chart-wrapper">
+                        <canvas id="usersChart"></canvas>
+                    </div>
+                    <div class="chart-footer-stats">
+                        <div class="chart-footer-stat">
+                            <strong>147</strong>
+                            <span>Total año</span>
+                        </div>
+                        <div class="chart-footer-stat">
+                            <strong>+14</strong>
+                            <span>Este mes</span>
+                        </div>
+                        <div class="chart-footer-stat">
+                            <strong>+18%</strong>
+                            <span>Crecimiento</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Bootstrap 5.3 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script src="js/main.js"></script>
+
+    <script>
+        const ctx = document.getElementById('usersChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'],
+                datasets: [{
+                    label: 'Nuevos usuarios',
+                    data: [8, 12, 10, 15, 14, 18, 16, 13, 11, 16, 14, 14],
+                    backgroundColor: 'rgba(200,255,0,0.15)',
+                    borderColor: '#C8FF00',
+                    borderWidth: 2,
+                    borderRadius: 6,
+                    borderSkipped: false,
+                    hoverBackgroundColor: 'rgba(200,255,0,0.3)',
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false },
+                    tooltip: {
+                        backgroundColor: '#171717',
+                        borderColor: 'rgba(200,255,0,0.2)',
+                        borderWidth: 1,
+                        titleColor: '#C8FF00',
+                        bodyColor: '#888',
+                        padding: 10,
+                        callbacks: {
+                            label: ctx => ` ${ctx.parsed.y} usuarios`
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        grid: { color: 'rgba(255,255,255,0.04)' },
+                        ticks: { color: '#555', font: { size: 11 } },
+                        border: { color: 'rgba(255,255,255,0.06)' }
+                    },
+                    y: {
+                        grid: { color: 'rgba(255,255,255,0.04)' },
+                        ticks: { color: '#555', font: { size: 11 }, stepSize: 5 },
+                        border: { color: 'rgba(255,255,255,0.06)' },
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>
