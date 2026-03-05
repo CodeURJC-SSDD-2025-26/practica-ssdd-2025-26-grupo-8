@@ -1,0 +1,308 @@
+/* ============================================================
+   VIRTUS FITNESS — Admin Users Page Styles
+   ============================================================ */
+
+.admin-page {
+    padding-top: 90px;
+    padding-bottom: 60px;
+    min-height: 100vh;
+}
+
+/* ── Page Header ── */
+.admin-page-header {
+    background: linear-gradient(135deg, var(--c-bg-card-alt) 0%, var(--c-bg) 100%);
+    border-bottom: 1px solid var(--c-border-acc);
+    padding: 2rem 0;
+    margin-bottom: 2rem;
+}
+
+.admin-page-header h1 {
+    color: var(--c-text);
+    font-size: 2rem;
+    margin-bottom: 0.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.admin-page-header h1 i { color: var(--c-primary); }
+
+.breadcrumb { background: transparent; padding: 0; margin: 0; }
+.breadcrumb-item a { color: var(--c-primary); text-decoration: none; }
+.breadcrumb-item.active { color: var(--c-text-sec); }
+.breadcrumb-item + .breadcrumb-item::before { color: var(--c-text-muted); }
+
+/* ── Stat Cards ── */
+.stat-card {
+    background: var(--c-bg-card);
+    border: 1px solid var(--c-border);
+    border-radius: var(--r-lg);
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transition: var(--t);
+}
+
+.stat-card:hover { border-color: var(--c-border-acc); }
+
+.stat-card-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: var(--r);
+    background: var(--c-primary-dim);
+    border: 1px solid var(--c-border-acc);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.stat-card-icon i { font-size: 1.5rem; color: var(--c-primary); }
+
+.stat-card-info p {
+    color: var(--c-text-sec);
+    font-size: 0.82rem;
+    margin: 0 0 0.2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.stat-card-info h3 {
+    color: var(--c-text);
+    font-size: 1.8rem;
+    margin: 0;
+    line-height: 1;
+}
+
+/* ── Admin Container ── */
+.admin-container {
+    background: var(--c-bg-card);
+    border: 1px solid var(--c-border);
+    border-radius: var(--r-lg);
+    overflow: hidden;
+}
+
+.admin-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+    border-bottom: 1px solid var(--c-border);
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.admin-toolbar h2 {
+    color: var(--c-text);
+    font-size: 1.1rem;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.admin-toolbar h2 i { color: var(--c-primary); }
+
+.search-box {
+    position: relative;
+    min-width: 260px;
+}
+
+.search-box i {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--c-text-sec);
+    font-size: 0.9rem;
+}
+
+.search-box input {
+    background: var(--c-bg-card-alt);
+    border: 1px solid var(--c-border);
+    border-radius: var(--r);
+    color: var(--c-text);
+    padding: 0.5rem 0.75rem 0.5rem 2.25rem;
+    font-size: 0.9rem;
+    transition: var(--t);
+    width: 100%;
+}
+
+.search-box input::placeholder { color: var(--c-text-muted); }
+
+.search-box input:focus {
+    outline: none;
+    border-color: var(--c-primary);
+    box-shadow: 0 0 0 0.2rem var(--c-primary-dim);
+    color: var(--c-text);
+}
+
+/* ── Table ── */
+.users-table { width: 100%; border-collapse: collapse; }
+
+.users-table thead tr {
+    background: var(--c-bg);
+    border-bottom: 1px solid var(--c-border-acc);
+}
+
+.users-table thead th {
+    padding: 1rem 1.25rem;
+    color: var(--c-text-sec);
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+}
+
+.users-table tbody tr {
+    border-bottom: 1px solid var(--c-border);
+    transition: var(--t);
+}
+
+.users-table tbody tr:last-child { border-bottom: none; }
+
+.users-table tbody tr:hover { background: rgba(255,255,255,0.02); }
+
+.users-table tbody td {
+    padding: 1rem 1.25rem;
+    color: var(--c-text);
+    vertical-align: middle;
+    font-size: 0.92rem;
+}
+
+/* ── User Cell ── */
+.user-cell {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.user-avatar {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--c-primary) 0%, #a0cc00 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: #000;
+}
+
+.user-name { font-weight: 600; color: var(--c-text); }
+.user-id   { font-size: 0.78rem; color: var(--c-text-muted); }
+
+/* ── Role Badge ── */
+.role-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.25rem 0.7rem;
+    border-radius: 20px;
+    font-size: 0.78rem;
+    font-weight: 600;
+}
+
+.role-admin { background: rgba(200,255,0,0.12); color: var(--c-primary); border: 1px solid var(--c-border-acc); }
+.role-user  { background: rgba(255,255,255,0.05); color: var(--c-text-sec); border: 1px solid var(--c-border); }
+
+/* ── Plan Badge ── */
+.plan-badge {
+    display: inline-block;
+    padding: 0.25rem 0.65rem;
+    border-radius: 6px;
+    font-size: 0.78rem;
+    font-weight: 600;
+}
+
+.plan-elite   { background: rgba(200,255,0,0.15);   color: var(--c-primary); }
+.plan-premium { background: rgba(255,193,7,0.15);   color: #ffc107; }
+.plan-basic   { background: rgba(255,255,255,0.07); color: var(--c-text-sec); }
+
+/* ── Status Badge ── */
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.25rem 0.7rem;
+    border-radius: 20px;
+    font-size: 0.78rem;
+    font-weight: 600;
+}
+
+.status-active   { background: rgba(76,175,80,0.15); color: #4caf50; }
+.status-inactive { background: rgba(220,53,69,0.12); color: #ff6b6b; }
+
+/* ── Table Footer ── */
+.table-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    border-top: 1px solid var(--c-border);
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.table-footer p { color: var(--c-text-sec); font-size: 0.85rem; margin: 0; }
+
+/* ── Action Buttons ── */
+.action-buttons {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.btn-action {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.4rem 0.9rem;
+    border-radius: var(--r);
+    font-weight: 600;
+    font-size: 0.82rem;
+    transition: var(--t);
+    border: 1px solid transparent;
+    cursor: pointer;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.btn-view {
+    background: var(--c-primary-dim);
+    color: var(--c-primary);
+    border-color: var(--c-border-acc);
+}
+
+.btn-view:hover {
+    background: var(--c-primary-glow);
+    color: var(--c-primary);
+    transform: translateY(-2px);
+}
+
+.btn-delete {
+    background: rgba(220, 53, 69, 0.12);
+    color: #ff6b6b;
+    border-color: rgba(220, 53, 69, 0.25);
+}
+
+.btn-delete:hover {
+    background: rgba(220, 53, 69, 0.25);
+    color: #ff6b6b;
+    transform: translateY(-2px);
+}
+
+/* ── Responsive ── */
+@media (max-width: 992px) {
+    .admin-page { padding-top: 75px; }
+    .users-table { display: block; overflow-x: auto; }
+}
+
+@media (max-width: 768px) {
+    .admin-toolbar { flex-direction: column; align-items: flex-start; }
+    .search-box { width: 100%; }
+}
