@@ -78,77 +78,77 @@ Advanced functionality to be implemented:
 
 #### **1. Home Page**
 
-![Home Page](images-readme/home-page.png)
+![Home Page](images-readme/home-page.jpeg)
 
 > Main landing page of Virtus Fitness where users can discover the gym, view featured training classes and quickly access login or registration to start booking sessions.
 
 
 #### **2. About Page**
 
-![About Page](images-readme/about-page.png)
+![About Page](images-readme/about-page.jpeg)
 
 > Informational page describing Virtus Fitness, its philosophy, training approach and mission of promoting a healthy and active lifestyle through structured workouts.
 
 
 #### **3. Classes Page**
 
-![Classes Page](images-readme/classes-page.png)
+![Classes Page](images-readme/classes-page.jpeg)
 
 > Page displaying all the available training classes offered by Virtus Fitness, allowing users to explore different workouts such as strength, cardio or functional training.
 
 
 #### **4. Schedule Page**
 
-![Schedule Page](images-readme/schedule-page.png)
+![Schedule Page](images-readme/schedule-page.jpeg)
 
 > Weekly timetable showing when each training class takes place, helping users easily plan their workouts and select the sessions that best fit their availability.
 
 
 #### **5. Prices Page**
 
-![Prices Page](images-readme/prices-page.png)
+![Prices Page](images-readme/prices-page.jpeg)
 
 > Page presenting the membership plans and pricing options available at Virtus Fitness, allowing users to compare subscriptions and choose the one that suits their training needs.
 
 
 #### **6. Contact Page**
 
-![Contact Page](images-readme/contact-page.png)
+![Contact Page](images-readme/contact-page.jpeg)
 
 > Contact page where users can send inquiries to the Virtus Fitness team through a form and access essential information about the gym and its services.
 
 
 #### **7. Login Page**
 
-![Login Page](images-readme/login-page.png)
+![Login Page](images-readme/login-page.jpeg)
 
 > Secure authentication page where registered users can log into their Virtus Fitness account to access the platform and manage their class bookings.
 
 
 #### **8. Register Page**
 
-![Register Page](images-readme/register-page.png)
+![Register Page](images-readme/register-page.jpeg)
 
 > Registration page allowing new users to create a Virtus Fitness account in order to book classes, manage their schedule and access gym services online.
 
 
 #### **9. Admin Page**
 
-![Admin Page](images-readme/admin-page.png)
+![Admin Page](images-readme/admin-page.jpeg)
 
 > Main administration dashboard providing an overview of the system, where administrators can monitor activity and manage the platform’s core functionalities.
 
 
 #### **10. Admin Classes Page**
 
-![Admin Classes Page](images-readme/admin-classes-page.png)
+![Admin Classes Page](images-readme/admin-classes-page.jpeg)
 
 > Administrative interface used to manage gym classes, allowing administrators to create, edit or remove training sessions available to users.
 
 
 #### **11. Admin Users Page**
 
-![Admin Users Page](images-readme/admin-users-page.png)
+![Admin Users Page](images-readme/admin-users-page.jpeg)
 
 > Administration panel section dedicated to user management, where administrators can view registered members and control access to the platform.
 
