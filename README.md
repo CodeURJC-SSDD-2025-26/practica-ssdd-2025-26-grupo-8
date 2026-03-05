@@ -4,7 +4,7 @@
 | Name and Surnames | URJC Email | GitHub Username |
 |:--- |:--- |:--- |
 | Jorge Rodríguez Lázaro | j.rodriguezl.2023@alumnos.urjc.es | jorgeRL05 |
-| Miguel Rey Carballo | m.rey.2023@alumnos.urjc.es | Migelreey |
+| Miguel Rey Carballo | m.rey.2024@alumnos.urjc.es | Miguelreey |
 | Pablo Valdés Colomo | p.valdes.2023@alumnos.urjc.es | Pablo Colomo |
 
 ---
@@ -52,10 +52,7 @@ Entities that will have one or more associated images:
 
 ### **Charts**
 Information to be displayed using charts:
-
-- **Chart 1**: Monthly Activity Level - Bar Chart (number of classes attended per month).
-- **Chart 2**: Occupancy by Class Type - Pie Chart (distribution of bookings among Yoga, HIIT, etc.).
-- **Chart 3**: New User Growth - Line Chart (for administrative use).
+- **Chart**: New User Growth - Line Chart (for administrative use).
 
 ### **Complementary Technology**
 Complementary technology to be implemented:
@@ -108,8 +105,10 @@ Responsible for user profile design and navigation logic between roles.
 | 1 | [complete redesign of the main page](https://github.com/CodeURJC-SSDD-2025-26/practica-ssdd-2025-26-grupo-8/commit/5114ec5982d8a0db33e2ca087336a11e5fcc0270) | [index.html](https://github.com/CodeURJC-SSDD-2025-26/practica-ssdd-2025-26-grupo-8/blob/main/index.html) |
 | 2 | [complete redesign of global stylesheet](https://github.com/CodeURJC-SSDD-2025-26/practica-ssdd-2025-26-grupo-8/commit/5114ec5982d8a0db33e2ca087336a11e5fcc0270) | [styles.css](https://github.com/CodeURJC-SSDD-2025-26/practica-ssdd-2025-26-grupo-8/blob/main/css/styles.css) |
 | 3 | [complete rewrite of main JavaScript file](https://github.com/CodeURJC-SSDD-2025-26/practica-ssdd-2025-26-grupo-8/commit/8728afb75e927b44846aaacbee8d20497cd9d04e) | [main.js](https://github.com/CodeURJC-SSDD-2025-26/practica-ssdd-2025-26-grupo-8/blob/main/js/main.js) |
-
----
+| 4 | [created register dedicated page](https://github.com/CodeURJC-SSDD-2025-26/practica-ssdd-2025-26-grupo-8/commit/933b4568df652ded982bccdaaa8e8b7a2c22bcb0) | [register.html](https://github.com/CodeURJC-SSDD-2025-26/practica-ssdd-2025-26-grupo-8/blob/main/register.html) |
+| 5 | [created register dedicated page](https://github.com/CodeURJC-SSDD-2025-26/practica-ssdd-2025-26-grupo-8/commit/933b4568df652ded982bccdaaa8e8b7a2c22bcb0) | [login.html](https://github.com/CodeURJC-SSDD-2025-26/practica-ssdd-2025-26-grupo-8/blob/main/login.html) |
+| 6 | [created register dedicated js](https://github.com/CodeURJC-SSDD-2025-26/practica-ssdd-2025-26-grupo-8/commit/6b285e02a628e7d6ed9aa29b12b4118c1b88d646) | [register.js](https://github.com/CodeURJC-SSDD-2025-26/practica-ssdd-2025-26-grupo-8/blob/main/js/register.js) |
+| 7 | [created login dedicated js](https://github.com/CodeURJC-SSDD-2025-26/practica-ssdd-2025-26-grupo-8/commit/6b285e02a628e7d6ed9aa29b12b4118c1b88d646) | [login.js](https://github.com/CodeURJC-SSDD-2025-26/practica-ssdd-2025-26-grupo-8/blob/main/js/login.js) |
 
 #### **Pablo Valdés Colomo**
 Responsible for administrative dashboard layouts and chart system design.
