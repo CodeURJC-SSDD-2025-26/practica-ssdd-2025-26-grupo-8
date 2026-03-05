@@ -77,10 +77,82 @@ Advanced functionality to be implemented:
 ### **Screenshots and Page Descriptions**
 
 #### **1. Home Page**
-![Home Page](images/home-page.png)
+
+![Home Page](images-readme/home-page.png)
+
 > Landing page showing featured classes and login/registration access.
 
-#### **[ADD REMAINING PAGES HERE DURING PART 1]**
+
+#### **2. About Page**
+
+![About Page](images-readme/about-page.png)
+
+> Page providing information about the gym, its philosophy and services.
+
+
+#### **3. Classes Page**
+
+![Classes Page](images-readme/classes-page.png)
+
+> Displays the different workout classes available for users.
+
+
+#### **4. Schedule Page**
+
+![Schedule Page](images-readme/schedule-page.png)
+
+> Shows the timetable of the available classes.
+
+
+#### **5. Prices Page**
+
+![Prices Page](images-readme/prices-page.png)
+
+> Page presenting the membership plans and pricing options.
+
+
+#### **6. Contact Page**
+
+![Contact Page](images-readme/contact-page.png)
+
+> Contact form and information for users to reach the gym.
+
+
+#### **7. Login Page**
+
+![Login Page](images-readme/login-page.png)
+
+> User authentication page to access the platform.
+
+
+#### **8. Register Page**
+
+![Register Page](images-readme/register-page.png)
+
+> Page that allows new users to create an account.
+
+
+#### **9. Admin Page**
+
+![Admin Page](images-readme/admin-page.png)
+
+> Main administration dashboard with system statistics and controls.
+
+
+#### **10. Admin Classes Page**
+
+![Admin Classes Page](images-readme/admin-classes-page.png)
+
+> Interface for administrators to manage workout classes.
+
+
+#### **11. Admin Users Page**
+
+![Admin Users Page](images-readme/admin-users-page.png)
+
+> Admin panel section for managing registered users.
+
+
 
 ### **Member Participation in Part 1**
 
