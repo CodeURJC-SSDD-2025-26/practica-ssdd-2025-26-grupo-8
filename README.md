@@ -141,14 +141,14 @@ Advanced functionality to be implemented:
 
 #### **10. Admin Classes Page**
 
-![Admin Classes Page](images-readme/admin-classes-page.jpeg)
+![Admin Classes Page](images-readme/adminclasses-page.jpeg)
 
 > Administrative interface used to manage gym classes, allowing administrators to create, edit or remove training sessions available to users.
 
 
 #### **11. Admin Users Page**
 
-![Admin Users Page](images-readme/admin-users-page.jpeg)
+![Admin Users Page](images-readme/adminusers-page.jpeg)
 
 > Administration panel section dedicated to user management, where administrators can view registered members and control access to the platform.
 
