@@ -191,6 +191,7 @@ Responsible for administrative dashboard layouts and chart system design.
 | 3 | [Add classes.js with page-specific functionality](https://github.com/CodeURJC-SSDD-2025-26/ssdd-2025-26-project-base/commit/c5ead0ceea4f79608a431717cdabf854c18cec12) | [classes.js](https://github.com/CodeURJC-SSDD-2025-26/practica-ssdd-2025-26-grupo-8/blob/main/js/classes.js) |
 | 4 | [Implement boxeo.html page structure](https://github.com/CodeURJC-SSDD-2025-26/ssdd-2025-26-project-base/commit/d11ca8fdfecd25a1df80964e4cc51a124792a810) | [boxeo.html](https://github.com/CodeURJC-SSDD-2025-26/practica-ssdd-2025-26-grupo-8/blob/main/boxeo.html) |
 | 5 | [Add pricing.html page](https://github.com/CodeURJC-SSDD-2025-26/ssdd-2025-26-project-base/commit/c5ead0ceea4f79608a431717cdabf854c18cec12) | [pricing.html](https://github.com/CodeURJC-SSDD-2025-26/practica-ssdd-2025-26-grupo-8/blob/main/pricing.html) |
+| 6 | [Add admin.html page](https://github.com/CodeURJC-SSDD-2025-26/ssdd-2025-26-project-base/commit/a4520395a903af4b6d61b21cd6b15334aa14e340) | [admin.html](https://github.com/CodeURJC-SSDD-2025-26/practica-ssdd-2025-26-grupo-8/blob/main/admin.html) |
 
 ## 🛠 **Práctica 2: Web con HTML generado en servidor**
 
