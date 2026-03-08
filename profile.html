@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Virtus Fitness - Perfil de Usuario">
+    <title>Mi Perfil - Virtus Fitness</title>
+
+    <!-- Bootstrap 5.3 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/profile.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">
+                <i class="bi bi-lightning-charge-fill text-warning"></i> Virtus Fitness
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="classes.html">Clases</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="schedule.html">Horarios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="pricing.html">Precios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contacto</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">Sobre Nosotros</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="profile.html">
+                            <i class="bi bi-person-circle me-1"></i>Mi Perfil
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="profile-page">
+        <div class="container-fluid px-4">
+
+            <a href="index.html" class="back-button">
+                <i class="bi bi-arrow-left-circle"></i>
+                Volver al Inicio
+            </a>
+
+            <div class="profile-container">
+
+                <!-- Left Sidebar -->
+                <aside class="profile-sidebar">
+
+                    <!-- Avatar -->
+                    <div class="profile-avatar-container">
+                        <div class="profile-avatar">
+                            <img src="images/default-avatar.svg" alt="Foto de usuario" id="avatarImg">
+                        </div>
+                        <button class="avatar-edit-btn" title="Cambiar foto">
+                            <i class="bi bi-camera-fill"></i>
+                        </button>
+                    </div>
+
+                    <!-- User Info -->
+                    <h2 class="profile-name">Juan Pérez</h2>
+                    <p class="profile-email">
+                        <i class="bi bi-envelope"></i> juan.perez@email.com
+                    </p>
+                    <span class="profile-plan-badge">
+                        <i class="bi bi-star-fill"></i> Plan Premium
+                    </span>
+
+                    <!-- Stats -->
+                    <div class="profile-stats">
+                        <div class="stat-item">
+                            <span class="stat-label">
+                                <i class="bi bi-calendar-check"></i>
+                                Clases Completadas
+                            </span>
+                            <span class="stat-value">48</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">
+                                <i class="bi bi-fire"></i>
+                                Días Activo
+                            </span>
+                            <span class="stat-value">127</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">
+                                <i class="bi bi-trophy"></i>
+                                Logros
+                            </span>
+                            <span class="stat-value">12</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">
+                                <i class="bi bi-clock-history"></i>
+                                Miembro desde
+                            </span>
+                            <span class="stat-value">Ene 2024</span>
+                        </div>
+                    </div>
+
+                    <!-- Actions -->
+                    <div class="profile-actions">
+                        <button class="btn btn-warning">
+                            <i class="bi bi-calendar-plus me-1"></i>
+                            Reservar Clase
+                        </button>
+                        <button class="btn btn-outline-light">
+                            <i class="bi bi-gear me-1"></i>
+                            Configuración
+                        </button>
+                        <button class="btn btn-outline-danger" onclick="logout()">
+                            <i class="bi bi-box-arrow-right me-1"></i>
+                            Cerrar Sesión
+                        </button>
+                    </div>
+
+                </aside>
+
+                <!-- Main Content -->
+                <main class="profile-content">
+
+                    <!-- Header -->
+                    <div class="profile-header">
+                        <h1>
+                            <i class="bi bi-person-circle"></i>
+                            Mi Perfil
+                        </h1>
+                        <p>Gestiona tu información personal y tus actividades</p>
+                    </div>
+
+                    <!-- Tabs Navigation -->
+                    <ul class="nav nav-tabs" id="profileTabs" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="data-tab" data-bs-toggle="tab" data-bs-target="#data" type="button" role="tab">
+                                <i class="bi bi-person-lines-fill me-2"></i>Mis Datos
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="plan-tab" data-bs-toggle="tab" data-bs-target="#plan" type="button" role="tab">
+                                <i class="bi bi-star me-2"></i>Mi Plan
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="reservations-tab" data-bs-toggle="tab" data-bs-target="#reservations" type="button" role="tab">
+                                <i class="bi bi-calendar-event me-2"></i>Mis Reservas
+                            </button>
+                        </li>
+                    </ul>
+
+                    <!-- Tabs Content -->
+                    <div class="tab-content" id="profileTabsContent">
+
+                        <!-- Tab 1: Mis Datos -->
+                        <div class="tab-pane fade show active" id="data" role="tabpanel">
+                            <h3>
+                                <i class="bi bi-pencil-square"></i>
+                                Editar Información Personal
+                            </h3>
+
+                            <form id="profileForm" onsubmit="saveProfile(event)">
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <input type="text" class="form-control" id="firstName" placeholder="Nombre" value="Juan" required>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <input type="text" class="form-control" id="lastName" placeholder="Apellidos" value="Pérez" required>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <input type="email" class="form-control" id="email" placeholder="Correo electrónico" value="juan.perez@email.com" required>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <input type="tel" class="form-control" id="phone" placeholder="Teléfono" value="+34 612 345 678" required>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <input type="date" class="form-control" id="birthdate" value="1990-05-15">
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <select class="form-select" id="gender">
+                                            <option value="">Género...</option>
+                                            <option value="male" selected>Masculino</option>
+                                            <option value="female">Femenino</option>
+                                            <option value="other">Otro</option>
+                                            <option value="prefer-not-say">Prefiero no decir</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <input type="text" class="form-control" id="address" placeholder="Dirección" value="Calle Principal 123, Madrid">
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-4 mb-3">
+                                        <input type="text" class="form-control" id="emergencyContact" placeholder="Contacto de emergencia" value="María Pérez">
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                        <input type="tel" class="form-control" id="emergencyPhone" placeholder="Teléfono de emergencia" value="+34 698 765 432">
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                        <input type="text" class="form-control" id="emergencyRelation" placeholder="Relación" value="Hermana">
+                                    </div>
+                                </div>
+
+                                <div class="mt-4">
+                                    <button type="submit" class="btn btn-warning px-4 py-2 fw-bold">
+                                        <i class="bi bi-check-circle me-2"></i>
+                                        Guardar Cambios
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+
+                        <!-- Tab 2: Mi Plan -->
+                        <div class="tab-pane fade" id="plan" role="tabpanel">
+                            <h3>
+                                <i class="bi bi-star-fill"></i>
+                                Mi Suscripción Actual
+                            </h3>
+
+                            <div class="plan-current">
+                                <h4>
+                                    <i class="bi bi-award-fill"></i>
+                                    Plan Premium
+                                </h4>
+                                <p class="mb-3" style="color: var(--c-text-sec);">Disfruta de todos los beneficios exclusivos de nuestro plan Premium</p>
+
+                                <ul class="plan-features">
+                                    <li><i class="bi bi-check-circle-fill"></i> Acceso ilimitado a todas las clases</li>
+                                    <li><i class="bi bi-check-circle-fill"></i> Reserva prioritaria de clases</li>
+                                    <li><i class="bi bi-check-circle-fill"></i> Acceso 24/7 al gimnasio</li>
+                                    <li><i class="bi bi-check-circle-fill"></i> Entrenamiento personalizado (2 sesiones/mes)</li>
+                                    <li><i class="bi bi-check-circle-fill"></i> Descuentos en productos deportivos</li>
+                                    <li><i class="bi bi-check-circle-fill"></i> Invitaciones para amigos (4/mes)</li>
+                                </ul>
+
+                                <div class="plan-info-grid">
+                                    <div class="plan-info-item">
+                                        <label>Precio Mensual</label>
+                                        <strong>59.99€ / mes</strong>
+                                    </div>
+                                    <div class="plan-info-item">
+                                        <label>Próximo Pago</label>
+                                        <strong>15 Marzo 2026</strong>
+                                    </div>
+                                    <div class="plan-info-item">
+                                        <label>Fecha de Inicio</label>
+                                        <strong>15 Enero 2024</strong>
+                                    </div>
+                                    <div class="plan-info-item">
+                                        <label>Método de Pago</label>
+                                        <strong>Visa •••• 4532</strong>
+                                    </div>
+                                </div>
+
+                                <div class="mt-4 d-flex gap-2 flex-wrap">
+                                    <button class="btn btn-warning fw-bold">
+                                        <i class="bi bi-arrow-up-circle me-1"></i>
+                                        Actualizar Método de Pago
+                                    </button>
+                                    <button class="btn btn-outline-light">
+                                        <i class="bi bi-receipt me-1"></i>
+                                        Ver Historial de Pagos
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="alert" style="background: rgba(13,202,240,0.08); border: 1px solid rgba(13,202,240,0.2); color: var(--c-text-sec);">
+                                <i class="bi bi-info-circle-fill me-2" style="color: #4fc3f7;"></i>
+                                <strong style="color: var(--c-text);">¿Necesitas cambiar de plan?</strong> Contacta con nuestro equipo de soporte para obtener más información sobre otros planes disponibles.
+                            </div>
+
+                            <div class="mt-4">
+                                <h5 class="mb-3" style="color: var(--c-text);">Otros Planes Disponibles</h5>
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <div class="card other-plan-card border-0 p-3">
+                                            <h5 class="card-title">Plan Standard</h5>
+                                            <p style="color: var(--c-text-sec); font-size: 0.9rem;">Acceso a clases seleccionadas</p>
+                                            <h3 class="card-price mb-3">29.99€ <small style="color: var(--c-text-sec); font-size: 0.9rem;">/ mes</small></h3>
+                                            <button class="btn btn-outline-warning btn-sm">Ver Detalles</button>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="card other-plan-card border-0 p-3">
+                                            <h5 class="card-title">Plan Elite</h5>
+                                            <p style="color: var(--c-text-sec); font-size: 0.9rem;">Experiencia VIP completa</p>
+                                            <h3 class="card-price mb-3">99.99€ <small style="color: var(--c-text-sec); font-size: 0.9rem;">/ mes</small></h3>
+                                            <button class="btn btn-outline-warning btn-sm">Ver Detalles</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tab 3: Mis Reservas -->
+                        <div class="tab-pane fade" id="reservations" role="tabpanel">
+                            <h3>
+                                <i class="bi bi-calendar-check"></i>
+                                Mis Clases Reservadas
+                            </h3>
+
+                            <div class="reservations-table">
+                                <table class="table table-borderless mb-0">
+                                    <thead>
+                                        <tr>
+                                            <th>Clase</th>
+                                            <th>Instructor</th>
+                                            <th>Fecha y Hora</th>
+                                            <th>Estado</th>
+                                            <th>Acciones</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><span class="class-badge badge-crossfit"><i class="bi bi-lightning-charge"></i> CrossFit</span></td>
+                                            <td>Carlos Mendoza</td>
+                                            <td>
+                                                <strong>Lunes, 12 Feb 2026</strong><br>
+                                                <small style="color: var(--c-text-sec);">18:00 - 19:00</small>
+                                            </td>
+                                            <td><span class="status-badge status-confirmed"><i class="bi bi-check-circle"></i> Confirmada</span></td>
+                                            <td>
+                                                <button class="btn btn-sm btn-outline-danger" onclick="cancelReservation(this)">
+                                                    <i class="bi bi-x-circle"></i> Cancelar
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="class-badge badge-yoga"><i class="bi bi-heart-pulse"></i> Yoga</span></td>
+                                            <td>Ana Martínez</td>
+                                            <td>
+                                                <strong>Martes, 13 Feb 2026</strong><br>
+                                                <small style="color: var(--c-text-sec);">17:00 - 18:00</small>
+                                            </td>
+                                            <td><span class="status-badge status-confirmed"><i class="bi bi-check-circle"></i> Confirmada</span></td>
+                                            <td>
+                                                <button class="btn btn-sm btn-outline-danger" onclick="cancelReservation(this)">
+                                                    <i class="bi bi-x-circle"></i> Cancelar
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="class-badge badge-spinning"><i class="bi bi-bicycle"></i> Spinning</span></td>
+                                            <td>Luis García</td>
+                                            <td>
+                                                <strong>Miércoles, 14 Feb 2026</strong><br>
+                                                <small style="color: var(--c-text-sec);">19:00 - 20:00</small>
+                                            </td>
+                                            <td><span class="status-badge status-confirmed"><i class="bi bi-check-circle"></i> Confirmada</span></td>
+                                            <td>
+                                                <button class="btn btn-sm btn-outline-danger" onclick="cancelReservation(this)">
+                                                    <i class="bi bi-x-circle"></i> Cancelar
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="class-badge badge-boxing"><i class="bi bi-award"></i> Boxing</span></td>
+                                            <td>Miguel Torres</td>
+                                            <td>
+                                                <strong>Viernes, 16 Feb 2026</strong><br>
+                                                <small style="color: var(--c-text-sec);">18:30 - 19:30</small>
+                                            </td>
+                                            <td><span class="status-badge status-pending"><i class="bi bi-clock"></i> Pendiente</span></td>
+                                            <td>
+                                                <button class="btn btn-sm btn-outline-danger" onclick="cancelReservation(this)">
+                                                    <i class="bi bi-x-circle"></i> Cancelar
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="class-badge badge-pilates"><i class="bi bi-star"></i> Pilates</span></td>
+                                            <td>Laura Sánchez</td>
+                                            <td>
+                                                <strong>Sábado, 17 Feb 2026</strong><br>
+                                                <small style="color: var(--c-text-sec);">10:00 - 11:00</small>
+                                            </td>
+                                            <td><span class="status-badge status-confirmed"><i class="bi bi-check-circle"></i> Confirmada</span></td>
+                                            <td>
+                                                <button class="btn btn-sm btn-outline-danger" onclick="cancelReservation(this)">
+                                                    <i class="bi bi-x-circle"></i> Cancelar
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="alert mt-4" style="background: rgba(255,193,7,0.08); border: 1px solid rgba(200,255,0,0.15); color: var(--c-text-sec);">
+                                <i class="bi bi-exclamation-triangle-fill me-2" style="color: var(--c-primary);"></i>
+                                <strong style="color: var(--c-text);">Política de Cancelación:</strong> Puedes cancelar tus reservas hasta 2 horas antes del inicio de la clase sin penalización.
+                            </div>
+
+                            <div class="mt-4">
+                                <a href="index.html#classes" class="btn btn-warning fw-bold">
+                                    <i class="bi bi-plus-circle me-1"></i>
+                                    Reservar Más Clases
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </main>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer bg-dark text-white py-5 mt-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <h5 class="fw-bold mb-3">
+                        <i class="bi bi-lightning-charge-fill text-warning"></i> Virtus Fitness
+                    </h5>
+                    <p class="text-white">Tu destino para alcanzar tus objetivos fitness con entrenamiento profesional e instalaciones de élite.</p>
+                    <div class="social-links mt-3">
+                        <a href="#" class="text-white me-3"><i class="bi bi-facebook fs-4"></i></a>
+                        <a href="#" class="text-white me-3"><i class="bi bi-instagram fs-4"></i></a>
+                        <a href="#" class="text-white me-3"><i class="bi bi-twitter fs-4"></i></a>
+                        <a href="#" class="text-white"><i class="bi bi-youtube fs-4"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <h6 class="fw-bold mb-3">Enlaces</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="index.html" class="text-white text-decoration-none">Inicio</a></li>
+                        <li class="mb-2"><a href="classes.html" class="text-white text-decoration-none">Clases</a></li>
+                        <li class="mb-2"><a href="schedule.html" class="text-white text-decoration-none">Horarios</a></li>
+                        <li class="mb-2"><a href="pricing.html" class="text-white text-decoration-none">Precios</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h6 class="fw-bold mb-3">Contacto</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="bi bi-geo-alt me-2"></i>Calle Principal, 123</li>
+                        <li class="mb-2"><i class="bi bi-phone me-2"></i>+34 123 456 789</li>
+                        <li class="mb-2"><i class="bi bi-envelope me-2"></i>info@virtusfitness.com</li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h6 class="fw-bold mb-3">Horario</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2">Lun - Vie: 6:00 - 22:00</li>
+                        <li class="mb-2">Sábado: 8:00 - 20:00</li>
+                        <li class="mb-2">Domingo: 9:00 - 18:00</li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-4 bg-secondary">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0">&copy; 2026 Virtus Fitness. Todos los derechos reservados.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to top -->
+    <button id="backToTop" class="btn btn-warning rounded-circle shadow" title="Volver arriba">
+        <i class="bi bi-arrow-up"></i>
+    </button>
+
+    <!-- Bootstrap 5.3 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JS -->
+    <script src="js/main.js"></script>
+    <script src="js/profile.js"></script>
+
+</body>
+</html>
