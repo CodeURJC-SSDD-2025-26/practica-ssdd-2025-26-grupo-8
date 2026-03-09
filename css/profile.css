@@ -1,0 +1,432 @@
+/* ============================================================
+   VIRTUS FITNESS — Profile Page Styles
+   ============================================================ */
+
+.profile-page {
+    padding-top: 100px;
+    padding-bottom: 60px;
+}
+
+.profile-container {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* ── Sidebar ─────────────────────────────── */
+.profile-sidebar {
+    background: var(--c-bg-card);
+    border: 1px solid var(--c-border);
+    border-radius: var(--r-lg);
+    padding: 2rem;
+    height: fit-content;
+    position: sticky;
+    top: 100px;
+}
+
+.profile-avatar-container {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.profile-avatar {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--c-primary) 0%, #a0cc00 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+    box-shadow: 0 0 30px var(--c-primary-glow);
+    position: relative;
+    overflow: hidden;
+}
+
+.profile-avatar i {
+    font-size: 3.5rem;
+    color: #000;
+}
+
+.profile-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.avatar-edit-btn {
+    position: absolute;
+    bottom: 6px;
+    right: calc(50% - 65px + 6px);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--c-primary);
+    border: 2px solid var(--c-bg-card);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--t);
+}
+
+.avatar-edit-btn:hover { transform: scale(1.1); }
+
+.avatar-edit-btn i {
+    font-size: 0.9rem;
+    color: #000;
+}
+
+.profile-name {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--c-text);
+    margin-bottom: 0.4rem;
+}
+
+.profile-email {
+    color: var(--c-text-sec);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.profile-plan-badge {
+    display: inline-block;
+    padding: 0.4rem 1.2rem;
+    border-radius: 25px;
+    background: linear-gradient(135deg, var(--c-primary) 0%, #a0cc00 100%);
+    color: #000;
+    font-weight: 700;
+    font-size: 0.85rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 15px var(--c-primary-glow);
+}
+
+/* ── Stats ── */
+.profile-stats {
+    border-top: 1px solid var(--c-border);
+    padding-top: 1.25rem;
+    margin-bottom: 1.25rem;
+}
+
+.stat-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.65rem 0;
+    border-bottom: 1px solid var(--c-border);
+}
+
+.stat-item:last-child { border-bottom: none; }
+
+.stat-label {
+    color: var(--c-text-sec);
+    font-size: 0.88rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.stat-label i { color: var(--c-primary); }
+
+.stat-value {
+    font-weight: 700;
+    color: var(--c-text);
+    font-size: 1rem;
+}
+
+/* ── Sidebar Actions ── */
+.profile-actions {
+    border-top: 1px solid var(--c-border);
+    padding-top: 1.25rem;
+}
+
+.profile-actions .btn {
+    width: 100%;
+    margin-bottom: 0.65rem;
+    font-weight: 600;
+    border-radius: var(--r);
+    transition: var(--t);
+}
+
+.profile-actions .btn:hover { transform: translateY(-2px); }
+
+/* ── Main Content ─────────────────────────── */
+.profile-content {
+    background: var(--c-bg-card);
+    border: 1px solid var(--c-border);
+    border-radius: var(--r-lg);
+    overflow: hidden;
+}
+
+.profile-header {
+    background: linear-gradient(135deg, var(--c-bg-card-alt) 0%, var(--c-bg) 100%);
+    border-bottom: 1px solid var(--c-border-acc);
+    padding: 2rem;
+}
+
+.profile-header h1 {
+    font-weight: 700;
+    color: var(--c-text);
+    margin-bottom: 0.4rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.profile-header h1 i { color: var(--c-primary); font-size: 2rem; }
+
+.profile-header p { color: var(--c-text-sec); margin: 0; }
+
+.back-button {
+    color: var(--c-primary);
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--t);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.45rem 1rem;
+    background: var(--c-primary-dim);
+    border: 1px solid var(--c-border-acc);
+    border-radius: var(--r);
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+}
+
+.back-button:hover {
+    background: var(--c-primary-glow);
+    color: var(--c-primary);
+    transform: translateX(-4px);
+}
+
+/* ── Tabs ── */
+.nav-tabs {
+    background: var(--c-bg-card-alt);
+    padding: 0.75rem 1.5rem 0;
+    border-bottom: 1px solid var(--c-border-acc);
+}
+
+.nav-tabs .nav-link {
+    color: var(--c-text-sec);
+    font-weight: 600;
+    border: none;
+    padding: 0.85rem 1.25rem;
+    margin-right: 0.25rem;
+    border-radius: var(--r) var(--r) 0 0;
+    transition: var(--t);
+    font-size: 0.9rem;
+}
+
+.nav-tabs .nav-link:hover {
+    color: var(--c-text);
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.nav-tabs .nav-link.active {
+    color: var(--c-primary);
+    background: var(--c-bg-card);
+    border-bottom: 2px solid var(--c-primary);
+    transform: translateY(1px);
+}
+
+.tab-content { padding: 2rem; }
+
+.tab-pane h3 {
+    color: var(--c-text);
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--c-border);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.3rem;
+}
+
+.tab-pane h3 i { color: var(--c-primary); }
+
+/* ── Forms ── */
+.form-control,
+.form-select {
+    background: var(--c-bg-card-alt);
+    border: 1px solid var(--c-border);
+    border-radius: var(--r);
+    color: var(--c-text);
+    transition: var(--t);
+}
+
+.form-control::placeholder { color: var(--c-text-sec); }
+
+.form-control:focus,
+.form-select:focus {
+    background: var(--c-bg-card-alt);
+    border-color: var(--c-primary);
+    box-shadow: 0 0 0 0.2rem var(--c-primary-dim);
+    color: var(--c-text);
+}
+
+.form-select option { background: var(--c-bg-card-alt); color: var(--c-text); }
+
+/* ── Plan Tab ── */
+.plan-current {
+    background: var(--c-primary-dim);
+    border: 1px solid var(--c-border-acc);
+    border-radius: var(--r-lg);
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.plan-current h4 {
+    color: var(--c-text);
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.plan-current h4 i { color: var(--c-primary); font-size: 1.4rem; }
+
+.plan-features {
+    list-style: none;
+    padding: 0;
+    margin: 1.25rem 0;
+}
+
+.plan-features li {
+    padding: 0.6rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--c-text-sec);
+    border-bottom: 1px solid var(--c-border);
+    font-size: 0.95rem;
+}
+
+.plan-features li:last-child { border-bottom: none; }
+
+.plan-features li i { color: var(--c-primary); font-size: 1.1rem; }
+
+.plan-info-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.plan-info-item {
+    background: var(--c-bg-card-alt);
+    padding: 1rem;
+    border-radius: var(--r);
+    border-left: 3px solid var(--c-primary);
+}
+
+.plan-info-item label {
+    font-size: 0.82rem;
+    color: var(--c-text-sec);
+    margin-bottom: 0.2rem;
+    display: block;
+}
+
+.plan-info-item strong { color: var(--c-text); font-size: 1rem; }
+
+/* ── Other plan cards ── */
+.other-plan-card {
+    background: var(--c-bg-card-alt);
+    border: 1px solid var(--c-border);
+    border-radius: var(--r);
+    transition: var(--t);
+}
+
+.other-plan-card:hover { border-color: var(--c-border-acc); }
+
+.other-plan-card .card-title { color: var(--c-text); }
+
+.other-plan-card .card-price { color: var(--c-primary); }
+
+/* ── Reservations Table ── */
+.reservations-table {
+    background: var(--c-bg-card-alt);
+    border: 1px solid var(--c-border);
+    border-radius: var(--r);
+    overflow: hidden;
+}
+
+.reservations-table table { margin: 0; }
+
+.reservations-table thead { background: var(--c-bg); }
+
+.reservations-table thead th {
+    padding: 1rem;
+    font-weight: 600;
+    border: none;
+    color: var(--c-text-sec);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.reservations-table tbody td {
+    padding: 1rem;
+    vertical-align: middle;
+    background: var(--c-bg-card-alt);
+    color: var(--c-text);
+    border-color: var(--c-border);
+}
+
+.class-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.35rem 0.85rem;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.85rem;
+}
+
+.badge-crossfit { background: rgba(220,53,69,0.15);  color: #ff6b6b; }
+.badge-yoga     { background: rgba(40,167,69,0.15);  color: #6bcb77; }
+.badge-spinning { background: rgba(13,202,240,0.15); color: #4fc3f7; }
+.badge-boxing   { background: rgba(253,126,20,0.15); color: #ffb347; }
+.badge-pilates  { background: rgba(111,66,193,0.15); color: #ce93d8; }
+
+.status-badge {
+    padding: 0.35rem 0.8rem;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.82rem;
+}
+
+.status-confirmed { background: rgba(76,175,80,0.15); color: #4caf50; }
+.status-pending   { background: rgba(200,255,0,0.12); color: var(--c-primary); }
+
+.empty-state {
+    text-align: center;
+    padding: 3rem 2rem;
+    color: var(--c-text-sec);
+}
+
+.empty-state i {
+    font-size: 4rem;
+    color: var(--c-text-muted);
+    margin-bottom: 1rem;
+}
+
+/* ── Responsive ── */
+@media (max-width: 992px) {
+    .profile-container { grid-template-columns: 1fr; }
+    .profile-sidebar { position: static; }
+    .profile-page { padding-top: 80px; }
+    .plan-info-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 768px) {
+    .tab-content { padding: 1.25rem; }
+    .nav-tabs { padding: 0.5rem 0.75rem 0; overflow-x: auto; white-space: nowrap; }
+    .nav-tabs .nav-link { padding: 0.65rem 0.9rem; font-size: 0.85rem; }
+    .reservations-table { overflow-x: auto; }
+}
