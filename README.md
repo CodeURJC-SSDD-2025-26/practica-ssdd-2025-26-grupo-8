@@ -70,7 +70,7 @@ Advanced functionality to be implemented:
 ## 🛠 **Part 1: Web Layout with HTML and CSS**
 
 ### **Navigation Diagram**
-![Navigation Diagram](images/navigation-diagram.png)
+![Navigation Diagram](images-readme/diagrama_navegacion.png)
 
 > Anonymous users can access public areas, while registered users gain access to their personal dashboard and booking management after logging in.
 
