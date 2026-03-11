@@ -31,24 +31,22 @@ The following are the 4 main entities managed by the application and their relat
 ### **User Permissions**
 Description of the permissions for each user type and their data ownership:
 
-* **Anonymous User**: 
+* **Anonymous User**:
   - Permissions: Browsing the class catalog, viewing schedules, and registration.
   - Ownership: Does not own any entity.
 
-* **Registered User**: 
-  - Permissions: Profile management, class booking/cancellation, and viewing assigned training plans.
-  - Ownership: Owns their own **Bookings** and their **User Profile**.
+* **Registered User**:
+  - Permissions: Profile management, class booking/cancellation, and leaving comments on classes attended.
+  - Ownership: Owns their own **Bookings**, their **User Profile**, and their **Class Comments**.
 
-* **Administrator**: 
-  - Permissions: Full management of classes, users, and training plans (CRUD). Access to global statistics.
-  - Ownership: Owns the **Workout Classes** and **Training Plans** within the system.
-
+* **Administrator**:
+  - Permissions: Full management of classes and users (CRUD). Access to global statistics.
+  - Ownership: Owns the **Workout Classes** within the system.
 ### **Images**
 Entities that will have one or more associated images:
 
-- **User**: One profile image (avatar) per user.
-- **Workout Class**: Descriptive images for each activity type.
-- **Training Plan**: Illustrative icons for the different types of routines.
+- **User:** One profile image (avatar) per user.
+- **Workout Class:** Descriptive images for each activity type.
 
 ### **Charts**
 Information to be displayed using charts:
