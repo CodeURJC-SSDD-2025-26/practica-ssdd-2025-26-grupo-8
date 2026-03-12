@@ -354,6 +354,129 @@
         </div>
     </section>
 
+    <!-- ========== REVIEWS ========== -->
+    <section class="reviews-section py-5">
+        <div class="container">
+
+            <div class="text-center mb-5">
+                <h2 class="section-title">Lo que dicen nuestros alumnos</h2>
+                <p class="text-muted mt-4">Opiniones reales de personas que entrenan con nosotros</p>
+            </div>
+
+            <!-- Rating summary -->
+            <div class="rating-summary mb-5">
+                <div class="rating-score">
+                    <span class="score-number">4.8</span>
+                    <div class="score-stars">
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-half"></i>
+                    </div>
+                    <span class="score-label">Basado en 24 reseñas</span>
+                </div>
+            </div>
+
+            <!-- Review cards -->
+            <div class="reviews-grid" id="reviewsGrid">
+
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">MR</div>
+                        <div class="review-meta">
+                            <span class="review-author">María Rodríguez</span>
+                            <span class="review-date">Febrero 2026</span>
+                        </div>
+                        <div class="review-stars">
+                            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                        </div>
+                    </div>
+                    <p class="review-text">Llevo 4 meses y la evolución ha sido increíble. Carlos te corrige la técnica constantemente y eso marca la diferencia. Las sesiones son duras pero adictivas.</p>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">JP</div>
+                        <div class="review-meta">
+                            <span class="review-author">Javier Pons</span>
+                            <span class="review-date">Enero 2026</span>
+                        </div>
+                        <div class="review-stars">
+                            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star"></i>
+                        </div>
+                    </div>
+                    <p class="review-text">Venía sin experiencia y desde el primer día me sentí cómodo. Ana explica todo con mucha paciencia. El grupo es genial y el ambiente muy motivador.</p>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">LG</div>
+                        <div class="review-meta">
+                            <span class="review-author">Lucía Gómez</span>
+                            <span class="review-date">Diciembre 2025</span>
+                        </div>
+                        <div class="review-stars">
+                            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                        </div>
+                    </div>
+                    <p class="review-text">La sesión del sábado con David es brutal. Mezcla boxeo y kickboxing y el tiempo vuela. He perdido 6 kg en 3 meses sin cambiar demasiado la dieta.</p>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">AT</div>
+                        <div class="review-meta">
+                            <span class="review-author">Álvaro Torres</span>
+                            <span class="review-date">Noviembre 2025</span>
+                        </div>
+                        <div class="review-stars">
+                            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i>
+                        </div>
+                    </div>
+                    <p class="review-text">Buen nivel de exigencia. Las instalaciones están bien equipadas y los guantes que dejan en recepción son de calidad. Repetiría sin duda.</p>
+                </div>
+
+            </div>
+
+            <!-- Add review form -->
+            <div class="review-form-wrapper mt-5">
+                <h4 class="review-form-title">
+                    <i class="bi bi-pencil-square"></i>
+                    Deja tu reseña
+                </h4>
+                <form id="reviewForm" onsubmit="submitReview(event)">
+                    <div class="review-form-grid">
+                        <div class="form-group">
+                            <label>Tu nombre</label>
+                            <input type="text" id="reviewName" placeholder="Nombre y apellido" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Valoración</label>
+                            <div class="star-picker" id="starPicker">
+                                <i class="bi bi-star" data-value="1"></i>
+                                <i class="bi bi-star" data-value="2"></i>
+                                <i class="bi bi-star" data-value="3"></i>
+                                <i class="bi bi-star" data-value="4"></i>
+                                <i class="bi bi-star" data-value="5"></i>
+                            </div>
+                            <input type="hidden" id="reviewRating" value="0">
+                        </div>
+                    </div>
+                    <div class="form-group mt-3">
+                        <label>Comentario</label>
+                        <textarea id="reviewText" placeholder="Cuéntanos tu experiencia con esta clase..." rows="3" required></textarea>
+                    </div>
+                    <button type="submit" class="btn-review-submit">
+                        <i class="bi bi-send"></i>
+                        Publicar reseña
+                    </button>
+                </form>
+            </div>
+
+        </div>
+    </section>
+
     <!-- ========== CTA ========== -->
     <section class="cta-section py-5 text-center text-white">
         <div class="container">
