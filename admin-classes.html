@@ -15,6 +15,34 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/admin-classes.css">
+
+    <!-- Modal de Confirmación Eliminación -->
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content delete-modal-content">
+            <div class="modal-header delete-modal-header">
+                <div class="delete-modal-icon">
+                    <i class="bi bi-exclamation-triangle-fill"></i>
+                </div>
+            </div>
+            <div class="modal-body delete-modal-body text-center">
+                <h5 class="delete-modal-title">¿Eliminar clase?</h5>
+                <p class="delete-modal-text">
+                    Estás a punto de eliminar la clase <strong id="deleteClassName"></strong>.
+                    <br>Esta acción <span class="text-danger fw-bold">no se puede deshacer</span>.
+                </p>
+            </div>
+            <div class="modal-footer delete-modal-footer justify-content-center gap-3">
+                <button type="button" class="btn btn-cancel-delete" data-bs-dismiss="modal">
+                    <i class="bi bi-x-circle"></i> Cancelar
+                </button>
+                <button type="button" class="btn btn-confirm-delete" id="confirmDeleteBtn">
+                    <i class="bi bi-trash3-fill"></i> Sí, eliminar
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
 </head>
 <body>
     
