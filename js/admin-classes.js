@@ -1,23 +1,38 @@
 // Delete Class Function with Confirmation
+// Delete Class Function con Modal Bootstrap personalizado
+let rowToDelete = null;
+
 function deleteClass(button) {
-    const row = button.closest('tr');
-    const className = row.querySelector('.class-name span').textContent;
+    rowToDelete = button.closest('tr');
+    const className = rowToDelete.querySelector('.class-name span').textContent;
 
-    // Show confirmation dialog
-    if (confirm(`¿Estás seguro de que deseas eliminar la clase "${className}"?\n\nEsta acción no se puede deshacer.`)) {
-        // Add fade out animation
-        row.style.transition = 'all 0.3s ease';
-        row.style.opacity = '0';
-        row.style.transform = 'translateX(-20px)';
+    // Insertar nombre en el modal y mostrarlo
+    document.getElementById('deleteClassName').textContent = `"${className}"`;
+    const modal = new bootstrap.Modal(document.getElementById('deleteModal'));
+    modal.show();
 
-        // Remove row after animation
+    // Asignar acción al botón de confirmación (evitar duplicados)
+    const confirmBtn = document.getElementById('confirmDeleteBtn');
+    const newConfirmBtn = confirmBtn.cloneNode(true);
+    confirmBtn.parentNode.replaceChild(newConfirmBtn, confirmBtn);
+
+    newConfirmBtn.addEventListener('click', () => {
+        modal.hide();
+
+        rowToDelete.style.transition = 'all 0.3s ease';
+        rowToDelete.style.opacity = '0';
+        rowToDelete.style.transform = 'translateX(-20px)';
+
         setTimeout(() => {
-            row.remove();
+            const deletedName = rowToDelete.querySelector('.class-name span').textContent;
+            rowToDelete.remove();
+            rowToDelete = null;
             updateStats();
-            showToast('Clase Eliminada', `La clase "${className}" ha sido eliminada correctamente.`, 'success');
+            showToast('Clase Eliminada', `La clase "${deletedName}" ha sido eliminada correctamente.`, 'success');
         }, 300);
-    }
+    });
 }
+
 
 // Edit Class Function
 function editClass(button) {
