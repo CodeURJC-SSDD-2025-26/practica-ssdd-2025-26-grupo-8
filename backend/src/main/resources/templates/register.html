@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro - Virtus Fitness</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" th:href="@{/css/auth-styles.css}">
+</head>
+<body>
+<div class="auth-page">
+
+    <!-- Panel izquierdo -->
+    <div class="auth-brand-panel">
+        <div class="brand-overlay"></div>
+        <div class="brand-content">
+            <a th:href="@{/}" class="back-to-home"><i class="bi bi-arrow-left"></i> Volver al inicio</a>
+            <div class="brand-center">
+                <div class="brand-logo"><i class="bi bi-lightning-charge-fill"></i></div>
+                <h1 class="brand-name">Virtus Fitness</h1>
+                <p class="brand-tagline">Únete a nuestra comunidad y empieza tu transformación hoy</p>
+            </div>
+            <div class="brand-stats">
+                <div class="brand-stat"><strong>1879+</strong><span>Miembros</span></div>
+                <div class="brand-stat-divider"></div>
+                <div class="brand-stat"><strong>25</strong><span>Entrenadores</span></div>
+                <div class="brand-stat-divider"></div>
+                <div class="brand-stat"><strong>16</strong><span>Años</span></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Panel derecho -->
+    <div class="auth-form-panel">
+        <div class="form-panel-inner" style="max-width: 460px;">
+            <div class="form-header">
+                <h2>Crear cuenta</h2>
+                <p>Completa tus datos para unirte a Virtus Fitness</p>
+            </div>
+
+            <!-- Error -->
+            <div th:if="${error}" class="alert alert-danger" th:text="${error}"></div>
+
+            <form th:action="@{/register}" method="post" enctype="multipart/form-data">
+
+                <!-- Foto de perfil -->
+                <div class="photo-upload-section">
+                    <div class="photo-preview-wrapper">
+                        <div class="photo-preview" id="photoPreview">
+                            <i class="bi bi-person-fill"></i>
+                        </div>
+                        <label for="avatar" class="photo-upload-btn">
+                            <i class="bi bi-camera-fill"></i>
+                        </label>
+                        <input type="file" id="avatar" name="avatar" accept="image/*" hidden
+                               onchange="previewPhoto(this)">
+                    </div>
+                    <p class="photo-hint">Foto de perfil (opcional)</p>
+                </div>
+
+                <!-- Nombre -->
+                <div class="field-group">
+                    <label for="username">Nombre de usuario</label>
+                    <div class="field-input-wrapper">
+                        <i class="bi bi-person field-icon"></i>
+                        <input type="text" id="username" name="username" placeholder="Tu nombre de usuario" required>
+                    </div>
+                </div>
+
+                <!-- Email -->
+                <div class="field-group">
+                    <label for="email">Correo electrónico</label>
+                    <div class="field-input-wrapper">
+                        <i class="bi bi-envelope field-icon"></i>
+                        <input type="email" id="email" name="email" placeholder="correo@ejemplo.com" required>
+                    </div>
+                </div>
+
+                <!-- Contraseña -->
+                <div class="field-group">
+                    <label for="password">Contraseña</label>
+                    <div class="field-input-wrapper">
+                        <i class="bi bi-lock field-icon"></i>
+                        <input type="password" id="password" name="password" placeholder="Mínimo 6 caracteres" required minlength="6">
+                    </div>
+                </div>
+
+                <!-- Términos -->
+                <div class="checks-section">
+                    <label class="custom-check">
+                        <input type="checkbox" required>
+                        <span class="checkmark"></span>
+                        Acepto los Términos y Condiciones y la Política de Privacidad
+                    </label>
+                </div>
+
+                <button type="submit" class="btn-auth">
+                    Crear cuenta <i class="bi bi-arrow-right ms-2"></i>
+                </button>
+            </form>
+
+            <p class="auth-switch-link">
+                ¿Ya tienes cuenta? <a th:href="@{/login}">Inicia sesión</a>
+            </p>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+function previewPhoto(input) {
+    if (input.files && input.files[0]) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            const preview = document.getElementById('photoPreview');
+            preview.innerHTML = '<img src="' + e.target.result + '" style="width:100%;height:100%;object-fit:cover;border-radius:50%;">';
+        };
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+</script>
+</body>
+</html>
