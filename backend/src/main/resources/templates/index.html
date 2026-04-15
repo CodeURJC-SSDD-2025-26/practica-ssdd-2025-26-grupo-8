@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtus Fitness - Premium Gym</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" th:href="@{/}">
+                <i class="bi bi-lightning-charge-fill text-warning"></i> Virtus Fitness
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item" sec:authorize="hasRole('ADMIN')">
+                        <a class="btn btn-outline-light btn-sm ms-1" th:href="@{/admin}">
+                            <i class="bi bi-shield-check me-1"></i>Admin
+                        </a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" th:href="@{/}">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/classes}">Clases</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/schedule}">Horarios</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/pricing}">Precios</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/contact}">Contacto</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/about}">Sobre Nosotros</a></li>
+                    <li class="nav-item" sec:authorize="!isAuthenticated()">
+                        <a class="btn btn-outline-warning btn-sm ms-2" th:href="@{/login}">Iniciar Sesión</a>
+                    </li>
+                    <li class="nav-item" sec:authorize="isAuthenticated()">
+                        <a class="btn btn-outline-warning btn-sm ms-2" th:href="@{/profile}">
+                            <i class="bi bi-person-circle me-1"></i>Mi Perfil
+                        </a>
+                    </li>
+                    <li class="nav-item" sec:authorize="isAuthenticated()">
+                        <form th:action="@{/logout}" method="post" class="d-inline ms-1">
+                            <button type="submit" class="btn btn-outline-danger btn-sm">
+                                <i class="bi bi-box-arrow-right"></i> Salir
+                            </button>
+                        </form>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="inicio">
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+            <h1 class="display-3 fw-bold animate-fade-in-delay">
+                <span class="hero-line">Transforma</span>
+                <span class="hero-line hero-accent">Tu Cuerpo</span>
+                <span class="hero-line">y Mente</span>
+            </h1>
+            <p class="lead animate-fade-in-delay">Únete a Virtus Fitness y vive la experiencia fitness definitiva con entrenadores profesionales y equipamiento de última generación</p>
+            <div class="hero-buttons animate-fade-in-delay-2">
+                <a th:href="@{/register}" class="btn-primary-cta" sec:authorize="!isAuthenticated()">Comenzar Ahora <i class="bi bi-arrow-right"></i></a>
+                <a th:href="@{/classes}" class="btn-primary-cta" sec:authorize="isAuthenticated()">Ver Clases <i class="bi bi-arrow-right"></i></a>
+                <a href="#clases" class="btn-secondary-cta">Ver Clases</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ticker Strip -->
+    <div class="ticker-strip">
+        <div class="ticker-track">
+            <span>Transforma Tu Cuerpo</span><span class="ticker-dot">◆</span>
+            <span>Entrena Con Élite</span><span class="ticker-dot">◆</span>
+            <span>16 Años De Experiencia</span><span class="ticker-dot">◆</span>
+            <span>Únete Ahora</span><span class="ticker-dot">◆</span>
+            <span>1879 Miembros Activos</span><span class="ticker-dot">◆</span>
+            <span>Equipamiento Premium</span><span class="ticker-dot">◆</span>
+            <span>Transforma Tu Cuerpo</span><span class="ticker-dot">◆</span>
+            <span>Entrena Con Élite</span><span class="ticker-dot">◆</span>
+            <span>16 Años De Experiencia</span><span class="ticker-dot">◆</span>
+            <span>Únete Ahora</span><span class="ticker-dot">◆</span>
+            <span>1879 Miembros Activos</span><span class="ticker-dot">◆</span>
+            <span>Equipamiento Premium</span><span class="ticker-dot">◆</span>
+        </div>
+    </div>
+
+    <!-- Stats Section -->
+    <section class="stats-section" id="estadisticas">
+        <div class="stats-grid">
+            <div class="stat-block stat-item">
+                <div class="stat-index">01</div>
+                <div class="stat-num-wrap"><h2 class="stat-num" data-count="1879">0</h2><span class="stat-plus">+</span></div>
+                <p class="stat-label">Miembros Activos</p>
+            </div>
+            <div class="stat-block stat-item">
+                <div class="stat-index">02</div>
+                <div class="stat-num-wrap"><h2 class="stat-num" data-count="75">0</h2></div>
+                <p class="stat-label">Clases Semanales</p>
+            </div>
+            <div class="stat-block stat-item">
+                <div class="stat-index">03</div>
+                <div class="stat-num-wrap"><h2 class="stat-num" data-count="25">0</h2></div>
+                <p class="stat-label">Entrenadores</p>
+            </div>
+            <div class="stat-block stat-item">
+                <div class="stat-index">04</div>
+                <div class="stat-num-wrap"><h2 class="stat-num" data-count="16">0</h2></div>
+                <p class="stat-label">Años de Experiencia</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-section py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title">¿Por Qué Elegir <span class="acc">Virtus?</span></h2>
+                <p class="text-muted mt-4">Todo lo que necesitas para alcanzar tus objetivos fitness</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="service-card text-center p-4 shadow-sm rounded">
+                        <div class="service-icon mx-auto mb-3"><i class="bi bi-person-workspace text-warning fs-1"></i></div>
+                        <h4>Entrenadores Expertos</h4>
+                        <p class="text-muted">Profesionales certificados dedicados a tu éxito y seguridad</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="service-card text-center p-4 shadow-sm rounded">
+                        <div class="service-icon mx-auto mb-3"><i class="bi bi-calendar-check text-warning fs-1"></i></div>
+                        <h4>Horarios Flexibles</h4>
+                        <p class="text-muted">Clases disponibles 7 días a la semana de 9:00 a 21:00</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="service-card text-center p-4 shadow-sm rounded">
+                        <div class="service-icon mx-auto mb-3"><i class="bi bi-trophy text-warning fs-1"></i></div>
+                        <h4>Equipamiento Premium</h4>
+                        <p class="text-muted">Última tecnología y equipamiento de gimnasio de máxima calidad</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popular Classes Section -->
+    <section class="popular-classes py-5 bg-light" id="clases">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title">Clases <span class="acc">Populares</span></h2>
+                <p class="text-muted mt-4">Descubre nuestros programas fitness más solicitados</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4" th:each="clase : ${featuredClasses}">
+                    <div class="card class-card h-100 shadow-sm border-0">
+                        <img th:src="@{/images/class/{id}(id=${clase.id})}" th:alt="${clase.name}" class="card-img-top class-image">
+                        <div class="card-body class-body p-4">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <span class="badge bg-warning text-dark" th:text="${clase.difficulty}">Nivel</span>
+                                <span class="text-muted"><i class="bi bi-clock"></i> <span th:text="${clase.duration} + ' min'">45 min</span></span>
+                            </div>
+                            <h5 th:text="${clase.name}">Clase</h5>
+                            <p class="text-muted mb-3" th:text="${#strings.abbreviate(clase.description, 80)}">Descripción...</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <a th:href="@{/classes/{id}(id=${clase.id})}" class="btn btn-dark btn-sm">Más Información</a>
+                                <form th:action="@{/classes/{id}/book(id=${clase.id})}" method="post" sec:authorize="isAuthenticated()">
+                                    <button type="submit" class="btn btn-outline-warning btn-sm">
+                                        <i class="bi bi-calendar-plus"></i> Reservar
+                                    </button>
+                                </form>
+                                <a th:href="@{/login}" class="btn btn-outline-warning btn-sm" sec:authorize="!isAuthenticated()">
+                                    <i class="bi bi-calendar-plus"></i> Reservar
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                <a th:href="@{/classes}" class="btn btn-warning btn-lg">Ver Todas las Clases</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials-section py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title">Lo Que Dicen <span class="acc">Nuestros Miembros</span></h2>
+                <p class="text-muted mt-4">Historias reales de transformación</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="testimonial-card p-4">
+                        <div class="stars mb-3 text-warning"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+                        <p class="testimonial-text">"Virtus Fitness cambió mi vida. Los entrenadores son increíbles y el ambiente es muy motivador. ¡He perdido 15kg en 6 meses!"</p>
+                        <div class="testimonial-author"><strong>María García</strong><small class="text-muted d-block">Miembro desde 2023</small></div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="testimonial-card p-4">
+                        <div class="stars mb-3 text-warning"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+                        <p class="testimonial-text">"Las clases de CrossFit son desafiantes pero adictivas. El equipo está siempre limpio y moderno. ¡100% recomendado!"</p>
+                        <div class="testimonial-author"><strong>Carlos Ruiz</strong><small class="text-muted d-block">Miembro desde 2022</small></div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="testimonial-card p-4">
+                        <div class="stars mb-3 text-warning"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+                        <p class="testimonial-text">"El yoga aquí es transformador. Después de meses de estrés, encontré paz y equilibrio. Los instructores son maravillosos."</p>
+                        <div class="testimonial-author"><strong>Laura Martínez</strong><small class="text-muted d-block">Miembro desde 2024</small></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="newsletter-section py-5 bg-dark text-white">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 mb-4 mb-md-0">
+                    <h3 class="fw-bold mb-2">¿Listo para empezar tu transformación?</h3>
+                    <p class="mb-0">Únete a más de 1879 miembros que ya han cambiado sus vidas</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a th:href="@{/register}" class="btn btn-warning btn-lg fw-bold px-5" sec:authorize="!isAuthenticated()">Comenzar Ahora</a>
+                    <a th:href="@{/classes}" class="btn btn-warning btn-lg fw-bold px-5" sec:authorize="isAuthenticated()">Ver Clases</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer bg-dark text-white py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <h5 class="fw-bold mb-3"><i class="bi bi-lightning-charge-fill text-warning"></i> Virtus Fitness</h5>
+                    <p class="text-white">Tu destino para alcanzar tus objetivos fitness con entrenamiento profesional e instalaciones de élite.</p>
+                </div>
+                <div class="col-md-2">
+                    <h6 class="fw-bold mb-3">Enlaces</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a th:href="@{/}" class="text-white text-decoration-none">Inicio</a></li>
+                        <li class="mb-2"><a th:href="@{/classes}" class="text-white text-decoration-none">Clases</a></li>
+                        <li class="mb-2"><a th:href="@{/schedule}" class="text-white text-decoration-none">Horarios</a></li>
+                        <li class="mb-2"><a th:href="@{/pricing}" class="text-white text-decoration-none">Precios</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h6 class="fw-bold mb-3">Contacto</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="bi bi-geo-alt me-2"></i>Calle Principal, 123</li>
+                        <li class="mb-2"><i class="bi bi-phone me-2"></i>+34 123 456 789</li>
+                        <li class="mb-2"><i class="bi bi-envelope me-2"></i>info@virtusfitness.com</li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h6 class="fw-bold mb-3">Horario</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2">Lun - Vie: 6:00 - 22:00</li>
+                        <li class="mb-2">Sábado: 8:00 - 20:00</li>
+                        <li class="mb-2">Domingo: 9:00 - 18:00</li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-4 bg-secondary">
+            <p class="mb-0 text-center">&copy; 2026 Virtus Fitness. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <button id="backToTop" class="btn btn-warning rounded-circle shadow" title="Volver arriba">
+        <i class="bi bi-arrow-up"></i>
+    </button>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script th:src="@{/js/main.js}"></script>
+</body>
+</html>

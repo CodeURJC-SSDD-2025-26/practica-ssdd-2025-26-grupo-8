@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clases - Virtus Fitness</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+    <link rel="stylesheet" th:href="@{/css/classes.css}">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" th:href="@{/}">
+                <i class="bi bi-lightning-charge-fill text-warning"></i> Virtus Fitness
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" th:href="@{/}">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link active" th:href="@{/classes}">Clases</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/schedule}">Horarios</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/pricing}">Precios</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/contact}">Contacto</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/about}">Sobre Nosotros</a></li>
+                    <li class="nav-item" sec:authorize="!isAuthenticated()">
+                        <a class="nav-link" th:href="@{/login}">Iniciar Sesión</a>
+                    </li>
+                    <li class="nav-item" sec:authorize="isAuthenticated()">
+                        <a class="btn btn-outline-warning btn-sm ms-2" th:href="@{/profile}">
+                            <i class="bi bi-person-circle me-1"></i>Mi Perfil
+                        </a>
+                    </li>
+                    <li class="nav-item" sec:authorize="hasRole('ADMIN')">
+                        <a class="btn btn-outline-light btn-sm ms-1" th:href="@{/admin}">Admin</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Hero -->
+    <section class="page-hero mt-5" aria-label="Clases">
+        <div class="hero-overlay"></div>
+        <div class="hero-content animate-fade-in">
+            <h1 class="display-4 fw-bold mb-3">Nuestras Clases</h1>
+            <p class="lead mb-0">Encuentra la disciplina que transformará tu entrenamiento</p>
+        </div>
+    </section>
+
+    <!-- Classes Grid -->
+    <section class="classes-section py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title">Elige Tu Clase</h2>
+                <p class="text-muted mt-4">Disciplinas impartidas por entrenadores certificados, diseñadas para todos los niveles</p>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-sm-6 col-lg-4" th:each="clase : ${classes}">
+                    <article class="class-card">
+                        <div class="class-card-img-wrapper">
+                            <img th:src="@{/images/class/{id}(id=${clase.id})}"
+                                 th:alt="${clase.name}"
+                                 class="class-image" loading="lazy">
+                        </div>
+                        <div class="class-body">
+                            <span class="class-level-badge level-beginner" th:text="${clase.difficulty}">Nivel</span>
+                            <h5 th:text="${clase.name}">Nombre Clase</h5>
+                            <p th:text="${#strings.abbreviate(clase.description, 120)}">Descripción</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <a th:href="@{/classes/{id}(id=${clase.id})}" class="btn btn-dark btn-sm">Ver Clase</a>
+                                <small class="text-muted"><i class="bi bi-clock"></i> <span th:text="${clase.duration} + ' min'">45 min</span></small>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+
+            <div th:if="${#lists.isEmpty(classes)}" class="text-center py-5">
+                <i class="bi bi-calendar-x fs-1 text-muted"></i>
+                <p class="text-muted mt-3">No hay clases disponibles actualmente.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="newsletter-section py-5 text-center text-white">
+        <div class="container">
+            <h3 class="fw-bold mb-2">¿Listo para empezar?</h3>
+            <p class="mb-4">Regístrate hoy y obtén tu primera semana gratis en cualquier clase.</p>
+            <a th:href="@{/register}" class="btn btn-warning btn-lg fw-semibold px-5" sec:authorize="!isAuthenticated()">Unirme Ahora</a>
+            <a th:href="@{/profile}" class="btn btn-warning btn-lg fw-semibold px-5" sec:authorize="isAuthenticated()">Ver Mis Reservas</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer bg-dark text-white py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <h5 class="fw-bold mb-3"><i class="bi bi-lightning-charge-fill text-warning"></i> Virtus Fitness</h5>
+                    <p class="text-white">Tu destino para alcanzar tus objetivos fitness con entrenamiento profesional.</p>
+                </div>
+                <div class="col-md-2">
+                    <h6 class="fw-bold mb-3">Enlaces</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a th:href="@{/}" class="text-white text-decoration-none">Inicio</a></li>
+                        <li class="mb-2"><a th:href="@{/classes}" class="text-white text-decoration-none">Clases</a></li>
+                        <li class="mb-2"><a th:href="@{/schedule}" class="text-white text-decoration-none">Horarios</a></li>
+                        <li class="mb-2"><a th:href="@{/pricing}" class="text-white text-decoration-none">Precios</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h6 class="fw-bold mb-3">Contacto</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="bi bi-geo-alt me-2"></i>Calle Principal, 123</li>
+                        <li class="mb-2"><i class="bi bi-phone me-2"></i>+34 123 456 789</li>
+                        <li class="mb-2"><i class="bi bi-envelope me-2"></i>info@virtusfitness.com</li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h6 class="fw-bold mb-3">Horario</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2">Lun - Vie: 6:00 - 22:00</li>
+                        <li class="mb-2">Sábado: 8:00 - 20:00</li>
+                        <li class="mb-2">Domingo: 9:00 - 18:00</li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-4 bg-secondary">
+            <p class="mb-0 text-center">&copy; 2026 Virtus Fitness. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <button id="backToTop" class="btn btn-warning rounded-circle shadow" title="Volver arriba">
+        <i class="bi bi-arrow-up"></i>
+    </button>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script th:src="@{/js/main.js}"></script>
+</body>
+</html>
