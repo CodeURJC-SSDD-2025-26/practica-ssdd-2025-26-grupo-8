@@ -322,7 +322,7 @@ El diseño visual de las páginas se mantiene respecto a la Práctica 1. Las sig
 
 ### **Diagrama de Entidades de Base de Datos**
 
-![Diagrama de entidades](images/diagrama_entidades.png)
+![Diagrama de entidades](images-readme/diagrama_entidades.png)
 
 ### Relaciones
 
@@ -335,7 +335,7 @@ El diseño visual de las páginas se mantiene respecto a la Práctica 1. Las sig
 
 ### **Diagrama de Clases y Templates**
 
-![Diagrama de entidades](images/diagrama_clases.png)
+![Diagrama de clases](images-readme/diagrama_clases.png)
 
 ### **Participación de Miembros en la Práctica 2**
 
@@ -366,7 +366,7 @@ Responsable del panel de administración completo (gestión de clases y usuarios
 
 | Nº    | Commits      | Files      |
 |:------------: |:------------:| :------------:|
-|1| [Implement admin dashboard with Chart.js statistics](https://github.com/CodeURJC-SSDD-2025-26/practica-ssdd-2025-26-grupo-8)  | [AdminController.java](backend/src/main/java/es/urjc/virtusfitness/controller/AdminController.java)   |
+|1| [Add fitness class model, repository, service, admin controllers and templates](https://github.com/CodeURJC-SSDD-2025-26/practica-ssdd-2025-26-grupo-8/commit/45f7746)  | [AdminController.java](backend/src/main/java/es/urjc/virtusfitness/controller/AdminController.java), [FitnessClass.java](backend/src/main/java/es/urjc/virtusfitness/model/FitnessClass.java), [FitnessClassRepository.java](backend/src/main/java/es/urjc/virtusfitness/repository/FitnessClassRepository.java), [FitnessClassService.java](backend/src/main/java/es/urjc/virtusfitness/service/FitnessClassService.java), [index.html](backend/src/main/resources/templates/admin/index.html), [classes.html](backend/src/main/resources/templates/admin/classes.html), [users.html](backend/src/main/resources/templates/admin/users.html), [user-detail.html](backend/src/main/resources/templates/admin/user-detail.html), [class-form.html](backend/src/main/resources/templates/class-form.html), [404.html](backend/src/main/resources/templates/error/404.html), [500.html](backend/src/main/resources/templates/error/500.html)   |
 
 
 ---
