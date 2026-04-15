@@ -345,8 +345,6 @@ Responsable de la seguridad de la aplicación, gestión de usuarios, sistema de 
 
 | Nº    | Commits      | Files      |
 |:------------: |:------------:| :------------:|
-| Nº | Commits | Files |
-|:---:|:---:|:---:|
 | 1 | [Add PDF generation service for booking receipts using iText](https://github.com/CodeURJC-SSDD-2025-26/practica-ssdd-2025-26-grupo-8/commit/8f88785fda0a8ffe045cc343716e612999581a95) | [PdfService.java](backend/src/main/java/es/urjc/virtusfitness/service/PdfService.java) |
 | 2 | [Implement booking service with dynamic waiting list priority algorithm](https://github.com/CodeURJC-SSDD-2025-26/practica-ssdd-2025-26-grupo-8/commit/a5e8201fb75e64819ba4cf9404a7cc4d333c145c) | [BookingService.java](backend/src/main/java/es/urjc/virtusfitness/service/BookingService.java) |
 | 3 | [Add booking repository with waiting list and attendance rate queries](https://github.com/CodeURJC-SSDD-2025-26/practica-ssdd-2025-26-grupo-8/commit/2f76770f25f95dcfd0655b811af85c98869d4b2e) | [BookingRepository.java](backend/src/main/java/es/urjc/virtusfitness/repository/BookingRepository.java) |
