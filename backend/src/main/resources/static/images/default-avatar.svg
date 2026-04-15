@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130 130">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e1e1e"/>
+      <stop offset="100%" stop-color="#141414"/>
+    </linearGradient>
+    <linearGradient id="body" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#C8FF00" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#a0cc00" stop-opacity="0.85"/>
+    </linearGradient>
+    <clipPath id="circle">
+      <circle cx="65" cy="65" r="65"/>
+    </clipPath>
+  </defs>
+  <circle cx="65" cy="65" r="65" fill="url(#bg)"/>
+  <!-- Head -->
+  <circle cx="65" cy="50" r="22" fill="url(#body)"/>
+  <!-- Body / shoulders -->
+  <ellipse cx="65" cy="108" rx="36" ry="26" fill="url(#body)"/>
+</svg>

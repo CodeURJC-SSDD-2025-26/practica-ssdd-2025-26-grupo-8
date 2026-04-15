@@ -1,0 +1,362 @@
+/* ============================================================
+   VIRTUS FITNESS — Pricing Page — Dark Theme
+   ============================================================ */
+
+/* Page Hero */
+.page-hero {
+  position: relative;
+  height: 40vh;
+  min-height: 280px;
+  background-image: url('../images/hero-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  overflow: hidden;
+}
+
+.page-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(200,255,0,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(200,255,0,0.025) 1px, transparent 1px);
+  background-size: 60px 60px;
+  z-index: 1;
+}
+
+.page-hero .hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(8,8,8,0.5) 0%,
+    rgba(8,8,8,0.8) 100%
+  );
+  z-index: 1;
+}
+
+.page-hero .hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 2rem;
+}
+
+.page-hero .hero-content h1,
+.page-hero .hero-content h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 2px;
+}
+
+/* ── Filter Bar ─────────────────────────────────── */
+.filter-section {
+  background: #101010;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  position: sticky;
+  top: 64px;
+  z-index: 100;
+}
+
+.filter-title {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #555;
+  margin-bottom: 0.5rem;
+}
+
+/* Toggle button group */
+.filter-group {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 6px;
+  padding: 0.35rem 1rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: #666;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  user-select: none;
+}
+
+.filter-btn:hover {
+  border-color: rgba(200,255,0,0.25);
+  color: #F0F0F0;
+}
+
+.filter-btn.active {
+  background: rgba(200,255,0,0.1);
+  border-color: rgba(200,255,0,0.3);
+  color: #C8FF00;
+  font-weight: 700;
+  box-shadow: 0 0 12px rgba(200,255,0,0.1);
+}
+
+/* Filter summary */
+.filter-summary {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.8rem;
+  color: #555;
+}
+
+.filter-summary strong { color: #888; }
+
+/* ── Pricing Cards ─────────────────────────────── */
+.pricing-section { background: #080808; }
+
+.pricing-card {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(255,255,255,0.06);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: #111;
+}
+
+.pricing-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 24px 60px rgba(0,0,0,0.55);
+  border-color: rgba(200,255,0,0.2);
+}
+
+/* Featured / popular card */
+.pricing-card.featured {
+  border-color: rgba(200,255,0,0.25);
+  transform: scale(1.03);
+  box-shadow: 0 8px 40px rgba(200,255,0,0.08);
+}
+
+.pricing-card.featured:hover {
+  transform: scale(1.03) translateY(-8px);
+}
+
+/* Card header band */
+.pricing-header {
+  padding: 1.8rem 1.5rem 1rem;
+  text-align: center;
+  position: relative;
+}
+
+.pricing-header.plan-basic {
+  background: #161616;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.pricing-header.plan-premium {
+  background: linear-gradient(135deg, rgba(200,255,0,0.12) 0%, rgba(200,255,0,0.04) 100%);
+  border-bottom: 1px solid rgba(200,255,0,0.15);
+}
+
+.pricing-header.plan-elite {
+  background: #C8FF00;
+}
+
+.pricing-header.plan-elite .plan-name,
+.pricing-header.plan-elite .plan-tagline,
+.pricing-header.plan-elite .price-currency,
+.pricing-header.plan-elite .price-amount,
+.pricing-header.plan-elite .price-cents,
+.pricing-header.plan-elite .price-period,
+.pricing-header.plan-elite .permanence-note {
+  color: #000 !important;
+}
+
+.pricing-header .plan-name {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 0.25rem;
+  color: #F0F0F0;
+}
+
+.pricing-header .plan-tagline {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.78rem;
+  color: #555;
+  margin-bottom: 1rem;
+}
+
+/* Popular badge */
+.popular-badge {
+  display: inline-block;
+  background: rgba(200,255,0,0.12);
+  color: #C8FF00;
+  border: 1px solid rgba(200,255,0,0.25);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.66rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 0.2rem 0.8rem;
+  border-radius: 4px;
+  margin-bottom: 0.75rem;
+}
+
+/* Price display */
+.price-display {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 0.2rem;
+  margin-bottom: 0.25rem;
+}
+
+.price-currency { font-family: 'DM Sans', sans-serif; font-size: 1.3rem; font-weight: 700; color: #F0F0F0; }
+.price-amount   { font-family: 'Bebas Neue', sans-serif; font-size: 3.8rem; font-weight: 400; line-height: 1; color: #F0F0F0; transition: all 0.3s ease; }
+.price-cents    { font-family: 'DM Sans', sans-serif; font-size: 1.2rem; font-weight: 700; color: #F0F0F0; }
+.price-period   { font-family: 'DM Sans', sans-serif; font-size: 0.76rem; color: #555; }
+
+/* Price change animation */
+@keyframes priceUpdate {
+  0%   { transform: scale(1.15); }
+  100% { transform: scale(1); }
+}
+
+.price-amount.updated { animation: priceUpdate 0.25s ease-out; }
+
+/* Permanence notice */
+.permanence-note {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.74rem;
+  color: #555;
+  margin-top: 0.3rem;
+}
+
+/* Card body */
+.pricing-body {
+  padding: 1.5rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: #111;
+}
+
+.feature-list { list-style: none; padding: 0; margin: 0 0 1.5rem; flex: 1; }
+
+.feature-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.45rem 0;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.86rem;
+  color: #777;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+
+.feature-list li:last-child { border-bottom: none; }
+.feature-list li i          { font-size: 0.95rem; flex-shrink: 0; }
+.feature-list li .feat-yes  { color: #00c85f; }
+.feature-list li .feat-no   { color: #333; }
+
+.feature-list li.disabled {
+  color: #333;
+  text-decoration: line-through;
+}
+
+/* CTA button inside card */
+.pricing-body .btn {
+  margin-top: auto;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 700;
+  font-size: 0.84rem;
+  padding: 0.75rem;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-radius: 8px;
+}
+
+.pricing-body .btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+}
+
+/* Discount tag */
+.discount-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  background: rgba(0,200,95,0.1);
+  color: #00c85f;
+  border: 1px solid rgba(0,200,95,0.2);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.73rem;
+  font-weight: 600;
+  padding: 0.2rem 0.7rem;
+  border-radius: 4px;
+  margin-top: 0.5rem;
+}
+
+/* FAQ / notes strip */
+.notes-section { background: #0d0d0d; border-top: 1px solid rgba(255,255,255,0.05); }
+
+.notes-section .note-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.notes-section .note-item i   { color: #C8FF00; font-size: 1.1rem; flex-shrink: 0; margin-top: 0.1rem; }
+.notes-section .note-item p   { color: #666; font-family: 'DM Sans', sans-serif; font-size: 0.86rem; margin: 0; line-height: 1.6; }
+
+/* Responsive */
+@media (max-width: 992px) {
+  .pricing-card.featured { transform: none; }
+  .pricing-card.featured:hover { transform: translateY(-8px); }
+}
+
+@media (max-width: 768px) {
+  .page-hero { height: 32vh; background-attachment: scroll; }
+  .filter-section { top: 60px; }
+}
+
+/* Override Bootstrap btn-dark for pricing CTA */
+.pricing-body .btn-dark {
+  background: rgba(255,255,255,0.07) !important;
+  border: 1px solid rgba(255,255,255,0.1) !important;
+  color: #F0F0F0 !important;
+}
+
+.pricing-body .btn-dark:hover {
+  background: #F0F0F0 !important;
+  color: #000 !important;
+}
+
+.pricing-body .btn-warning {
+  background: #C8FF00 !important;
+  border-color: #C8FF00 !important;
+  color: #000 !important;
+}
+
+.pricing-body .btn-warning:hover {
+  background: #d4ff00 !important;
+  box-shadow: 0 0 20px rgba(200,255,0,0.25) !important;
+}
+
+/* Elite plan body */
+.pricing-card .pricing-header.plan-elite + .pricing-body .btn-warning {
+  background: #000 !important;
+  border-color: #000 !important;
+  color: #C8FF00 !important;
+}

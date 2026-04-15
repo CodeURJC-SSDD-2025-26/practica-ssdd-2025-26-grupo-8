@@ -1,0 +1,476 @@
+/* ============================================================
+   VIRTUS FITNESS — Boxing Class Page — Dark Theme
+   ============================================================ */
+
+/* Full-height boxing hero */
+.boxeo-hero {
+  position: relative;
+  height: 80vh;
+  min-height: 520px;
+  background-image: url('../images/boxing-hero.jpg');
+  background-size: cover;
+  background-position: center 30%;
+  background-attachment: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  overflow: hidden;
+}
+
+.boxeo-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(200,255,0,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(200,255,0,0.025) 1px, transparent 1px);
+  background-size: 70px 70px;
+  z-index: 1;
+}
+
+.boxeo-hero .hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(8,8,8,0.4) 0%,
+    rgba(8,8,8,0.75) 100%
+  );
+  z-index: 1;
+}
+
+.boxeo-hero .hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  padding: 2rem;
+}
+
+.boxeo-hero .hero-content h1,
+.boxeo-hero .hero-content h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 2px;
+}
+
+/* Breadcrumb */
+.breadcrumb-section {
+  background: #101010;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.breadcrumb-item a {
+  color: #C8FF00;
+  text-decoration: none;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.85rem;
+  transition: color 0.2s;
+}
+
+.breadcrumb-item a:hover { color: #d4ff00; }
+.breadcrumb-item.active  { color: #555; font-family: 'DM Sans', sans-serif; font-size: 0.85rem; }
+.breadcrumb-separator    { color: #333; }
+
+/* Info strip */
+.info-strip {
+  background: #101010;
+  color: white;
+  border-top: 1px solid rgba(255,255,255,0.05);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1.25rem 0;
+}
+
+.info-item i {
+  font-size: 1.5rem;
+  color: #C8FF00;
+  flex-shrink: 0;
+}
+
+.info-item .info-label {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #444;
+  display: block;
+}
+
+.info-item .info-value {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 600;
+  font-size: 0.92rem;
+  color: #F0F0F0;
+}
+
+/* Description section */
+.class-description-section { background: #080808; }
+.class-description-section .lead { color: #777; line-height: 1.8; font-family: 'DM Sans', sans-serif; }
+
+/* Benefits section */
+.benefits-section { background: #101010; border-top: 1px solid rgba(255,255,255,0.05); }
+
+.benefit-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+
+.benefit-item:last-child { border-bottom: none; }
+
+.benefit-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  background: rgba(200,255,0,0.1);
+  border: 1px solid rgba(200,255,0,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+
+.benefit-item:hover .benefit-icon {
+  background: #C8FF00;
+}
+
+.benefit-icon i { font-size: 1.2rem; color: #C8FF00; transition: color 0.3s; }
+.benefit-item:hover .benefit-icon i { color: #000; }
+
+.benefit-text h6 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+  font-weight: 400;
+  color: #F0F0F0;
+  margin-bottom: 0.25rem;
+}
+
+.benefit-text p {
+  color: #666;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.88rem;
+  margin-bottom: 0;
+  line-height: 1.6;
+}
+
+/* Schedule table */
+.schedule-section { background: #080808; }
+
+.schedule-table th {
+  background: #101010;
+  color: #F0F0F0;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  border: none;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  vertical-align: middle;
+  padding: 1rem;
+}
+
+.schedule-table td {
+  vertical-align: middle;
+  border-color: rgba(255,255,255,0.04);
+  color: #888;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.88rem;
+  background: #101010;
+  padding: 0.9rem 1rem;
+}
+
+.schedule-table tbody tr:hover td {
+  background: #171717;
+  color: #F0F0F0;
+}
+
+.slot-available { color: #00c85f; font-weight: 600; font-family: 'DM Sans', sans-serif; }
+.slot-few       { color: #C8FF00; font-weight: 600; font-family: 'DM Sans', sans-serif; }
+
+/* Instructor card */
+.instructor-card {
+  background: #101010;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.06);
+  transition: all 0.3s ease;
+}
+
+.instructor-card:hover {
+  border-color: rgba(200,255,0,0.2);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+.instructor-avatar {
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(200,255,0,0.3);
+  filter: brightness(0.88);
+}
+
+.instructor-card:hover .instructor-avatar { filter: brightness(1); }
+
+/* CTA section */
+.cta-section {
+  background: linear-gradient(135deg, #101010 0%, #171717 100%);
+  border-top: 1px solid rgba(200,255,0,0.1);
+  border-bottom: 1px solid rgba(200,255,0,0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-section::before {
+  content: '';
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(200,255,0,0.06) 0%, transparent 70%);
+  left: -100px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* Level badge */
+.level-pill {
+  display: inline-block;
+  background: rgba(200, 255, 0, 0.1);
+  color: #C8FF00;
+  border: 1px solid rgba(200, 255, 0, 0.22);
+  border-radius: 4px;
+  padding: 0.3rem 1rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* Section titles */
+.section-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-weight: 400;
+  letter-spacing: 2px;
+  color: #F0F0F0;
+}
+
+.section-title::after {
+  background: #C8FF00;
+  box-shadow: 0 0 8px rgba(200,255,0,0.3);
+}
+
+/* ── Reviews section ── */
+.reviews-section { background: #101010; border-top: 1px solid rgba(255,255,255,0.05); }
+
+.rating-summary { display: flex; justify-content: center; }
+
+.rating-score {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: #171717;
+  border: 1px solid rgba(200,255,0,0.15);
+  border-radius: 12px;
+  padding: 1rem 2.5rem;
+}
+
+.score-number {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 3rem;
+  color: #C8FF00;
+  line-height: 1;
+}
+
+.score-stars { display: flex; gap: 0.15rem; }
+.score-stars i { color: #C8FF00; font-size: 1.1rem; }
+
+.score-label {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.8rem;
+  color: #555;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.25rem;
+}
+
+.review-card {
+  background: #171717;
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.review-card:hover {
+  border-color: rgba(200,255,0,0.18);
+  transform: translateY(-3px);
+}
+
+.review-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.review-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #C8FF00, #a0cc00);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.8rem;
+  color: #000;
+  flex-shrink: 0;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.review-meta { display: flex; flex-direction: column; flex: 1; }
+
+.review-author {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #F0F0F0;
+}
+
+.review-date { font-family: 'DM Sans', sans-serif; font-size: 0.75rem; color: #444; }
+
+.review-stars { display: flex; gap: 0.1rem; margin-left: auto; }
+.review-stars i { color: #C8FF00; font-size: 0.85rem; }
+
+.review-text {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.88rem;
+  color: #777;
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* ── Review form ── */
+.review-form-wrapper {
+  background: #171717;
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 12px;
+  padding: 2rem;
+}
+
+.review-form-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-weight: 400;
+  letter-spacing: 1.5px;
+  color: #F0F0F0;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.review-form-title i { color: #C8FF00; }
+
+.review-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+.form-group label {
+  display: block;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: #555;
+  margin-bottom: 0.5rem;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  background: #101010;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 8px;
+  color: #F0F0F0;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem;
+  padding: 0.65rem 1rem;
+  transition: border-color 0.25s;
+  resize: none;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder { color: #333; }
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: rgba(200,255,0,0.4);
+}
+
+.star-picker { display: flex; gap: 0.4rem; padding: 0.5rem 0; }
+
+.star-picker i {
+  font-size: 1.5rem;
+  color: #333;
+  cursor: pointer;
+  transition: color 0.15s, transform 0.15s;
+}
+
+.star-picker i:hover,
+.star-picker i.active { color: #C8FF00; }
+.star-picker i:hover { transform: scale(1.15); }
+
+.btn-review-submit {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1.25rem;
+  background: #C8FF00;
+  color: #000;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 700;
+  font-size: 0.9rem;
+  padding: 0.7rem 2rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.25s;
+  box-shadow: 0 4px 15px rgba(200,255,0,0.2);
+}
+
+.btn-review-submit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(200,255,0,0.3);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .boxeo-hero {
+    height: 60vh;
+    background-attachment: scroll;
+  }
+  .info-item { padding: 0.75rem 0; }
+  .review-form-grid { grid-template-columns: 1fr; }
+  .rating-score { flex-direction: column; text-align: center; padding: 1.25rem; }
+}
