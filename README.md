@@ -197,11 +197,85 @@ Responsible for administrative dashboard layouts and chart system design.
 
 #### **Diagrama de Navegación**
 
-Solo si ha cambiado.
+El siguiente diagrama describe el flujo de navegación de la aplicación web VirtusFitness, diferenciando las rutas accesibles según el rol del usuario.
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│                     USUARIO ANÓNIMO                         │
+│                                                             │
+│   /  (Home)                                                 │
+│    ├── /classes          → Lista de clases activas          │
+│    │     └── /classes/{id}   → Detalle de clase             │
+│    ├── /schedule         → Horario de clases                │
+│    ├── /pricing          → Planes y precios                 │
+│    ├── /about            → Sobre nosotros                   │
+│    ├── /contact          → Contacto                         │
+│    ├── /login            → Formulario de login              │
+│    └── /register         → Formulario de registro           │
+└─────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────┐
+│                   USUARIO AUTENTICADO                       │
+│                                                             │
+│   Todo lo anterior, más:                                    │
+│    ├── /profile                → Ver perfil y reservas      │
+│    │     └── /profile/edit     → Editar perfil              │
+│    ├── /bookings/new           → Crear reserva              │
+│    ├── /bookings/{id}/cancel   → Cancelar reserva           │
+│    └── /classes/{id}/reviews   → Publicar reseña            │
+└─────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────┐
+│                   ADMINISTRADOR (ROLE_ADMIN)                │
+│                                                             │
+│   Todo lo anterior, más:                                    │
+│    └── /admin                        → Panel de control     │
+│          ├── /admin/classes          → Gestión de clases    │
+│          │     ├── /admin/classes/new          → Nueva clase │
+│          │     ├── /admin/classes/{id}/edit    → Editar      │
+│          │     ├── /admin/classes/save         → Guardar     │
+│          │     └── /admin/classes/{id}/delete  → Eliminar    │
+│          └── /admin/users            → Gestión de usuarios  │
+│                ├── /admin/users/{id}           → Ver perfil  │
+│                └── /admin/users/{id}/delete    → Eliminar    │
+└─────────────────────────────────────────────────────────────┘
+```
 
 #### **Capturas de Pantalla Actualizadas**
 
-Solo si han cambiado.
+El diseño visual de las páginas se mantiene respecto a la Práctica 1. Las siguientes capturas corresponden a las vistas principales de la aplicación con HTML generado en servidor (Thymeleaf):
+
+#### **1. Home Page**
+![Home Page](images-readme/home-page.jpeg)
+> Página principal generada en servidor con datos de clases activas cargados desde la base de datos.
+
+#### **2. Classes Page**
+![Classes Page](images-readme/classes-page.jpeg)
+> Listado de clases con imágenes almacenadas en base de datos y datos reales de capacidad e instructor.
+
+#### **3. Schedule Page**
+![Schedule Page](images-readme/schedule-page.jpeg)
+> Horario semanal con datos de clases generados dinámicamente desde la BBDD.
+
+#### **4. Login Page**
+![Login Page](images-readme/login-page.jpeg)
+> Formulario de login gestionado por Spring Security.
+
+#### **5. Register Page**
+![Register Page](images-readme/register-page.jpeg)
+> Formulario de registro con validación de email único en backend.
+
+#### **6. Admin Page**
+![Admin Page](images-readme/admin-page.jpeg)
+> Panel de administración con gráfica de reservas por clase (Chart.js) y estadísticas del sistema.
+
+#### **7. Admin Classes Page**
+![Admin Classes Page](images-readme/adminclasses-page.png)
+> Gestión CRUD de clases con imágenes almacenadas en LONGBLOB en MySQL.
+
+#### **8. Admin Users Page**
+![Admin Users Page](images-readme/adminusers-page.png)
+> Gestión de usuarios con acceso al perfil individual de cada usuario.
 
 ### **Instrucciones de Ejecución**
 
@@ -215,90 +289,87 @@ Solo si han cambiado.
 
 1. **Clonar el repositorio**
    ```bash
-   git clone https://github.com/[usuario]/[nombre-repositorio].git
-   cd [nombre-repositorio]
+   git clone https://github.com/[usuario]/virtusfitness.git
+   cd virtusfitness
    ```
 
-2. **AQUÍ INDICAR LO SIGUIENTES PASOS**
+2. **Crear la base de datos MySQL**
+   ```sql
+   CREATE DATABASE virtusdb CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+   ```
+
+3. **Configurar credenciales de base de datos** (si difieren del default)
+   - Editar `backend/src/main/resources/application.properties`
+   - Ajustar `spring.datasource.username` y `spring.datasource.password`
+
+4. **Compilar y ejecutar con Maven**
+   ```bash
+   cd backend
+   mvn spring-boot:run
+   ```
+
+5. **Acceder a la aplicación**
+   - Abrir el navegador en: `https://localhost:8443`
+   - Aceptar el certificado autofirmado (advertencia de seguridad esperada)
+   - Los datos de ejemplo se insertan automáticamente al primer arranque
 
 #### **Credenciales de prueba**
-- **Usuario Admin**: usuario: `admin`, contraseña: `admin`
-- **Usuario Registrado**: usuario: `user`, contraseña: `user`
+| Rol | Email | Contraseña |
+|:---|:---|:---|
+| Administrador | admin@virtus.com | Admin1234! |
+| Usuario registrado | maria@virtus.com | User1234! |
+| Usuario registrado | carlos@virtus.com | User1234! |
 
 ### **Diagrama de Entidades de Base de Datos**
 
-Diagrama mostrando las entidades, sus campos y relaciones:
+![Diagrama de entidades](images/diagrama_entidades.png)
 
-![Diagrama Entidad-Relación](images/database-diagram.png)
+### Relaciones
 
-> [Descripción opcional: Ej: "El diagrama muestra las 4 entidades principales: Usuario, Producto, Pedido y Categoría, con sus respectivos atributos y relaciones 1:N y N:M."]
+| Relación                        | Cardinalidad | Descripción                              |
+|---------------------------------|-------------|------------------------------------------|
+| User → Booking                  | 1:N          | Un usuario puede tener múltiples reservas |
+| FitnessClass → Booking          | 1:N          | Una clase puede tener múltiples reservas  |
+| User → Review                   | 1:N          | Un usuario puede dejar múltiples reseñas  |
+| FitnessClass → Review           | 1:N          | Una clase puede tener múltiples reseñas   |
 
 ### **Diagrama de Clases y Templates**
 
-Diagrama de clases de la aplicación con diferenciación por colores o secciones:
-
-![Diagrama de Clases](images/classes-diagram.png)
-
-> [Descripción opcional del diagrama y relaciones principales]
+![Diagrama de entidades](images/diagrama_clases.png)
 
 ### **Participación de Miembros en la Práctica 2**
 
-#### **Alumno 1 - [Nombre Completo]**
+#### **Jorge Rodríguez Lázaro**
 
-[Descripción de las tareas y responsabilidades principales del alumno en el proyecto]
-
-| Nº    | Commits      | Files      |
-|:------------: |:------------:| :------------:|
-|1| [Descripción commit 1](URL_commit_1)  | [Archivo1](URL_archivo_1)   |
-|2| [Descripción commit 2](URL_commit_2)  | [Archivo2](URL_archivo_2)   |
-|3| [Descripción commit 3](URL_commit_3)  | [Archivo3](URL_archivo_3)   |
-|4| [Descripción commit 4](URL_commit_4)  | [Archivo4](URL_archivo_4)   |
-|5| [Descripción commit 5](URL_commit_5)  | [Archivo5](URL_archivo_5)   |
-
----
-
-#### **Alumno 2 - [Nombre Completo]**
-
-[Descripción de las tareas y responsabilidades principales del alumno en el proyecto]
+Responsable de la seguridad de la aplicación, gestión de usuarios, sistema de reservas con lista de espera y tecnología extra PDF. Implementó Spring Security con control de acceso por rol, el flujo de autenticación (login/register), el perfil de usuario y el algoritmo dinámico de gestión de capacidad con prioridad en lista de espera.
 
 | Nº    | Commits      | Files      |
 |:------------: |:------------:| :------------:|
-|1| [Descripción commit 1](URL_commit_1)  | [Archivo1](URL_archivo_1)   |
-|2| [Descripción commit 2](URL_commit_2)  | [Archivo2](URL_archivo_2)   |
-|3| [Descripción commit 3](URL_commit_3)  | [Archivo3](URL_archivo_3)   |
-|4| [Descripción commit 4](URL_commit_4)  | [Archivo4](URL_archivo_4)   |
-|5| [Descripción commit 5](URL_commit_5)  | [Archivo5](URL_archivo_5)   |
+|1| [Add Spring Security config with HTTPS and role-based access](https://github.com/CodeURJC-SSDD-2025-26/practica-ssdd-2025-26-grupo-8)  | [SecurityConfig.java](backend/src/main/java/es/urjc/virtusfitness/config/SecurityConfig.java)   |
 
 ---
 
-#### **Alumno 3 - [Nombre Completo]**
+#### **Miguel Rey Carballo**
 
-[Descripción de las tareas y responsabilidades principales del alumno en el proyecto]
+Responsable del diseño de las plantillas Thymeleaf principales (home, clases, horarios, precios), el inicializador de datos de ejemplo y la integración del frontend con el backend mediante los modelos y los controladores de vistas públicas.
 
 | Nº    | Commits      | Files      |
 |:------------: |:------------:| :------------:|
-|1| [Descripción commit 1](URL_commit_1)  | [Archivo1](URL_archivo_1)   |
-|2| [Descripción commit 2](URL_commit_2)  | [Archivo2](URL_archivo_2)   |
-|3| [Descripción commit 3](URL_commit_3)  | [Archivo3](URL_archivo_3)   |
-|4| [Descripción commit 4](URL_commit_4)  | [Archivo4](URL_archivo_4)   |
-|5| [Descripción commit 5](URL_commit_5)  | [Archivo5](URL_archivo_5)   |
+|1| [Implement home page and class listing with Thymeleaf](https://github.com/CodeURJC-SSDD-2025-26/practica-ssdd-2025-26-grupo-8)  | [index.html](backend/src/main/resources/templates/index.html)   |
+
 
 ---
 
-#### **Alumno 4 - [Nombre Completo]**
+#### **Pablo Valdés Colomo**
 
-[Descripción de las tareas y responsabilidades principales del alumno en el proyecto]
+Responsable del panel de administración completo (gestión de clases y usuarios), el controlador de clases públicas, el sistema de reseñas y las páginas de error personalizadas. Implementó el CRUD completo de clases desde el panel admin con carga de imágenes a base de datos.
 
 | Nº    | Commits      | Files      |
 |:------------: |:------------:| :------------:|
-|1| [Descripción commit 1](URL_commit_1)  | [Archivo1](URL_archivo_1)   |
-|2| [Descripción commit 2](URL_commit_2)  | [Archivo2](URL_archivo_2)   |
-|3| [Descripción commit 3](URL_commit_3)  | [Archivo3](URL_archivo_3)   |
-|4| [Descripción commit 4](URL_commit_4)  | [Archivo4](URL_archivo_4)   |
-|5| [Descripción commit 5](URL_commit_5)  | [Archivo5](URL_archivo_5)   |
+|1| [Implement admin dashboard with Chart.js statistics](https://github.com/CodeURJC-SSDD-2025-26/practica-ssdd-2025-26-grupo-8)  | [AdminController.java](backend/src/main/java/es/urjc/virtusfitness/controller/AdminController.java)   |
+
 
 ---
-
 ## 🛠 **Práctica 3: API REST, docker y despliegue**
 
 ### **Documentación de la API REST**
