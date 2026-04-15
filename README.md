@@ -345,7 +345,14 @@ Responsable de la seguridad de la aplicación, gestión de usuarios, sistema de 
 
 | Nº    | Commits      | Files      |
 |:------------: |:------------:| :------------:|
-|1| [Add Spring Security config with HTTPS and role-based access](https://github.com/CodeURJC-SSDD-2025-26/practica-ssdd-2025-26-grupo-8)  | [SecurityConfig.java](backend/src/main/java/es/urjc/virtusfitness/config/SecurityConfig.java)   |
+| Nº | Commits | Files |
+|:---:|:---:|:---:|
+| 1 | [Add PDF generation service for booking receipts using iText](https://github.com/CodeURJC-SSDD-2025-26/practica-ssdd-2025-26-grupo-8/commit/8f88785fda0a8ffe045cc343716e612999581a95) | [PdfService.java](backend/src/main/java/es/urjc/virtusfitness/service/PdfService.java) |
+| 2 | [Implement booking service with dynamic waiting list priority algorithm](https://github.com/CodeURJC-SSDD-2025-26/practica-ssdd-2025-26-grupo-8/commit/a5e8201fb75e64819ba4cf9404a7cc4d333c145c) | [BookingService.java](backend/src/main/java/es/urjc/virtusfitness/service/BookingService.java) |
+| 3 | [Add booking repository with waiting list and attendance rate queries](https://github.com/CodeURJC-SSDD-2025-26/practica-ssdd-2025-26-grupo-8/commit/2f76770f25f95dcfd0655b811af85c98869d4b2e) | [BookingRepository.java](backend/src/main/java/es/urjc/virtusfitness/repository/BookingRepository.java) |
+| 4 | [Add profile page with bookings history and edit form](https://github.com/CodeURJC-SSDD-2025-26/practica-ssdd-2025-26-grupo-8/commit/d1cf4b22542a938ba0bfd371f13b5f3e4c7aa041) | [profile.html](backend/src/main/resources/templates/profile.html) |
+| 5 | [Add profile controller with view and edit endpoints](https://github.com/CodeURJC-SSDD-2025-26/practica-ssdd-2025-26-grupo-8/commit/4e8adb6ff7df5e0fd7f35f2e426e4f7a74771f5e) | [ProfileController.java](backend/src/main/java/es/urjc/virtusfitness/controller/ProfileController.java) | 
+
 
 ---
 
