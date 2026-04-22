@@ -40,7 +40,8 @@ public class AdminController {
     @GetMapping("/classes/new")
     public String newClassForm(Model model) {
         model.addAttribute("fitnessClass", new FitnessClass());
-        model.addAttribute("formMode", "new");
+        model.addAttribute("isEditMode", false);
+        model.addAttribute("isNewMode", true);
         return "class-form";
     }
 
@@ -49,7 +50,8 @@ public class AdminController {
         FitnessClass fc = fitnessClassService.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Clase no encontrada"));
         model.addAttribute("fitnessClass", fc);
-        model.addAttribute("formMode", "edit");
+        model.addAttribute("isEditMode", true);
+        model.addAttribute("isNewMode", false);
         return "class-form";
     }
 

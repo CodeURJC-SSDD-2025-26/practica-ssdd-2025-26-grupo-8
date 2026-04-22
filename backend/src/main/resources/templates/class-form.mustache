@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Clase - Virtus Fitness</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/class-form.css">
+</head>
+<body>
+<div class="form-page">
+    <div class="container">
+        <a href="/admin/classes" class="back-button"><i class="bi bi-arrow-left-circle"></i> Volver a Gestión de Clases</a>
+
+        <div class="form-header">
+            <h1>
+                <i class="bi bi-calendar-plus"></i>
+                {{#isEditMode}}Editar Clase{{/isEditMode}}{{#isNewMode}}Añadir Nueva Clase{{/isNewMode}}
+            </h1>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/">Inicio</a></li>
+                    <li class="breadcrumb-item"><a href="/admin/classes">Gestión de Clases</a></li>
+                    <li class="breadcrumb-item active">{{#isEditMode}}Editar{{/isEditMode}}{{#isNewMode}}Nueva Clase{{/isNewMode}}</li>
+                </ol>
+            </nav>
+        </div>
+
+        {{#error}}<div class="alert alert-danger">{{error}}</div>{{/error}}
+
+        <div class="form-container">
+            <div class="info-card">
+                <i class="bi bi-info-circle-fill"></i>
+                <p>Completa todos los campos marcados con <span class="required-indicator">*</span> para guardar la clase.</p>
+            </div>
+
+            <form action="/admin/classes/save" method="post" enctype="multipart/form-data">
+                <input type="hidden" name="{{csrfParameterName}}" value="{{csrfToken}}">
+                {{#fitnessClass.hasId}}
+                <input type="hidden" name="id" value="{{fitnessClass.id}}">
+                {{/fitnessClass.hasId}}
+
+                <h3 class="section-title"><i class="bi bi-file-text"></i> Información Básica</h3>
+
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="form-floating">
+                            <input type="text" class="form-control" id="name" name="name" placeholder="Nombre" value="{{fitnessClass.name}}" required>
+                            <label for="name">Nombre de la Clase <span class="required-indicator">*</span></label>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-floating">
+                            <input type="number" class="form-control" id="capacity" name="capacity" placeholder="Capacidad" min="1" max="100" value="{{fitnessClass.capacityOrDefault}}" required>
+                            <label for="capacity">Capacidad <span class="required-indicator">*</span></label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-floating mt-3">
+                    <textarea class="form-control" id="description" name="description" placeholder="Descripción" style="height:120px">{{fitnessClass.description}}</textarea>
+                    <label for="description">Descripción de la Clase</label>
+                </div>
+
+                <h3 class="section-title mt-4"><i class="bi bi-person-badge"></i> Instructor y Horarios</h3>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-floating">
+                            <input type="text" class="form-control" id="instructor" name="instructor" placeholder="Instructor" value="{{fitnessClass.instructor}}" required>
+                            <label for="instructor">Entrenador Asignado <span class="required-indicator">*</span></label>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-floating">
+                            <select class="form-select" id="duration" name="duration" required>
+                                <option value="30" {{#fitnessClass.duration30}}selected{{/fitnessClass.duration30}}>30 minutos</option>
+                                <option value="45" {{#fitnessClass.duration45}}selected{{/fitnessClass.duration45}}>45 minutos</option>
+                                <option value="50" {{#fitnessClass.duration50}}selected{{/fitnessClass.duration50}}>50 minutos</option>
+                                <option value="55" {{#fitnessClass.duration55}}selected{{/fitnessClass.duration55}}>55 minutos</option>
+                                <option value="60" {{#fitnessClass.duration60}}selected{{/fitnessClass.duration60}}>60 minutos</option>
+                                <option value="90" {{#fitnessClass.duration90}}selected{{/fitnessClass.duration90}}>90 minutos</option>
+                            </select>
+                            <label for="duration">Duración</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-md-6">
+                        <div class="form-floating">
+                            <input type="text" class="form-control" id="schedule" name="schedule" placeholder="Horario" value="{{fitnessClass.schedule}}">
+                            <label for="schedule">Horario (ej: Lun/Mié/Vie 18:00-19:00)</label>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-floating">
+                            <input type="text" class="form-control" id="category" name="category" placeholder="Categoría" value="{{fitnessClass.category}}">
+                            <label for="category">Categoría</label>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-floating">
+                            <input type="number" class="form-control" id="price" name="price" placeholder="Precio" min="0" step="0.01" value="{{fitnessClass.priceOrDefault}}">
+                            <label for="price">Precio (€)</label>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="section-title mt-4"><i class="bi bi-gear"></i> Configuración</h3>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-floating">
+                            <select class="form-select" id="difficulty" name="difficulty">
+                                <option value="Principiante" {{#fitnessClass.difficultyPrincipiante}}selected{{/fitnessClass.difficultyPrincipiante}}>Principiante</option>
+                                <option value="Intermedio" {{#fitnessClass.difficultyIntermedio}}selected{{/fitnessClass.difficultyIntermedio}}>Intermedio</option>
+                                <option value="Avanzado" {{#fitnessClass.difficultyAvanzado}}selected{{/fitnessClass.difficultyAvanzado}}>Avanzado</option>
+                                <option value="Todos los niveles" {{#fitnessClass.difficultyTodos}}selected{{/fitnessClass.difficultyTodos}}>Todos los niveles</option>
+                            </select>
+                            <label for="difficulty">Nivel de Dificultad</label>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-check mt-3">
+                            <input class="form-check-input" type="checkbox" id="active" name="active" {{#fitnessClass.activeOrNew}}checked{{/fitnessClass.activeOrNew}}>
+                            <label class="form-check-label fw-bold" for="active">Clase activa y disponible</label>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="section-title mt-4"><i class="bi bi-image"></i> Imagen de la Clase</h3>
+
+                <div class="mb-3">
+                    {{#fitnessClass.hasImage}}
+                    <div class="mb-3">
+                        <img src="/images/class/{{fitnessClass.id}}" alt="Imagen actual" style="max-height:150px;border-radius:8px;">
+                        <p class="small text-muted mt-1">Imagen actual. Sube una nueva para reemplazarla.</p>
+                    </div>
+                    {{/fitnessClass.hasImage}}
+                    <input type="file" class="form-control" name="image" accept="image/*">
+                </div>
+
+                <div class="form-actions">
+                    <a href="/admin/classes" class="btn btn-form-action btn-cancel"><i class="bi bi-x-circle"></i> Cancelar</a>
+                    <button type="submit" class="btn btn-form-action btn-save"><i class="bi bi-check-circle"></i> Guardar Cambios</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

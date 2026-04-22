@@ -1,4 +1,4 @@
-package es.urjc.virtusfitness.init;
+package es.urjc.virtusfitness.service;
 
 import es.urjc.virtusfitness.model.Booking;
 import es.urjc.virtusfitness.model.FitnessClass;

@@ -109,4 +109,42 @@ public class FitnessClass {
         if (reviews.isEmpty()) return 0.0;
         return reviews.stream().mapToInt(Review::getRating).average().orElse(0.0);
     }
+
+    // Mustache helpers
+    public String getShortDescription() {
+        if (description == null) return "";
+        return description.length() > 80 ? description.substring(0, 80) + "..." : description;
+    }
+
+    public String getMediumDescription() {
+        if (description == null) return "";
+        return description.length() > 120 ? description.substring(0, 120) + "..." : description;
+    }
+
+    public boolean isHasImage() { return image != null; }
+    public boolean isHasSchedule() { return schedule != null && !schedule.isEmpty(); }
+    public boolean isHasInstructor() { return instructor != null && !instructor.isEmpty(); }
+    public boolean isHasId() { return id != null; }
+    public boolean isActiveOrNew() { return active || id == null; }
+
+    public boolean isDuration30() { return duration == 30; }
+    public boolean isDuration45() { return duration == 45 || duration == 0; }
+    public boolean isDuration50() { return duration == 50; }
+    public boolean isDuration55() { return duration == 55; }
+    public boolean isDuration60() { return duration == 60; }
+    public boolean isDuration90() { return duration == 90; }
+
+    public boolean isDifficultyPrincipiante() { return "Principiante".equals(difficulty); }
+    public boolean isDifficultyIntermedio() { return "Intermedio".equals(difficulty); }
+    public boolean isDifficultyAvanzado() { return "Avanzado".equals(difficulty); }
+    public boolean isDifficultyTodos() { return "Todos los niveles".equals(difficulty); }
+
+    public int getCapacityOrDefault() { return capacity != 0 ? capacity : 20; }
+    public double getPriceOrDefault() { return price != 0 ? price : 15.0; }
+    public String getDurationText() { return duration + " min"; }
+
+    public String getInstructorInitials() {
+        String src = (instructor != null && !instructor.isEmpty()) ? instructor : "NA";
+        return src.substring(0, Math.min(2, src.length())).toUpperCase();
+    }
 }

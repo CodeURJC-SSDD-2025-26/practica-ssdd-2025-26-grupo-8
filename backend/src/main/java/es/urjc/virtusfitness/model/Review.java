@@ -2,6 +2,10 @@ package es.urjc.virtusfitness.model;
 
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
 
 @Entity
 @Table(name = "reviews")
@@ -48,4 +52,33 @@ public class Review {
 
     public LocalDateTime getDate() { return date; }
     public void setDate(LocalDateTime date) { this.date = date; }
+
+    // Mustache helpers
+    public String getFormattedDate() {
+        if (date == null) return "";
+        return date.format(DateTimeFormatter.ofPattern("MMMM yyyy", new Locale("es")));
+    }
+
+    public String getUserInitials() {
+        String name = user != null ? user.getUsername() : "US";
+        if (name == null || name.isEmpty()) return "US";
+        return name.substring(0, Math.min(2, name.length())).toUpperCase();
+    }
+
+    public List<StarItem> getStars() {
+        List<StarItem> stars = new ArrayList<>();
+        for (int i = 1; i <= 5; i++) {
+            stars.add(new StarItem(i <= rating));
+        }
+        return stars;
+    }
+
+    public static class StarItem {
+        private final boolean filled;
+
+        public StarItem(boolean filled) { this.filled = filled; }
+
+        public boolean isFilled() { return filled; }
+        public String getStarClass() { return filled ? "bi bi-star-fill" : "bi bi-star"; }
+    }
 }

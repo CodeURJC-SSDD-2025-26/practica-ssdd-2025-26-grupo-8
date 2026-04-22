@@ -1,4 +1,4 @@
-package es.urjc.virtusfitness.config;
+package es.urjc.virtusfitness.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

@@ -1,27 +1,26 @@
 <!DOCTYPE html>
-<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Panel de Administración - Virtus Fitness</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-    <link rel="stylesheet" th:href="@{/css/styles.css}">
-    <link rel="stylesheet" th:href="@{/css/admin.css}">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/admin.css">
 </head>
 <body>
 
     <div class="admin-dashboard">
 
-        <!-- Page Header -->
         <div class="admin-page-header">
             <div class="container">
-                <a th:href="@{/}" class="back-button">
+                <a href="/" class="back-button">
                     <i class="bi bi-arrow-left-circle"></i> Volver al Inicio
                 </a>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a th:href="@{/}">Inicio</a></li>
+                        <li class="breadcrumb-item"><a href="/">Inicio</a></li>
                         <li class="breadcrumb-item active">Administración</li>
                     </ol>
                 </nav>
@@ -30,22 +29,20 @@
             </div>
         </div>
 
-        <!-- Admin Content -->
         <div class="container">
 
-            <!-- Alerts -->
-            <div th:if="${success}" class="alert alert-success alert-dismissible fade show mt-3">
-                <span th:text="${success}"></span>
+            {{#success}}
+            <div class="alert alert-success alert-dismissible fade show mt-3">
+                {{success}}
                 <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
             </div>
+            {{/success}}
 
             <div class="admin-content">
 
-                <!-- Panel Cards -->
                 <div class="admin-panels">
 
-                    <!-- Gestión de Clases -->
-                    <a th:href="@{/admin/classes}" class="panel-card">
+                    <a href="/admin/classes" class="panel-card">
                         <div class="panel-card-hero">
                             <div class="panel-card-icon"><i class="bi bi-calendar-check"></i></div>
                             <div class="panel-card-text">
@@ -55,10 +52,10 @@
                         </div>
                         <div class="panel-card-stats">
                             <div class="panel-stat">
-                                <strong th:text="${totalClasses}">0</strong><span>Clases</span>
+                                <strong>{{totalClasses}}</strong><span>Clases</span>
                             </div>
                             <div class="panel-stat">
-                                <strong th:text="${activeClasses}">0</strong><span>Activas</span>
+                                <strong>{{activeClasses}}</strong><span>Activas</span>
                             </div>
                         </div>
                         <div class="panel-card-footer">
@@ -67,8 +64,7 @@
                         </div>
                     </a>
 
-                    <!-- Gestión de Usuarios -->
-                    <a th:href="@{/admin/users}" class="panel-card">
+                    <a href="/admin/users" class="panel-card">
                         <div class="panel-card-hero">
                             <div class="panel-card-icon"><i class="bi bi-people-fill"></i></div>
                             <div class="panel-card-text">
@@ -78,7 +74,7 @@
                         </div>
                         <div class="panel-card-stats">
                             <div class="panel-stat">
-                                <strong th:text="${totalUsers}">0</strong><span>Usuarios</span>
+                                <strong>{{totalUsers}}</strong><span>Usuarios</span>
                             </div>
                         </div>
                         <div class="panel-card-footer">
@@ -88,7 +84,6 @@
                     </a>
                 </div>
 
-                <!-- Chart Card -->
                 <div class="chart-card">
                     <div class="chart-card-header">
                         <div>
@@ -100,19 +95,19 @@
                         <div class="row g-3">
                             <div class="col-6">
                                 <div class="text-center p-3" style="background:rgba(200,255,0,0.08);border-radius:8px;">
-                                    <h2 class="text-warning mb-1" th:text="${totalClasses}">0</h2>
+                                    <h2 class="text-warning mb-1">{{totalClasses}}</h2>
                                     <small class="text-muted">Total Clases</small>
                                 </div>
                             </div>
                             <div class="col-6">
                                 <div class="text-center p-3" style="background:rgba(200,255,0,0.08);border-radius:8px;">
-                                    <h2 class="text-warning mb-1" th:text="${activeClasses}">0</h2>
+                                    <h2 class="text-warning mb-1">{{activeClasses}}</h2>
                                     <small class="text-muted">Clases Activas</small>
                                 </div>
                             </div>
                             <div class="col-6">
                                 <div class="text-center p-3" style="background:rgba(200,255,0,0.08);border-radius:8px;">
-                                    <h2 class="text-warning mb-1" th:text="${totalUsers}">0</h2>
+                                    <h2 class="text-warning mb-1">{{totalUsers}}</h2>
                                     <small class="text-muted">Usuarios Registrados</small>
                                 </div>
                             </div>

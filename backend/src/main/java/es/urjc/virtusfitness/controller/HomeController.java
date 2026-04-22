@@ -5,6 +5,7 @@ import es.urjc.virtusfitness.service.FitnessClassService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -47,7 +48,8 @@ public class HomeController {
     }
 
     @GetMapping("/login")
-    public String login() {
+    public String login(@RequestParam(required = false) String error, Model model) {
+        model.addAttribute("loginError", error != null);
         return "login";
     }
 }

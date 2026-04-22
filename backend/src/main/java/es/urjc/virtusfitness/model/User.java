@@ -82,4 +82,24 @@ public class User {
     public boolean isAdmin() {
         return "ROLE_ADMIN".equals(this.role);
     }
+
+    // Mustache helpers
+    public boolean isHasAvatar() { return avatar != null; }
+    public boolean isRoleAdmin() { return isAdmin(); }
+    public boolean isPlanBasico() { return "Básico".equals(planType); }
+    public boolean isPlanPremium() { return "Premium".equals(planType); }
+    public boolean isPlanElite() { return "Elite".equals(planType); }
+
+    public String getUserInitials() {
+        if (username == null || username.isEmpty()) return "US";
+        return username.substring(0, Math.min(2, username.length())).toUpperCase();
+    }
+
+    public String getRoleBadgeClass() {
+        return isAdmin() ? "badge mt-2 bg-danger" : "badge mt-2 bg-secondary";
+    }
+
+    public String getRoleBadgeText() {
+        return isAdmin() ? "Administrator" : "User";
+    }
 }

@@ -32,6 +32,7 @@ public class ProfileController {
         List<Booking> bookings = bookingService.getUserBookings(principal);
         model.addAttribute("user", user);
         model.addAttribute("bookings", bookings);
+        model.addAttribute("bookingsCount", bookings.size());
         long completedCount = bookings.stream().filter(b -> "CONFIRMADA".equals(b.getStatus())).count();
         model.addAttribute("completedCount", completedCount);
         return "profile";
