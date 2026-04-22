@@ -197,11 +197,49 @@ Responsible for administrative dashboard layouts and chart system design.
 
 #### **Diagrama de Navegación**
 
-Solo si ha cambiado.
+El siguiente diagrama describe el flujo de navegación de la aplicación web VirtusFitness, diferenciando las rutas accesibles según el rol del usuario.
 
-#### **Capturas de Pantalla Actualizadas**
+```
+┌─────────────────────────────────────────────────────────────┐
+│                     USUARIO ANÓNIMO                         │
+│                                                             │
+│   /  (Home)                                                 │
+│    ├── /classes          → Lista de clases activas          │
+│    │     └── /classes/{id}   → Detalle de clase             │
+│    ├── /schedule         → Horario de clases                │
+│    ├── /pricing          → Planes y precios                 │
+│    ├── /about            → Sobre nosotros                   │
+│    ├── /contact          → Contacto                         │
+│    ├── /login            → Formulario de login              │
+│    └── /register         → Formulario de registro           │
+└─────────────────────────────────────────────────────────────┘
 
-Solo si han cambiado.
+┌─────────────────────────────────────────────────────────────┐
+│                   USUARIO AUTENTICADO                       │
+│                                                             │
+│   Todo lo anterior, más:                                    │
+│    ├── /profile                → Ver perfil y reservas      │
+│    │     └── /profile/edit     → Editar perfil              │
+│    ├── /bookings/new           → Crear reserva              │
+│    ├── /bookings/{id}/cancel   → Cancelar reserva           │
+│    └── /classes/{id}/reviews   → Publicar reseña            │
+└─────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────┐
+│                   ADMINISTRADOR (ROLE_ADMIN)                │
+│                                                             │
+│   Todo lo anterior, más:                                    │
+│    └── /admin                        → Panel de control     │
+│          ├── /admin/classes          → Gestión de clases    │
+│          │     ├── /admin/classes/new          → Nueva clase │
+│          │     ├── /admin/classes/{id}/edit    → Editar      │
+│          │     ├── /admin/classes/save         → Guardar     │
+│          │     └── /admin/classes/{id}/delete  → Eliminar    │
+│          └── /admin/users            → Gestión de usuarios  │
+│                ├── /admin/users/{id}           → Ver perfil  │
+│                └── /admin/users/{id}/delete    → Eliminar    │
+└─────────────────────────────────────────────────────────────┘
+```
 
 ### **Instrucciones de Ejecución**
 
@@ -215,76 +253,92 @@ Solo si han cambiado.
 
 1. **Clonar el repositorio**
    ```bash
-   git clone https://github.com/[usuario]/[nombre-repositorio].git
-   cd [nombre-repositorio]
+   git clone https://github.com/[usuario]/virtusfitness.git
+   cd virtusfitness
    ```
 
-2. **AQUÍ INDICAR LO SIGUIENTES PASOS**
+2. **Crear la base de datos MySQL**
+   ```sql
+   CREATE DATABASE virtusdb CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+   ```
+
+3. **Configurar credenciales de base de datos** (si difieren del default)
+   - Editar `backend/src/main/resources/application.properties`
+   - Ajustar `spring.datasource.username` y `spring.datasource.password`
+
+4. **Compilar y ejecutar con Maven**
+   ```bash
+   cd backend
+   mvn spring-boot:run
+   ```
+
+5. **Acceder a la aplicación**
+   - Abrir el navegador en: `https://localhost:8443`
+   - Aceptar el certificado autofirmado (advertencia de seguridad esperada)
+   - Los datos de ejemplo se insertan automáticamente al primer arranque
 
 #### **Credenciales de prueba**
-- **Usuario Admin**: usuario: `admin`, contraseña: `admin`
-- **Usuario Registrado**: usuario: `user`, contraseña: `user`
+| Rol | Email | Contraseña |
+|:---|:---|:---|
+| Administrador | admin@virtus.com | Admin1234! |
+| Usuario registrado | maria@virtus.com | User1234! |
+| Usuario registrado | carlos@virtus.com | User1234! |
 
 ### **Diagrama de Entidades de Base de Datos**
 
-Diagrama mostrando las entidades, sus campos y relaciones:
+![Diagrama de entidades](images/database-diagram.png)
 
-![Diagrama Entidad-Relación](images/database-diagram.png)
+### Relaciones
 
-> [Descripción opcional: Ej: "El diagrama muestra las 4 entidades principales: Usuario, Producto, Pedido y Categoría, con sus respectivos atributos y relaciones 1:N y N:M."]
+| Relación                        | Cardinalidad | Descripción                              |
+|---------------------------------|-------------|------------------------------------------|
+| User → Booking                  | 1:N          | Un usuario puede tener múltiples reservas |
+| FitnessClass → Booking          | 1:N          | Una clase puede tener múltiples reservas  |
+| User → Review                   | 1:N          | Un usuario puede dejar múltiples reseñas  |
+| FitnessClass → Review           | 1:N          | Una clase puede tener múltiples reseñas   |
 
 ### **Diagrama de Clases y Templates**
 
-Diagrama de clases de la aplicación con diferenciación por colores o secciones:
-
-![Diagrama de Clases](images/classes-diagram.png)
-
-> [Descripción opcional del diagrama y relaciones principales]
+![Diagrama de clases](images/classes-diagram.png)
 
 ### **Participación de Miembros en la Práctica 2**
 
 #### **Jorge Rodríguez Lázaro**
 
-[Descripción de las tareas y responsabilidades principales en la Práctica 2]
+Responsable de la seguridad de la aplicación, gestión de usuarios, sistema de reservas con lista de espera y tecnología extra PDF. Implementó Spring Security con control de acceso por rol, el flujo de autenticación (login/register), el perfil de usuario y el algoritmo dinámico de gestión de capacidad con prioridad en lista de espera.
 
 | Nº    | Commits      | Files      |
 |:------------: |:------------:| :------------:|
-|1| [Descripción commit 1](URL_commit_1)  | [Archivo1](URL_archivo_1)   |
-|2| [Descripción commit 2](URL_commit_2)  | [Archivo2](URL_archivo_2)   |
-|3| [Descripción commit 3](URL_commit_3)  | [Archivo3](URL_archivo_3)   |
-|4| [Descripción commit 4](URL_commit_4)  | [Archivo4](URL_archivo_4)   |
-|5| [Descripción commit 5](URL_commit_5)  | [Archivo5](URL_archivo_5)   |
+| 1 | [Add PDF generation service for booking receipts using iText](https://github.com/CodeURJC-SSDD-2025-26/practica-ssdd-2025-26-grupo-8/commit/8f88785fda0a8ffe045cc343716e612999581a95) | [PdfService.java](backend/src/main/java/es/urjc/virtusfitness/service/PdfService.java) |
+| 2 | [Implement booking service with dynamic waiting list priority algorithm](https://github.com/CodeURJC-SSDD-2025-26/practica-ssdd-2025-26-grupo-8/commit/a5e8201fb75e64819ba4cf9404a7cc4d333c145c) | [BookingService.java](backend/src/main/java/es/urjc/virtusfitness/service/BookingService.java) |
+| 3 | [Add booking repository with waiting list and attendance rate queries](https://github.com/CodeURJC-SSDD-2025-26/practica-ssdd-2025-26-grupo-8/commit/2f76770f25f95dcfd0655b811af85c98869d4b2e) | [BookingRepository.java](backend/src/main/java/es/urjc/virtusfitness/repository/BookingRepository.java) |
+| 4 | [Add profile page with bookings history and edit form](https://github.com/CodeURJC-SSDD-2025-26/practica-ssdd-2025-26-grupo-8/commit/d1cf4b22542a938ba0bfd371f13b5f3e4c7aa041) | [profile.html](backend/src/main/resources/templates/profile.html) |
+| 5 | [Add profile controller with view and edit endpoints](https://github.com/CodeURJC-SSDD-2025-26/practica-ssdd-2025-26-grupo-8/commit/4e8adb6ff7df5e0fd7f35f2e426e4f7a74771f5e) | [ProfileController.java](backend/src/main/java/es/urjc/virtusfitness/controller/ProfileController.java) | 
+
 
 ---
 
 #### **Miguel Rey Carballo**
 
-Desarrollo del backend Spring Boot: modelos JPA, repositorios, servicios, controladores MVC y plantillas Thymeleaf de la aplicación.
+Responsable del diseño de las plantillas Thymeleaf principales (home, clases, horarios, precios), el inicializador de datos de ejemplo y la integración del frontend con el backend mediante los modelos y los controladores de vistas públicas.
 
 | Nº    | Commits      | Files      |
 |:------------: |:------------:| :------------:|
-|1| [Add model classes: User, Booking, Review](https://github.com/CodeURJC-SSDD-2025-26/practica-ssdd-2025-26-grupo-8/commit/689fb1a) | [model/](https://github.com/CodeURJC-SSDD-2025-26/practica-ssdd-2025-26-grupo-8/tree/Practica2/backend/src/main/java/es/urjc/virtusfitness/model) |
-|2| [Add repositories: UserRepository, ReviewRepository](https://github.com/CodeURJC-SSDD-2025-26/practica-ssdd-2025-26-grupo-8/commit/715f365) | [repository/](https://github.com/CodeURJC-SSDD-2025-26/practica-ssdd-2025-26-grupo-8/tree/Practica2/backend/src/main/java/es/urjc/virtusfitness/repository) |
-|3| [Add services: UserService, ReviewService](https://github.com/CodeURJC-SSDD-2025-26/practica-ssdd-2025-26-grupo-8/commit/b28b21c) | [service/](https://github.com/CodeURJC-SSDD-2025-26/practica-ssdd-2025-26-grupo-8/tree/Practica2/backend/src/main/java/es/urjc/virtusfitness/service) |
-|4| [Add controllers: Home, Class, Review](https://github.com/CodeURJC-SSDD-2025-26/practica-ssdd-2025-26-grupo-8/commit/427689e) | [controller/](https://github.com/CodeURJC-SSDD-2025-26/practica-ssdd-2025-26-grupo-8/tree/Practica2/backend/src/main/java/es/urjc/virtusfitness/controller) |
-|5| [Add Thymeleaf templates: index, classes, class-detail, schedule, pricing, about, contact](https://github.com/CodeURJC-SSDD-2025-26/practica-ssdd-2025-26-grupo-8/commit/6d6009b) | [templates/](https://github.com/CodeURJC-SSDD-2025-26/practica-ssdd-2025-26-grupo-8/tree/Practica2/backend/src/main/resources/templates) |
+|1| [Implement home page and class listing with Mustache](https://github.com/CodeURJC-SSDD-2025-26/practica-ssdd-2025-26-grupo-8)  | [index.html](backend/src/main/resources/templates/index.html)   |
+
 
 ---
 
 #### **Pablo Valdés Colomo**
 
-[Descripción de las tareas y responsabilidades principales en la Práctica 2]
+Responsable del panel de administración completo (gestión de clases y usuarios), el controlador de clases públicas, el sistema de reseñas y las páginas de error personalizadas. Implementó el CRUD completo de clases desde el panel admin con carga de imágenes a base de datos.
 
 | Nº    | Commits      | Files      |
 |:------------: |:------------:| :------------:|
-|1| [Add FitnessClass entity with attributes and relationships](https://github.com/CodeURJC-SSDD-2025-26/practica-ssdd-2025-26-grupo-8/commit/b8b2fe4) | [FitnessClass.java](https://github.com/CodeURJC-SSDD-2025-26/practica-ssdd-2025-26-grupo-8/blob/main/backend/src/main/java/es/urjc/virtusfitness/model/FitnessClass.java) |
-|2| [Descripción commit 2](URL_commit_2)  | [Archivo2](URL_archivo_2)   |
-|3| [Descripción commit 3](URL_commit_3)  | [Archivo3](URL_archivo_3)   |
-|4| [Descripción commit 4](URL_commit_4)  | [Archivo4](URL_archivo_4)   |
-|5| [Descripción commit 5](URL_commit_5)  | [Archivo5](URL_archivo_5)   |
+|1| [Add fitness class model, repository, service, admin controllers and templates](https://github.com/CodeURJC-SSDD-2025-26/practica-ssdd-2025-26-grupo-8/commit/45f7746)  | [AdminController.java](backend/src/main/java/es/urjc/virtusfitness/controller/AdminController.java), [FitnessClass.java](backend/src/main/java/es/urjc/virtusfitness/model/FitnessClass.java), [FitnessClassRepository.java](backend/src/main/java/es/urjc/virtusfitness/repository/FitnessClassRepository.java), [FitnessClassService.java](backend/src/main/java/es/urjc/virtusfitness/service/FitnessClassService.java), [index.html](backend/src/main/resources/templates/admin/index.html), [classes.html](backend/src/main/resources/templates/admin/classes.html), [users.html](backend/src/main/resources/templates/admin/users.html), [user-detail.html](backend/src/main/resources/templates/admin/user-detail.html), [class-form.html](backend/src/main/resources/templates/class-form.html), [404.html](backend/src/main/resources/templates/error/404.html), [500.html](backend/src/main/resources/templates/error/500.html)   |
+
 
 ---
-
 ## 🛠 **Práctica 3: API REST, docker y despliegue**
 
 ### **Documentación de la API REST**
