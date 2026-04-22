@@ -241,42 +241,6 @@ El siguiente diagrama describe el flujo de navegación de la aplicación web Vir
 └─────────────────────────────────────────────────────────────┘
 ```
 
-#### **Capturas de Pantalla Actualizadas**
-
-El diseño visual de las páginas se mantiene respecto a la Práctica 1. Las siguientes capturas corresponden a las vistas principales de la aplicación con HTML generado en servidor (Thymeleaf):
-
-#### **1. Home Page**
-![Home Page](images-readme/home-page.jpeg)
-> Página principal generada en servidor con datos de clases activas cargados desde la base de datos.
-
-#### **2. Classes Page**
-![Classes Page](images-readme/classes-page.jpeg)
-> Listado de clases con imágenes almacenadas en base de datos y datos reales de capacidad e instructor.
-
-#### **3. Schedule Page**
-![Schedule Page](images-readme/schedule-page.jpeg)
-> Horario semanal con datos de clases generados dinámicamente desde la BBDD.
-
-#### **4. Login Page**
-![Login Page](images-readme/login-page.jpeg)
-> Formulario de login gestionado por Spring Security.
-
-#### **5. Register Page**
-![Register Page](images-readme/register-page.jpeg)
-> Formulario de registro con validación de email único en backend.
-
-#### **6. Admin Page**
-![Admin Page](images-readme/admin-page.jpeg)
-> Panel de administración con gráfica de reservas por clase (Chart.js) y estadísticas del sistema.
-
-#### **7. Admin Classes Page**
-![Admin Classes Page](images-readme/adminclasses-page.png)
-> Gestión CRUD de clases con imágenes almacenadas en LONGBLOB en MySQL.
-
-#### **8. Admin Users Page**
-![Admin Users Page](images-readme/adminusers-page.png)
-> Gestión de usuarios con acceso al perfil individual de cada usuario.
-
 ### **Instrucciones de Ejecución**
 
 #### **Requisitos Previos**
@@ -322,7 +286,7 @@ El diseño visual de las páginas se mantiene respecto a la Práctica 1. Las sig
 
 ### **Diagrama de Entidades de Base de Datos**
 
-![Diagrama de entidades](images-readme/diagrama_entidades.png)
+![Diagrama de entidades](images/database-diagram.png)
 
 ### Relaciones
 
@@ -335,7 +299,7 @@ El diseño visual de las páginas se mantiene respecto a la Práctica 1. Las sig
 
 ### **Diagrama de Clases y Templates**
 
-![Diagrama de clases](images-readme/diagrama_clases.png)
+![Diagrama de clases](images/classes-diagram.png)
 
 ### **Participación de Miembros en la Práctica 2**
 
@@ -360,7 +324,7 @@ Responsable del diseño de las plantillas Thymeleaf principales (home, clases, h
 
 | Nº    | Commits      | Files      |
 |:------------: |:------------:| :------------:|
-|1| [Implement home page and class listing with Thymeleaf](https://github.com/CodeURJC-SSDD-2025-26/practica-ssdd-2025-26-grupo-8)  | [index.html](backend/src/main/resources/templates/index.html)   |
+|1| [Implement home page and class listing with Mustache](https://github.com/CodeURJC-SSDD-2025-26/practica-ssdd-2025-26-grupo-8)  | [index.html](backend/src/main/resources/templates/index.html)   |
 
 
 ---
