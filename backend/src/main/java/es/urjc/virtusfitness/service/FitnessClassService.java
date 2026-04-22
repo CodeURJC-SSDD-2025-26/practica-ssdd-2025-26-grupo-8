@@ -55,6 +55,6 @@ public class FitnessClassService {
     }
 
     public long countActive() {
-        return fitnessClassRepository.findByActiveTrue().size();
+        return fitnessClassRepository.countByActiveTrue();
     }
 }

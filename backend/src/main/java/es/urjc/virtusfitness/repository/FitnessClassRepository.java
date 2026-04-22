@@ -11,4 +11,5 @@ public interface FitnessClassRepository extends JpaRepository<FitnessClass, Long
     List<FitnessClass> findByActiveTrue();
     List<FitnessClass> findByCategory(String category);
     List<FitnessClass> findByActiveTrueOrderByIdAsc();
+    long countByActiveTrue();
 }
