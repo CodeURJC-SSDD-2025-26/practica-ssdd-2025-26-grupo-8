@@ -1,0 +1,324 @@
+/* ============================================================
+   VIRTUS FITNESS — Schedule Page — Dark Theme
+   ============================================================ */
+
+/* Page hero */
+.schedule-hero {
+  position: relative;
+  height: 38vh;
+  min-height: 300px;
+  background-image: url('../images/hero-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  overflow: hidden;
+}
+
+.schedule-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(200,255,0,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(200,255,0,0.025) 1px, transparent 1px);
+  background-size: 60px 60px;
+  z-index: 1;
+}
+
+.schedule-hero .hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(8,8,8,0.5) 0%,
+    rgba(8,8,8,0.82) 100%
+  );
+  z-index: 1;
+}
+
+.schedule-hero .hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 100% !important;
+  padding: 2rem !important;
+}
+
+.schedule-hero .hero-content h1 {
+  font-family: 'Bebas Neue', sans-serif !important;
+  font-size: clamp(2.6rem, 5vw, 4.2rem) !important;
+  letter-spacing: 3px !important;
+  line-height: 1 !important;
+  margin-bottom: 0.6rem !important;
+  color: #F0F0F0 !important;
+}
+
+.schedule-hero .hero-content p {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.88rem;
+  color: rgba(255,255,255,0.5);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Schedule page section */
+.schedule-page {
+  background: #080808;
+  padding: 4rem 0 5rem;
+}
+
+/* Table outer wrapper */
+.schedule-wrapper {
+  background: #0e0e0e;
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 24px 80px rgba(0,0,0,0.55);
+}
+
+/* Table base — override Bootstrap CSS vars so no white backgrounds bleed in */
+.schedule-table {
+  margin: 0;
+  border-collapse: collapse;
+  width: 100%;
+  /* Reset Bootstrap table variables */
+  --bs-table-bg: transparent;
+  --bs-table-color: #F0F0F0;
+  --bs-table-border-color: rgba(255,255,255,0.04);
+  --bs-table-accent-bg: transparent;
+  --bs-table-hover-bg: transparent;
+  --bs-table-striped-bg: transparent;
+  color: #F0F0F0;
+}
+
+/* Header row */
+.schedule-table thead th {
+  background: #111 !important;
+  border-bottom: 1px solid rgba(200,255,0,0.12) !important;
+  border-right: 1px solid rgba(255,255,255,0.05) !important;
+  color: #555 !important;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  padding: 1.1rem 0.9rem;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.schedule-table thead th:first-child {
+  color: #C8FF00 !important;
+  text-align: left !important;
+  padding-left: 1.4rem !important;
+}
+
+.schedule-table thead th:last-child {
+  border-right: none;
+}
+
+/* Body cells */
+.schedule-table tbody td {
+  border-right: 1px solid rgba(255,255,255,0.04) !important;
+  border-bottom: 1px solid rgba(255,255,255,0.04) !important;
+  padding: 0.5rem !important;
+  background: #0e0e0e !important;
+  vertical-align: middle !important;
+  text-align: center !important;
+  color: #F0F0F0 !important;
+  box-shadow: none !important;
+}
+
+.schedule-table tbody td:last-child {
+  border-right: none;
+}
+
+.schedule-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.schedule-table tbody tr:hover td {
+  background: #121212;
+}
+
+/* Time column cell */
+.time-cell {
+  text-align: left !important;
+  padding: 0.9rem 1.4rem !important;
+  background: #0a0a0a !important;
+  border-right: 1px solid rgba(200,255,0,0.07) !important;
+  white-space: nowrap;
+  min-width: 120px;
+}
+
+.time-range {
+  display: block;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.86rem;
+  font-weight: 700;
+  color: #C8FF00;
+  letter-spacing: 0.5px;
+}
+
+.time-duration {
+  display: block;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.62rem;
+  color: #484848;
+  margin-top: 0.2rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* Activity slot card */
+.activity-slot {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0.6rem 0.75rem;
+  border-radius: 7px;
+  border-left: 3px solid transparent;
+  background: rgba(255,255,255,0.03);
+  text-align: left;
+  transition: all 0.22s ease;
+  min-height: 68px;
+  justify-content: center;
+  cursor: default;
+}
+
+.activity-slot:hover {
+  background: rgba(255,255,255,0.06);
+  transform: translateX(2px);
+}
+
+.act-name {
+  display: block;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  line-height: 1.2;
+  margin-bottom: 0.3rem;
+}
+
+.act-room {
+  display: block;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.62rem;
+  color: #4a4a4a;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+
+/* — Activity color themes — */
+.act-yoga   { border-color: #00d9b1; background: rgba(0,217,177,0.06); }
+.act-yoga   .act-name { color: #00d9b1; }
+.act-yoga:hover { background: rgba(0,217,177,0.10); }
+
+.act-crossfit   { border-color: #ff5e5e; background: rgba(255,94,94,0.06); }
+.act-crossfit   .act-name { color: #ff5e5e; }
+.act-crossfit:hover { background: rgba(255,94,94,0.10); }
+
+.act-cycling    { border-color: #4d8cff; background: rgba(77,140,255,0.06); }
+.act-cycling    .act-name { color: #4d8cff; }
+.act-cycling:hover { background: rgba(77,140,255,0.10); }
+
+.act-boxing     { border-color: #ff3d6e; background: rgba(255,61,110,0.06); }
+.act-boxing     .act-name { color: #ff3d6e; }
+.act-boxing:hover { background: rgba(255,61,110,0.10); }
+
+.act-pilates    { border-color: #b06bff; background: rgba(176,107,255,0.06); }
+.act-pilates    .act-name { color: #b06bff; }
+.act-pilates:hover { background: rgba(176,107,255,0.10); }
+
+.act-zumba      { border-color: #ff8c42; background: rgba(255,140,66,0.06); }
+.act-zumba      .act-name { color: #ff8c42; }
+.act-zumba:hover { background: rgba(255,140,66,0.10); }
+
+/* Legend bar */
+.schedule-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+  margin-top: 2rem;
+  padding: 1.25rem 1.5rem;
+  background: #0e0e0e;
+  border: 1px solid rgba(255,255,255,0.05);
+  border-radius: 10px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.74rem;
+  color: #555;
+}
+
+.legend-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+/* Info box */
+.schedule-info-box {
+  background: #0e0e0e;
+  border: 1px solid rgba(255,255,255,0.06);
+  border-left: 3px solid #C8FF00;
+  border-radius: 10px;
+  padding: 1.25rem 1.5rem;
+  margin-top: 1.5rem;
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.schedule-info-box .info-icon {
+  color: #C8FF00;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+
+.schedule-info-box h5 {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 700;
+  font-size: 0.86rem;
+  color: #F0F0F0;
+  margin-bottom: 0.35rem;
+}
+
+.schedule-info-box p {
+  color: #555;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.83rem;
+  margin: 0;
+  line-height: 1.7;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .schedule-table { font-size: 0.82rem; }
+  .activity-slot { min-height: 56px; padding: 0.45rem 0.55rem; }
+  .act-name { font-size: 0.7rem; }
+  .act-room { font-size: 0.58rem; }
+}
+
+@media (max-width: 768px) {
+  .schedule-hero {
+    height: 30vh;
+    background-attachment: scroll;
+  }
+  .schedule-page { padding: 2rem 0 3rem; }
+  .time-cell { min-width: 80px; padding: 0.7rem 0.8rem !important; }
+  .time-range { font-size: 0.74rem; }
+  .time-duration { display: none; }
+  .activity-slot { min-height: 50px; }
+}

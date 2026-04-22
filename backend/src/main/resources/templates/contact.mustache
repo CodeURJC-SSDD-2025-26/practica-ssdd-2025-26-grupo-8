@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - Virtus Fitness</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/contact.css">
+</head>
+<body>
+    {{> fragments/navbar}}
+
+    <main class="container mt-5 pt-5 mb-5">
+        <div class="row mt-4 align-items-center">
+            <div class="col-md-6">
+                <h2 class="section-title">Ponte en Contacto</h2>
+                <p class="text-muted">¿Tienes alguna duda? Nuestro equipo de expertos está listo para ayudarte a alcanzar tu máximo potencial.</p>
+                <form class="mt-4">
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Nombre Completo</label>
+                        <input type="text" class="form-control form-control-lg" placeholder="Tu nombre" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Correo Electrónico</label>
+                        <input type="email" class="form-control form-control-lg" placeholder="ejemplo@correo.com" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Mensaje</label>
+                        <textarea class="form-control" rows="4" placeholder="¿En qué podemos ayudarte?" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-warning btn-lg w-100 fw-bold shadow-sm">Enviar Mensaje</button>
+                </form>
+            </div>
+            <div class="col-md-6 mt-5 mt-md-0">
+                <div class="position-relative shadow-lg rounded overflow-hidden">
+                    <img src="/images/contact-gym.jpg" alt="Gimnasio" class="img-fluid">
+                    <div class="bg-dark text-white p-4">
+                        <h4 class="mb-3">Visítanos</h4>
+                        <p class="mb-1"><i class="bi bi-geo-alt text-warning me-2"></i> Calle Universidad, s/n, 28933 Móstoles, Madrid</p>
+                        <p class="mb-1"><i class="bi bi-telephone text-warning me-2"></i> +34 912 345 678</p>
+                        <p class="mb-0"><i class="bi bi-envelope text-warning me-2"></i> info@virtusfitness.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    {{> fragments/footer}}
+
+    <button id="backToTop" class="btn btn-warning rounded-circle shadow" title="Volver arriba"><i class="bi bi-arrow-up"></i></button>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/main.js"></script>
+</body>
+</html>

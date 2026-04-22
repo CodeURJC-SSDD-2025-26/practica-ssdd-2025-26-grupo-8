@@ -1,0 +1,292 @@
+/* ============================================================
+   VIRTUS FITNESS — Admin Dashboard Page Styles
+   ============================================================ */
+
+.admin-dashboard {
+    padding-top: 0;
+    padding-bottom: 60px;
+    min-height: 100vh;
+}
+
+/* ── Page Header ── */
+.admin-page-header {
+    background: linear-gradient(135deg, var(--c-bg-card-alt) 0%, var(--c-bg) 100%);
+    border-bottom: 1px solid var(--c-border-acc);
+    padding: 2.5rem 0;
+    margin-bottom: 3rem;
+}
+
+.admin-page-header .back-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--c-primary);
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--t);
+    padding: 0.45rem 1rem;
+    background: var(--c-primary-dim);
+    border: 1px solid var(--c-border-acc);
+    border-radius: var(--r);
+    margin-bottom: 1.25rem;
+    font-size: 0.9rem;
+}
+
+.admin-page-header .back-button:hover {
+    background: var(--c-primary-glow);
+    color: var(--c-primary);
+    transform: translateX(-4px);
+}
+
+.admin-page-header h1 {
+    color: var(--c-text);
+    font-size: 2.2rem;
+    margin-bottom: 0.3rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.admin-page-header h1 i { color: var(--c-primary); }
+
+.admin-page-header p {
+    color: var(--c-text-sec);
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+.breadcrumb { background: transparent; padding: 0; margin: 0 0 1rem; }
+.breadcrumb-item a { color: var(--c-primary); text-decoration: none; }
+.breadcrumb-item.active { color: var(--c-text-sec); }
+.breadcrumb-item + .breadcrumb-item::before { color: var(--c-text-muted); }
+
+/* ── Admin Content (panels + chart side by side) ── */
+.admin-content {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 2rem;
+    align-items: start;
+}
+
+/* ── Panel Cards (stacked column) ── */
+.admin-panels {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* ── Chart Card ── */
+.chart-card {
+    background: var(--c-bg-card);
+    border: 1px solid var(--c-border);
+    border-radius: var(--r-lg);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.chart-card-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 2rem 2rem 1.25rem;
+    border-bottom: 1px solid var(--c-border);
+}
+
+.chart-card-header h3 {
+    color: var(--c-text);
+    font-size: 1.2rem;
+    margin: 0 0 0.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.chart-card-header h3 i { color: var(--c-primary); }
+
+.chart-card-header p {
+    color: var(--c-text-sec);
+    font-size: 0.85rem;
+    margin: 0;
+}
+
+.chart-year-badge {
+    background: var(--c-primary-dim);
+    color: var(--c-primary);
+    border: 1px solid var(--c-border-acc);
+    border-radius: var(--r);
+    padding: 0.2rem 0.75rem;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    white-space: nowrap;
+}
+
+.chart-wrapper {
+    padding: 1.5rem 2rem;
+    height: 280px;
+}
+
+.chart-footer-stats {
+    display: flex;
+    border-top: 1px solid var(--c-border);
+}
+
+.chart-footer-stat {
+    flex: 1;
+    text-align: center;
+    padding: 1.1rem 0.5rem;
+}
+
+.chart-footer-stat + .chart-footer-stat {
+    border-left: 1px solid var(--c-border);
+}
+
+.chart-footer-stat strong {
+    display: block;
+    font-size: 1.4rem;
+    color: var(--c-primary);
+    line-height: 1;
+    margin-bottom: 0.25rem;
+}
+
+.chart-footer-stat span {
+    font-size: 0.75rem;
+    color: var(--c-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* ── Panel Card ── */
+.panel-card {
+    background: var(--c-bg-card);
+    border: 1px solid var(--c-border);
+    border-radius: var(--r-lg);
+    overflow: hidden;
+    transition: var(--t);
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+}
+
+.panel-card:hover {
+    border-color: var(--c-border-acc);
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.panel-card-hero {
+    padding: 2.5rem 2rem 2rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 1.25rem;
+    border-bottom: 1px solid var(--c-border);
+}
+
+.panel-card-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: var(--r-lg);
+    background: var(--c-primary-dim);
+    border: 1px solid var(--c-border-acc);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: var(--t);
+}
+
+.panel-card:hover .panel-card-icon {
+    background: var(--c-primary-glow);
+}
+
+.panel-card-icon i {
+    font-size: 2rem;
+    color: var(--c-primary);
+}
+
+.panel-card-text h2 {
+    color: var(--c-text);
+    font-size: 1.5rem;
+    margin-bottom: 0.4rem;
+}
+
+.panel-card-text p {
+    color: var(--c-text-sec);
+    font-size: 0.9rem;
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* ── Panel Stats ── */
+.panel-card-stats {
+    display: flex;
+    gap: 0;
+    padding: 1rem 2rem;
+    border-bottom: 1px solid var(--c-border);
+}
+
+.panel-stat {
+    flex: 1;
+    text-align: center;
+    padding: 0.5rem 0;
+}
+
+.panel-stat + .panel-stat {
+    border-left: 1px solid var(--c-border);
+}
+
+.panel-stat strong {
+    display: block;
+    font-size: 1.5rem;
+    color: var(--c-primary);
+    line-height: 1;
+    margin-bottom: 0.25rem;
+}
+
+.panel-stat span {
+    font-size: 0.78rem;
+    color: var(--c-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* ── Panel Footer ── */
+.panel-card-footer {
+    padding: 1.25rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.panel-card-footer span {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--c-primary);
+}
+
+.panel-card-footer i {
+    color: var(--c-primary);
+    font-size: 1.1rem;
+    transition: var(--t);
+}
+
+.panel-card:hover .panel-card-footer i {
+    transform: translateX(5px);
+}
+
+/* ── Responsive ── */
+@media (max-width: 992px) {
+    .admin-content {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .admin-page-header {
+        padding: 2rem 0;
+        margin-bottom: 2rem;
+    }
+
+    .chart-wrapper { height: 220px; }
+}

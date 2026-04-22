@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clases - Virtus Fitness</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/classes.css">
+</head>
+<body>
+    {{> fragments/navbar}}
+
+    <section class="page-hero mt-5" aria-label="Clases">
+        <div class="hero-overlay"></div>
+        <div class="hero-content animate-fade-in">
+            <h1 class="display-4 fw-bold mb-3">Nuestras Clases</h1>
+            <p class="lead mb-0">Encuentra la disciplina que transformará tu entrenamiento</p>
+        </div>
+    </section>
+
+    <section class="classes-section py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title">Elige Tu Clase</h2>
+                <p class="text-muted mt-4">Disciplinas impartidas por entrenadores certificados</p>
+            </div>
+            <div class="row g-4">
+                {{#classes}}
+                <div class="col-sm-6 col-lg-4">
+                    <article class="class-card">
+                        <div class="class-card-img-wrapper">
+                            <img src="/images/class/{{id}}" alt="{{name}}" class="class-image" loading="lazy">
+                        </div>
+                        <div class="class-body">
+                            <span class="class-level-badge level-beginner">{{difficulty}}</span>
+                            <h5>{{name}}</h5>
+                            <p>{{mediumDescription}}</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <a href="/classes/{{id}}" class="btn btn-dark btn-sm">Ver Clase</a>
+                                <small class="text-muted"><i class="bi bi-clock"></i> {{durationText}}</small>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+                {{/classes}}
+            </div>
+            {{^classes}}
+            <div class="text-center py-5">
+                <i class="bi bi-calendar-x fs-1 text-muted"></i>
+                <p class="text-muted mt-3">No hay clases disponibles actualmente.</p>
+            </div>
+            {{/classes}}
+        </div>
+    </section>
+
+    <section class="newsletter-section py-5 text-center text-white">
+        <div class="container">
+            <h3 class="fw-bold mb-2">¿Listo para empezar?</h3>
+            <p class="mb-4">Regístrate hoy y obtén tu primera semana gratis en cualquier clase.</p>
+            {{^isAuthenticated}}<a href="/register" class="btn btn-warning btn-lg fw-semibold px-5">Unirme Ahora</a>{{/isAuthenticated}}
+            {{#isAuthenticated}}<a href="/profile" class="btn btn-warning btn-lg fw-semibold px-5">Ver Mis Reservas</a>{{/isAuthenticated}}
+        </div>
+    </section>
+
+    {{> fragments/footer}}
+
+    <button id="backToTop" class="btn btn-warning rounded-circle shadow" title="Volver arriba"><i class="bi bi-arrow-up"></i></button>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/main.js"></script>
+</body>
+</html>
