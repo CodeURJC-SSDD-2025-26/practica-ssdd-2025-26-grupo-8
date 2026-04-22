@@ -324,7 +324,11 @@ Responsable del diseño de las plantillas Thymeleaf principales (home, clases, h
 
 | Nº    | Commits      | Files      |
 |:------------: |:------------:| :------------:|
-|1| [Implement home page and class listing with Mustache](https://github.com/CodeURJC-SSDD-2025-26/practica-ssdd-2025-26-grupo-8)  | [index.html](backend/src/main/resources/templates/index.html)   |
+|1| [Add model classes: User, Booking, Review](https://github.com/CodeURJC-SSDD-2025-26/practica-ssdd-2025-26-grupo-8/commit/689fb1a)  | [User.java](backend/src/main/java/es/urjc/virtusfitness/model/User.java), [Booking.java](backend/src/main/java/es/urjc/virtusfitness/model/Booking.java), [Review.java](backend/src/main/java/es/urjc/virtusfitness/model/Review.java)   |
+|2| [Add controllers: Home, Class, Review](https://github.com/CodeURJC-SSDD-2025-26/practica-ssdd-2025-26-grupo-8/commit/427689e)  | [HomeController.java](backend/src/main/java/es/urjc/virtusfitness/controller/HomeController.java), [ClassController.java](backend/src/main/java/es/urjc/virtusfitness/controller/ClassController.java), [ReviewController.java](backend/src/main/java/es/urjc/virtusfitness/controller/ReviewController.java)   |
+|3| [Add DataInitializer for sample data loading](https://github.com/CodeURJC-SSDD-2025-26/practica-ssdd-2025-26-grupo-8/commit/0d57af4)  | [DataInitializer.java](backend/src/main/java/es/urjc/virtusfitness/init/DataInitializer.java)   |
+|4| [Add Thymeleaf templates: index, classes, class-detail, schedule, pricing, about, contact](https://github.com/CodeURJC-SSDD-2025-26/practica-ssdd-2025-26-grupo-8/commit/6d6009b)  | [index.html](backend/src/main/resources/templates/index.html), [classes.html](backend/src/main/resources/templates/classes.html), [class-detail.html](backend/src/main/resources/templates/class-detail.html), [schedule.html](backend/src/main/resources/templates/schedule.html), [pricing.html](backend/src/main/resources/templates/pricing.html), [about.html](backend/src/main/resources/templates/about.html), [contact.html](backend/src/main/resources/templates/contact.html)   |
+|5| [Add VirtusFitnessApplication main class and ImageController](https://github.com/CodeURJC-SSDD-2025-26/practica-ssdd-2025-26-grupo-8/commit/39039af)  | [VirtusFitnessApplication.java](backend/src/main/java/es/urjc/virtusfitness/VirtusFitnessApplication.java), [ImageController.java](backend/src/main/java/es/urjc/virtusfitness/controller/ImageController.java)   |
 
 
 ---
