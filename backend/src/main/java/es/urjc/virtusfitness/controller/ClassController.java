@@ -2,9 +2,11 @@ package es.urjc.virtusfitness.controller;
 
 import es.urjc.virtusfitness.model.FitnessClass;
 import es.urjc.virtusfitness.model.Review;
+import es.urjc.virtusfitness.model.User;
 import es.urjc.virtusfitness.service.BookingService;
 import es.urjc.virtusfitness.service.FitnessClassService;
 import es.urjc.virtusfitness.service.ReviewService;
+import es.urjc.virtusfitness.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -19,13 +21,16 @@ public class ClassController {
     private final FitnessClassService fitnessClassService;
     private final BookingService bookingService;
     private final ReviewService reviewService;
+    private final UserService userService;
 
     public ClassController(FitnessClassService fitnessClassService,
                            BookingService bookingService,
-                           ReviewService reviewService) {
+                           ReviewService reviewService,
+                           UserService userService) {
         this.fitnessClassService = fitnessClassService;
         this.bookingService = bookingService;
         this.reviewService = reviewService;
+        this.userService = userService;
     }
 
     @GetMapping("/classes")
@@ -41,6 +46,13 @@ public class ClassController {
 
         List<Review> reviews = reviewService.getClassReviews(id);
         boolean hasBooking = bookingService.hasActiveBooking(id, principal);
+
+        if (principal != null) {
+            User currentUser = userService.findByEmail(principal.getName());
+            reviews.forEach(r -> r.setCanDelete(
+                r.getUser().getId().equals(currentUser.getId()) || currentUser.isAdmin()
+            ));
+        }
 
         double avgRating = reviews.isEmpty() ? 0.0
                 : reviews.stream().mapToInt(Review::getRating).average().orElse(0.0);

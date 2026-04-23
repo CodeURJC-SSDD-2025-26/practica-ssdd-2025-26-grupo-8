@@ -53,6 +53,12 @@ public class Review {
     public LocalDateTime getDate() { return date; }
     public void setDate(LocalDateTime date) { this.date = date; }
 
+    @Transient
+    private boolean canDelete;
+
+    public boolean isCanDelete() { return canDelete; }
+    public void setCanDelete(boolean canDelete) { this.canDelete = canDelete; }
+
     // Mustache helpers
     public String getFormattedDate() {
         if (date == null) return "";

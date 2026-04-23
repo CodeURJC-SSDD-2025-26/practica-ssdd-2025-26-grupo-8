@@ -37,4 +37,23 @@ public class ReviewController {
         }
         return "redirect:/classes/" + id;
     }
+
+    @PostMapping("/reviews/{reviewId}/delete")
+    public String deleteReview(
+            @PathVariable Long reviewId,
+            @RequestParam Long classId,
+            Principal principal,
+            RedirectAttributes redirectAttributes) {
+
+        if (principal == null) {
+            return "redirect:/login";
+        }
+        try {
+            reviewService.deleteReview(reviewId, principal);
+            redirectAttributes.addFlashAttribute("success", "Reseña eliminada.");
+        } catch (Exception e) {
+            redirectAttributes.addFlashAttribute("error", e.getMessage());
+        }
+        return "redirect:/classes/" + classId;
+    }
 }

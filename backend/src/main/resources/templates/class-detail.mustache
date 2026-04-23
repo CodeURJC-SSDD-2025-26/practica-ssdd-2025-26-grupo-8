@@ -119,6 +119,13 @@
                         </div>
                     </div>
                     <p class="review-text">{{comment}}</p>
+                    {{#canDelete}}
+                    <form action="/reviews/{{id}}/delete" method="post" class="mt-2">
+                        <input type="hidden" name="{{csrfParameterName}}" value="{{csrfToken}}">
+                        <input type="hidden" name="classId" value="{{fitnessClass.id}}">
+                        <button type="submit" class="btn btn-sm btn-outline-danger"><i class="bi bi-trash"></i> Eliminar</button>
+                    </form>
+                    {{/canDelete}}
                 </div>
             </div>
             {{/reviews}}
