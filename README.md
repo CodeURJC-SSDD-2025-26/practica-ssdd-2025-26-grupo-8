@@ -280,9 +280,9 @@ El siguiente diagrama describe el flujo de navegación de la aplicación web Vir
 #### **Credenciales de prueba**
 | Rol | Email | Contraseña |
 |:---|:---|:---|
-| Administrador | admin@virtus.com | Admin1234! |
-| Usuario registrado | maria@virtus.com | User1234! |
-| Usuario registrado | carlos@virtus.com | User1234! |
+| Administrador | admin@virtusfitness.com | Admin1234! |
+| Usuario registrado | maria@email.com | User1234! |
+| Usuario registrado | carlos@email.com | User1234! |
 
 ### **Diagrama de Entidades de Base de Datos**
 
