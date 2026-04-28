@@ -39,9 +39,7 @@ public class AdminController {
 
     @GetMapping("/classes/new")
     public String newClassForm(Model model) {
-        model.addAttribute("fitnessClass", new FitnessClass());
-        model.addAttribute("isEditMode", false);
-        model.addAttribute("isNewMode", true);
+        addClassFormAttributes(model, new FitnessClass(), false);
         return "class-form";
     }
 
@@ -49,29 +47,45 @@ public class AdminController {
     public String editClassForm(@PathVariable Long id, Model model) {
         FitnessClass fc = fitnessClassService.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Clase no encontrada"));
-        model.addAttribute("fitnessClass", fc);
-        model.addAttribute("isEditMode", true);
-        model.addAttribute("isNewMode", false);
+        addClassFormAttributes(model, fc, true);
         return "class-form";
+    }
+
+    private void addClassFormAttributes(Model model, FitnessClass fc, boolean editMode) {
+        model.addAttribute("fitnessClass", fc);
+        model.addAttribute("isEditMode", editMode);
+        model.addAttribute("isNewMode", !editMode);
+        model.addAttribute("fcId", fc.getId());
+        model.addAttribute("fcName", fc.getName() != null ? fc.getName() : "");
+        model.addAttribute("fcDescription", fc.getDescription() != null ? fc.getDescription() : "");
+        model.addAttribute("fcInstructor", fc.getInstructor() != null ? fc.getInstructor() : "");
+        model.addAttribute("fcSchedule", fc.getSchedule() != null ? fc.getSchedule() : "");
+        model.addAttribute("fcCategory", fc.getCategory() != null ? fc.getCategory() : "");
+        model.addAttribute("fcCapacityOrDefault", fc.getCapacityOrDefault());
+        model.addAttribute("fcPriceOrDefault", fc.getPriceOrDefault());
     }
 
     @PostMapping("/classes/save")
     public String saveClass(
             @RequestParam(required = false) Long id,
-            @RequestParam String name,
+            @RequestParam(required = false) String name,
             @RequestParam(required = false) String description,
             @RequestParam(required = false) String instructor,
-            @RequestParam(defaultValue = "45") int duration,
-            @RequestParam(defaultValue = "20") int capacity,
+            @RequestParam(required = false) String duration,
+            @RequestParam(required = false) String capacity,
             @RequestParam(required = false) String difficulty,
             @RequestParam(required = false) String category,
             @RequestParam(required = false) String schedule,
-            @RequestParam(defaultValue = "0") double price,
-            @RequestParam(defaultValue = "true") boolean active,
+            @RequestParam(required = false) String price,
+            @RequestParam(required = false) String active,
             @RequestParam(required = false) MultipartFile image,
             RedirectAttributes redirectAttributes) {
 
         try {
+            if (name == null || name.isBlank()) {
+                throw new IllegalArgumentException("El nombre de la clase es obligatorio");
+            }
+
             FitnessClass fc;
             if (id != null) {
                 fc = fitnessClassService.findById(id)
@@ -79,16 +93,17 @@ public class AdminController {
             } else {
                 fc = new FitnessClass();
             }
-            fc.setName(name);
+
+            fc.setName(name.trim());
             fc.setDescription(description);
             fc.setInstructor(instructor);
-            fc.setDuration(duration);
-            fc.setCapacity(capacity);
+            fc.setDuration(parseSafeInt(duration, 45));
+            fc.setCapacity(parseSafeInt(capacity, 20));
             fc.setDifficulty(difficulty);
             fc.setCategory(category);
             fc.setSchedule(schedule);
-            fc.setPrice(price);
-            fc.setActive(active);
+            fc.setPrice(parseSafeDouble(price, 0.0));
+            fc.setActive("on".equalsIgnoreCase(active) || "true".equalsIgnoreCase(active));
 
             fitnessClassService.save(fc, image);
             redirectAttributes.addFlashAttribute("success", "Clase guardada correctamente.");
@@ -96,6 +111,24 @@ public class AdminController {
             redirectAttributes.addFlashAttribute("error", "Error al guardar: " + e.getMessage());
         }
         return "redirect:/admin/classes";
+    }
+
+    private int parseSafeInt(String value, int defaultValue) {
+        if (value == null || value.isBlank()) return defaultValue;
+        try {
+            return Integer.parseInt(value.trim());
+        } catch (NumberFormatException e) {
+            return defaultValue;
+        }
+    }
+
+    private double parseSafeDouble(String value, double defaultValue) {
+        if (value == null || value.isBlank()) return defaultValue;
+        try {
+            return Double.parseDouble(value.trim().replace(',', '.'));
+        } catch (NumberFormatException e) {
+            return defaultValue;
+        }
     }
 
     @PostMapping("/classes/{id}/delete")

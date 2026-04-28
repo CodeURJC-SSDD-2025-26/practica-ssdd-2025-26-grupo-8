@@ -39,7 +39,7 @@
             <form action="/admin/classes/save" method="post" enctype="multipart/form-data">
                 <input type="hidden" name="{{csrfParameterName}}" value="{{csrfToken}}">
                 {{#fitnessClass.hasId}}
-                <input type="hidden" name="id" value="{{fitnessClass.id}}">
+                <input type="hidden" name="id" value="{{fcId}}">
                 {{/fitnessClass.hasId}}
 
                 <h3 class="section-title"><i class="bi bi-file-text"></i> Información Básica</h3>
@@ -47,20 +47,20 @@
                 <div class="row">
                     <div class="col-md-8">
                         <div class="form-floating">
-                            <input type="text" class="form-control" id="name" name="name" placeholder="Nombre" value="{{fitnessClass.name}}" required>
+                            <input type="text" class="form-control" id="name" name="name" placeholder="Nombre" value="{{fcName}}" required>
                             <label for="name">Nombre de la Clase <span class="required-indicator">*</span></label>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="form-floating">
-                            <input type="number" class="form-control" id="capacity" name="capacity" placeholder="Capacidad" min="1" max="100" value="{{fitnessClass.capacityOrDefault}}" required>
+                            <input type="number" class="form-control" id="capacity" name="capacity" placeholder="Capacidad" min="1" max="100" value="{{fcCapacityOrDefault}}" required>
                             <label for="capacity">Capacidad <span class="required-indicator">*</span></label>
                         </div>
                     </div>
                 </div>
 
                 <div class="form-floating mt-3">
-                    <textarea class="form-control" id="description" name="description" placeholder="Descripción" style="height:120px">{{fitnessClass.description}}</textarea>
+                    <textarea class="form-control" id="description" name="description" placeholder="Descripción" style="height:120px">{{fcDescription}}</textarea>
                     <label for="description">Descripción de la Clase</label>
                 </div>
 
@@ -69,7 +69,7 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-floating">
-                            <input type="text" class="form-control" id="instructor" name="instructor" placeholder="Instructor" value="{{fitnessClass.instructor}}" required>
+                            <input type="text" class="form-control" id="instructor" name="instructor" placeholder="Instructor" value="{{fcInstructor}}" required>
                             <label for="instructor">Entrenador Asignado <span class="required-indicator">*</span></label>
                         </div>
                     </div>
@@ -91,19 +91,19 @@
                 <div class="row mt-3">
                     <div class="col-md-6">
                         <div class="form-floating">
-                            <input type="text" class="form-control" id="schedule" name="schedule" placeholder="Horario" value="{{fitnessClass.schedule}}">
+                            <input type="text" class="form-control" id="schedule" name="schedule" placeholder="Horario" value="{{fcSchedule}}">
                             <label for="schedule">Horario (ej: Lun/Mié/Vie 18:00-19:00)</label>
                         </div>
                     </div>
                     <div class="col-md-3">
                         <div class="form-floating">
-                            <input type="text" class="form-control" id="category" name="category" placeholder="Categoría" value="{{fitnessClass.category}}">
+                            <input type="text" class="form-control" id="category" name="category" placeholder="Categoría" value="{{fcCategory}}">
                             <label for="category">Categoría</label>
                         </div>
                     </div>
                     <div class="col-md-3">
                         <div class="form-floating">
-                            <input type="number" class="form-control" id="price" name="price" placeholder="Precio" min="0" step="0.01" value="{{fitnessClass.priceOrDefault}}">
+                            <input type="number" class="form-control" id="price" name="price" placeholder="Precio" min="0" step="0.01" value="{{fcPriceOrDefault}}">
                             <label for="price">Precio (€)</label>
                         </div>
                     </div>
@@ -136,7 +136,7 @@
                 <div class="mb-3">
                     {{#fitnessClass.hasImage}}
                     <div class="mb-3">
-                        <img src="/images/class/{{fitnessClass.id}}" alt="Imagen actual" style="max-height:150px;border-radius:8px;">
+                        <img src="/images/class/{{fcId}}" alt="Imagen actual" style="max-height:150px;border-radius:8px;">
                         <p class="small text-muted mt-1">Imagen actual. Sube una nueva para reemplazarla.</p>
                     </div>
                     {{/fitnessClass.hasImage}}
