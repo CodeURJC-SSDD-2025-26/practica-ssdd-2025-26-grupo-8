@@ -369,26 +369,25 @@ Diagrama actualizado con los nuevos `@RestController` y los `@Service` compartid
 
 Comunicación entre `app-service` y `utility-service`:
 
+```mermaid
+graph LR
+    User((Usuario / Cliente))
+
+    subgraph Docker["Infraestructura Docker (docker-compose)"]
+        App["app-service<br/>Spring Boot · :8443<br/>HTTPS"]
+        Utility["utility-service<br/>Spring Boot · :8080<br/>Generación de PDFs"]
+        DB[(MySQL 8.0<br/>:3306)]
+    end
+
+    User -->|HTTPS<br/>REST / HTML| App
+    App -->|JDBC| DB
+    App -->|"POST /api/v1/pdfs/booking-receipts<br/>HTTP · JSON"| Utility
+    Utility -.->|"Respuesta:<br/>application/pdf"| App
 ```
-┌─────────────────────────────────────┐        ┌──────────────────────────────┐
-│           app-service               │        │       utility-service        │
-│           :8443 (HTTPS)             │        │       :8080 (HTTP)           │
-│                                     │        │                              │
-│  Web @Controller  ──┐               │        │  POST /api/v1/pdfs/          │
-│                     ├──> @Service ──┼──HTTP──┤    booking-receipts          │
-│  REST @RestController─┘             │        │                              │
-│                                     │  JSON  │  Genera PDF con OpenPDF      │
-│  UtilityServiceClient ──────────────┼──────> │  y lo devuelve como          │
-│  (RestClient de Spring 6)           │  <──── │  application/pdf             │
-└─────────────────────────────────────┘        └──────────────────────────────┘
-                │
-                │ JDBC
-                ▼
-        ┌──────────────┐
-        │    MySQL     │
-        │   :3306      │
-        └──────────────┘
-```
+
+- El cliente HTTP en `app-service` es `UtilityServiceClient` (RestClient síncrono de Spring 6), configurado con la propiedad `utility-service.url` (variable de entorno `UTILITY_SERVICE_URL`, resuelta vía DNS interno de Docker Compose como `http://utility-service:8080`).
+- `utility-service` **no inicia llamadas**: solo responde. La flecha discontinua representa el cuerpo `application/pdf` devuelto en la misma petición HTTP.
+- `app-service` persiste su estado en MySQL vía JDBC; `utility-service` es stateless.
 
 ---
 
