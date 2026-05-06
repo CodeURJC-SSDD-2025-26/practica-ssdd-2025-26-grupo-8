@@ -1,0 +1,431 @@
+{
+  "info": {
+    "name": "Virtus Fitness API",
+    "_postman_id": "virtus-fitness-api-v1",
+    "description": "REST API collection for Virtus Fitness (Práctica 3 - SSDD).\n\nPre-requisites:\n- Set the 'baseUrl' variable to 'https://localhost:8443' for local dev or to the server IP for remote.\n- Disable SSL certificate verification in Postman settings (self-signed cert in dev).\n- Sample data is loaded automatically on first startup.\n\nTest credentials:\n- Admin: admin@virtusfitness.com / Admin1234!\n- User:  maria@email.com / User1234!",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "baseUrl",       "value": "https://localhost:8443", "type": "string" },
+    { "key": "adminEmail",    "value": "admin@virtusfitness.com", "type": "string" },
+    { "key": "adminPassword", "value": "Admin1234!", "type": "string" },
+    { "key": "userEmail",     "value": "maria@email.com", "type": "string" },
+    { "key": "userPassword",  "value": "User1234!", "type": "string" }
+  ],
+  "item": [
+    {
+      "name": "Classes (public)",
+      "item": [
+        {
+          "name": "List active classes",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/classes?page=1&size=10",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "classes"],
+              "query": [
+                { "key": "page", "value": "1" },
+                { "key": "size", "value": "10" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "List classes filtered by category",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/classes?category=Yoga&page=1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "classes"],
+              "query": [
+                { "key": "category", "value": "Yoga" },
+                { "key": "page",     "value": "1" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get class by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/classes/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "classes", "1"]
+            }
+          }
+        },
+        {
+          "name": "Get class reviews (public)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/classes/1/reviews?page=1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "classes", "1", "reviews"],
+              "query": [{ "key": "page", "value": "1" }]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Classes (admin)",
+      "item": [
+        {
+          "name": "Create class",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "auth": {
+              "type": "basic",
+              "basic": [
+                { "key": "username", "value": "{{adminEmail}}" },
+                { "key": "password", "value": "{{adminPassword}}" }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Pilates Core\",\n  \"description\": \"Clase de pilates enfocada en el core.\",\n  \"instructor\": \"Laura Gómez\",\n  \"duration\": 50,\n  \"capacity\": 12,\n  \"difficulty\": \"Intermedio\",\n  \"category\": \"Pilates\",\n  \"schedule\": \"Lun/Mié 09:00-09:50\",\n  \"price\": 13.0,\n  \"active\": true\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/classes",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "classes"]
+            }
+          }
+        },
+        {
+          "name": "Update class",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "auth": {
+              "type": "basic",
+              "basic": [
+                { "key": "username", "value": "{{adminEmail}}" },
+                { "key": "password", "value": "{{adminPassword}}" }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"capacity\": 15,\n  \"price\": 14.5,\n  \"active\": true\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/classes/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "classes", "1"]
+            }
+          }
+        },
+        {
+          "name": "Delete class",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "auth": {
+              "type": "basic",
+              "basic": [
+                { "key": "username", "value": "{{adminEmail}}" },
+                { "key": "password", "value": "{{adminPassword}}" }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/classes/5",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "classes", "5"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Users",
+      "item": [
+        {
+          "name": "Register new user (public)",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"nuevousuario\",\n  \"email\": \"nuevo@email.com\",\n  \"password\": \"Password123!\",\n  \"planType\": \"Básico\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/users",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "users"]
+            }
+          }
+        },
+        {
+          "name": "Get current user (me)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "auth": {
+              "type": "basic",
+              "basic": [
+                { "key": "username", "value": "{{userEmail}}" },
+                { "key": "password", "value": "{{userPassword}}" }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/users/me",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "users", "me"]
+            }
+          }
+        },
+        {
+          "name": "List all users (admin)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "auth": {
+              "type": "basic",
+              "basic": [
+                { "key": "username", "value": "{{adminEmail}}" },
+                { "key": "password", "value": "{{adminPassword}}" }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/users?page=1&size=10",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "users"],
+              "query": [
+                { "key": "page", "value": "1" },
+                { "key": "size", "value": "10" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get user by ID (admin)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "auth": {
+              "type": "basic",
+              "basic": [
+                { "key": "username", "value": "{{adminEmail}}" },
+                { "key": "password", "value": "{{adminPassword}}" }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/users/2",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "users", "2"]
+            }
+          }
+        },
+        {
+          "name": "Update own profile",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "auth": {
+              "type": "basic",
+              "basic": [
+                { "key": "username", "value": "{{userEmail}}" },
+                { "key": "password", "value": "{{userPassword}}" }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"maria_garcia\",\n  \"planType\": \"Premium\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/users/2",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "users", "2"]
+            }
+          }
+        },
+        {
+          "name": "Delete user (admin)",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "auth": {
+              "type": "basic",
+              "basic": [
+                { "key": "username", "value": "{{adminEmail}}" },
+                { "key": "password", "value": "{{adminPassword}}" }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/users/4",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "users", "4"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Bookings",
+      "item": [
+        {
+          "name": "List my bookings",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "auth": {
+              "type": "basic",
+              "basic": [
+                { "key": "username", "value": "{{userEmail}}" },
+                { "key": "password", "value": "{{userPassword}}" }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/bookings?page=1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "bookings"],
+              "query": [{ "key": "page", "value": "1" }]
+            }
+          }
+        },
+        {
+          "name": "Get booking by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "auth": {
+              "type": "basic",
+              "basic": [
+                { "key": "username", "value": "{{userEmail}}" },
+                { "key": "password", "value": "{{userPassword}}" }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/bookings/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "bookings", "1"]
+            }
+          }
+        },
+        {
+          "name": "Create booking",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "auth": {
+              "type": "basic",
+              "basic": [
+                { "key": "username", "value": "{{userEmail}}" },
+                { "key": "password", "value": "{{userPassword}}" }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"classId\": 2\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/bookings",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "bookings"]
+            }
+          }
+        },
+        {
+          "name": "Cancel booking",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "auth": {
+              "type": "basic",
+              "basic": [
+                { "key": "username", "value": "{{userEmail}}" },
+                { "key": "password", "value": "{{userPassword}}" }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/bookings/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "bookings", "1"]
+            }
+          }
+        },
+        {
+          "name": "Download booking PDF",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "auth": {
+              "type": "basic",
+              "basic": [
+                { "key": "username", "value": "{{userEmail}}" },
+                { "key": "password", "value": "{{userPassword}}" }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/bookings/1/pdf",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "bookings", "1", "pdf"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Reviews",
+      "item": [
+        {
+          "name": "Add review to class",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "auth": {
+              "type": "basic",
+              "basic": [
+                { "key": "username", "value": "{{userEmail}}" },
+                { "key": "password", "value": "{{userPassword}}" }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"rating\": 5,\n  \"comment\": \"Clase increíble, muy recomendable.\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/classes/1/reviews",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "classes", "1", "reviews"]
+            }
+          }
+        },
+        {
+          "name": "Delete review",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "auth": {
+              "type": "basic",
+              "basic": [
+                { "key": "username", "value": "{{userEmail}}" },
+                { "key": "password", "value": "{{userPassword}}" }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/reviews/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "reviews", "1"]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

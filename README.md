@@ -68,7 +68,7 @@ Advanced functionality to be implemented:
 ## 🛠 **Part 1: Web Layout with HTML and CSS**
 
 ### **Navigation Diagram**
-![Navigation Diagram](images-readme/diagrama_navegacion.png)
+![Navigation Diagram](docs/screenshots/diagrama_navegacion.png)
 
 > Anonymous users can access public areas, while registered users gain access to their personal dashboard and booking management after logging in.
 
@@ -76,77 +76,77 @@ Advanced functionality to be implemented:
 
 #### **1. Home Page**
 
-![Home Page](images-readme/home-page.jpeg)
+![Home Page](docs/screenshots/home-page.jpeg)
 
 > Main landing page of Virtus Fitness where users can discover the gym, view featured training classes and quickly access login or registration to start booking sessions.
 
 
 #### **2. About Page**
 
-![About Page](images-readme/about-page.jpeg)
+![About Page](docs/screenshots/about-page.jpeg)
 
 > Informational page describing Virtus Fitness, its philosophy, training approach and mission of promoting a healthy and active lifestyle through structured workouts.
 
 
 #### **3. Classes Page**
 
-![Classes Page](images-readme/classes-page.jpeg)
+![Classes Page](docs/screenshots/classes-page.jpeg)
 
 > Page displaying all the available training classes offered by Virtus Fitness, allowing users to explore different workouts such as strength, cardio or functional training.
 
 
 #### **4. Schedule Page**
 
-![Schedule Page](images-readme/schedule-page.jpeg)
+![Schedule Page](docs/screenshots/schedule-page.jpeg)
 
 > Weekly timetable showing when each training class takes place, helping users easily plan their workouts and select the sessions that best fit their availability.
 
 
 #### **5. Prices Page**
 
-![Prices Page](images-readme/prices-page.jpeg)
+![Prices Page](docs/screenshots/prices-page.jpeg)
 
 > Page presenting the membership plans and pricing options available at Virtus Fitness, allowing users to compare subscriptions and choose the one that suits their training needs.
 
 
 #### **6. Contact Page**
 
-![Contact Page](images-readme/contact-page.jpeg)
+![Contact Page](docs/screenshots/contact-page.jpeg)
 
 > Contact page where users can send inquiries to the Virtus Fitness team through a form and access essential information about the gym and its services.
 
 
 #### **7. Login Page**
 
-![Login Page](images-readme/login-page.jpeg)
+![Login Page](docs/screenshots/login-page.jpeg)
 
 > Secure authentication page where registered users can log into their Virtus Fitness account to access the platform and manage their class bookings.
 
 
 #### **8. Register Page**
 
-![Register Page](images-readme/register-page.jpeg)
+![Register Page](docs/screenshots/register-page.jpeg)
 
 > Registration page allowing new users to create a Virtus Fitness account in order to book classes, manage their schedule and access gym services online.
 
 
 #### **9. Admin Page**
 
-![Admin Page](images-readme/admin-page.jpeg)
+![Admin Page](docs/screenshots/admin-page.jpeg)
 
 > Main administration dashboard providing an overview of the system, where administrators can monitor activity and manage the platform’s core functionalities.
 
 
 #### **10. Admin Classes Page**
 
-![Admin Classes Page](images-readme/adminclasses-page.png)
+![Admin Classes Page](docs/screenshots/adminclasses-page.png)
 
 > Administrative interface used to manage gym classes, allowing administrators to create, edit or remove training sessions available to users.
 
 
 #### **11. Admin Users Page**
 
-![Admin Users Page](images-readme/adminusers-page.png)
+![Admin Users Page](docs/screenshots/adminusers-page.png)
 
 > Administration panel section dedicated to user management, where administrators can view registered members and control access to the platform.
 
@@ -197,11 +197,49 @@ Responsible for administrative dashboard layouts and chart system design.
 
 #### **Diagrama de Navegación**
 
-Solo si ha cambiado.
+El siguiente diagrama describe el flujo de navegación de la aplicación web VirtusFitness, diferenciando las rutas accesibles según el rol del usuario.
 
-#### **Capturas de Pantalla Actualizadas**
+```
+┌─────────────────────────────────────────────────────────────┐
+│                     USUARIO ANÓNIMO                         │
+│                                                             │
+│   /  (Home)                                                 │
+│    ├── /classes          → Lista de clases activas          │
+│    │     └── /classes/{id}   → Detalle de clase             │
+│    ├── /schedule         → Horario de clases                │
+│    ├── /pricing          → Planes y precios                 │
+│    ├── /about            → Sobre nosotros                   │
+│    ├── /contact          → Contacto                         │
+│    ├── /login            → Formulario de login              │
+│    └── /register         → Formulario de registro           │
+└─────────────────────────────────────────────────────────────┘
 
-Solo si han cambiado.
+┌─────────────────────────────────────────────────────────────┐
+│                   USUARIO AUTENTICADO                       │
+│                                                             │
+│   Todo lo anterior, más:                                    │
+│    ├── /profile                → Ver perfil y reservas      │
+│    │     └── /profile/edit     → Editar perfil              │
+│    ├── /bookings/new           → Crear reserva              │
+│    ├── /bookings/{id}/cancel   → Cancelar reserva           │
+│    └── /classes/{id}/reviews   → Publicar reseña            │
+└─────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────┐
+│                   ADMINISTRADOR (ROLE_ADMIN)                │
+│                                                             │
+│   Todo lo anterior, más:                                    │
+│    └── /admin                        → Panel de control     │
+│          ├── /admin/classes          → Gestión de clases    │
+│          │     ├── /admin/classes/new          → Nueva clase │
+│          │     ├── /admin/classes/{id}/edit    → Editar      │
+│          │     ├── /admin/classes/save         → Guardar     │
+│          │     └── /admin/classes/{id}/delete  → Eliminar    │
+│          └── /admin/users            → Gestión de usuarios  │
+│                ├── /admin/users/{id}           → Ver perfil  │
+│                └── /admin/users/{id}/delete    → Eliminar    │
+└─────────────────────────────────────────────────────────────┘
+```
 
 ### **Instrucciones de Ejecución**
 
@@ -215,213 +253,259 @@ Solo si han cambiado.
 
 1. **Clonar el repositorio**
    ```bash
-   git clone https://github.com/[usuario]/[nombre-repositorio].git
-   cd [nombre-repositorio]
+   git clone https://github.com/[usuario]/virtusfitness.git
+   cd virtusfitness
    ```
 
-2. **AQUÍ INDICAR LO SIGUIENTES PASOS**
+2. **Crear la base de datos MySQL**
+   ```sql
+   CREATE DATABASE virtusdb CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+   ```
+
+3. **Configurar credenciales de base de datos** (si difieren del default)
+   - Editar `app-service/src/main/resources/application.properties`
+   - Ajustar `spring.datasource.username` y `spring.datasource.password`
+
+4. **Compilar y ejecutar con Maven**
+   ```bash
+   cd app-service
+   mvn spring-boot:run
+   ```
+
+5. **Acceder a la aplicación**
+   - Abrir el navegador en: `https://localhost:8443`
+   - Aceptar el certificado autofirmado (advertencia de seguridad esperada)
+   - Los datos de ejemplo se insertan automáticamente al primer arranque
 
 #### **Credenciales de prueba**
-- **Usuario Admin**: usuario: `admin`, contraseña: `admin`
-- **Usuario Registrado**: usuario: `user`, contraseña: `user`
+| Rol | Email | Contraseña |
+|:---|:---|:---|
+| Administrador | admin@virtusfitness.com | Admin1234! |
+| Usuario registrado | maria@email.com | User1234! |
+| Usuario registrado | carlos@email.com | User1234! |
 
 ### **Diagrama de Entidades de Base de Datos**
 
-Diagrama mostrando las entidades, sus campos y relaciones:
+![Diagrama de entidades](docs/diagrams/database-diagram.png)
 
-![Diagrama Entidad-Relación](images/database-diagram.png)
+### Relaciones
 
-> [Descripción opcional: Ej: "El diagrama muestra las 4 entidades principales: Usuario, Producto, Pedido y Categoría, con sus respectivos atributos y relaciones 1:N y N:M."]
+| Relación                        | Cardinalidad | Descripción                              |
+|---------------------------------|-------------|------------------------------------------|
+| User → Booking                  | 1:N          | Un usuario puede tener múltiples reservas |
+| FitnessClass → Booking          | 1:N          | Una clase puede tener múltiples reservas  |
+| User → Review                   | 1:N          | Un usuario puede dejar múltiples reseñas  |
+| FitnessClass → Review           | 1:N          | Una clase puede tener múltiples reseñas   |
 
 ### **Diagrama de Clases y Templates**
 
-Diagrama de clases de la aplicación con diferenciación por colores o secciones:
-
-![Diagrama de Clases](images/classes-diagram.png)
-
-> [Descripción opcional del diagrama y relaciones principales]
+![Diagrama de clases](docs/diagrams/classes-diagram.png)
 
 ### **Participación de Miembros en la Práctica 2**
 
 #### **Jorge Rodríguez Lázaro**
 
-[Descripción de las tareas y responsabilidades principales en la Práctica 2]
+Responsable de la seguridad de la aplicación, gestión de usuarios, sistema de reservas con lista de espera y tecnología extra PDF. Implementó Spring Security con control de acceso por rol, el flujo de autenticación (login/register), el perfil de usuario y el algoritmo dinámico de gestión de capacidad con prioridad en lista de espera.
 
 | Nº    | Commits      | Files      |
 |:------------: |:------------:| :------------:|
-|1| [Descripción commit 1](URL_commit_1)  | [Archivo1](URL_archivo_1)   |
-|2| [Descripción commit 2](URL_commit_2)  | [Archivo2](URL_archivo_2)   |
-|3| [Descripción commit 3](URL_commit_3)  | [Archivo3](URL_archivo_3)   |
-|4| [Descripción commit 4](URL_commit_4)  | [Archivo4](URL_archivo_4)   |
-|5| [Descripción commit 5](URL_commit_5)  | [Archivo5](URL_archivo_5)   |
+| 1 | [Add PDF generation service for booking receipts using iText](https://github.com/CodeURJC-SSDD-2025-26/practica-ssdd-2025-26-grupo-8/commit/8f88785fda0a8ffe045cc343716e612999581a95) | [PdfService.java](app-service/src/main/java/es/urjc/virtusfitness/service/PdfService.java) |
+| 2 | [Implement booking service with dynamic waiting list priority algorithm](https://github.com/CodeURJC-SSDD-2025-26/practica-ssdd-2025-26-grupo-8/commit/a5e8201fb75e64819ba4cf9404a7cc4d333c145c) | [BookingService.java](app-service/src/main/java/es/urjc/virtusfitness/service/BookingService.java) |
+| 3 | [Add booking repository with waiting list and attendance rate queries](https://github.com/CodeURJC-SSDD-2025-26/practica-ssdd-2025-26-grupo-8/commit/2f76770f25f95dcfd0655b811af85c98869d4b2e) | [BookingRepository.java](app-service/src/main/java/es/urjc/virtusfitness/repository/BookingRepository.java) |
+| 4 | [Add profile page with bookings history and edit form](https://github.com/CodeURJC-SSDD-2025-26/practica-ssdd-2025-26-grupo-8/commit/d1cf4b22542a938ba0bfd371f13b5f3e4c7aa041) | [profile.html](app-service/src/main/resources/templates/profile.mustache) |
+| 5 | [Add profile controller with view and edit endpoints](https://github.com/CodeURJC-SSDD-2025-26/practica-ssdd-2025-26-grupo-8/commit/4e8adb6ff7df5e0fd7f35f2e426e4f7a74771f5e) | [ProfileController.java](app-service/src/main/java/es/urjc/virtusfitness/controller/ProfileController.java) | 
+
 
 ---
 
 #### **Miguel Rey Carballo**
 
-Desarrollo del backend Spring Boot: modelos JPA, repositorios, servicios, controladores MVC y plantillas Thymeleaf de la aplicación.
+Responsable del diseño de las plantillas Thymeleaf principales (home, clases, horarios, precios), el inicializador de datos de ejemplo y la integración del frontend con el backend mediante los modelos y los controladores de vistas públicas.
 
 | Nº    | Commits      | Files      |
 |:------------: |:------------:| :------------:|
-|1| [Add model classes: User, Booking, Review](https://github.com/CodeURJC-SSDD-2025-26/practica-ssdd-2025-26-grupo-8/commit/689fb1a) | [model/](https://github.com/CodeURJC-SSDD-2025-26/practica-ssdd-2025-26-grupo-8/tree/Practica2/backend/src/main/java/es/urjc/virtusfitness/model) |
-|2| [Add repositories: UserRepository, ReviewRepository](https://github.com/CodeURJC-SSDD-2025-26/practica-ssdd-2025-26-grupo-8/commit/715f365) | [repository/](https://github.com/CodeURJC-SSDD-2025-26/practica-ssdd-2025-26-grupo-8/tree/Practica2/backend/src/main/java/es/urjc/virtusfitness/repository) |
-|3| [Add services: UserService, ReviewService](https://github.com/CodeURJC-SSDD-2025-26/practica-ssdd-2025-26-grupo-8/commit/b28b21c) | [service/](https://github.com/CodeURJC-SSDD-2025-26/practica-ssdd-2025-26-grupo-8/tree/Practica2/backend/src/main/java/es/urjc/virtusfitness/service) |
-|4| [Add controllers: Home, Class, Review](https://github.com/CodeURJC-SSDD-2025-26/practica-ssdd-2025-26-grupo-8/commit/427689e) | [controller/](https://github.com/CodeURJC-SSDD-2025-26/practica-ssdd-2025-26-grupo-8/tree/Practica2/backend/src/main/java/es/urjc/virtusfitness/controller) |
-|5| [Add Thymeleaf templates: index, classes, class-detail, schedule, pricing, about, contact](https://github.com/CodeURJC-SSDD-2025-26/practica-ssdd-2025-26-grupo-8/commit/6d6009b) | [templates/](https://github.com/CodeURJC-SSDD-2025-26/practica-ssdd-2025-26-grupo-8/tree/Practica2/backend/src/main/resources/templates) |
+|1| [Add model classes: User, Booking, Review](https://github.com/CodeURJC-SSDD-2025-26/practica-ssdd-2025-26-grupo-8/commit/689fb1a)  | [User.java](app-service/src/main/java/es/urjc/virtusfitness/model/User.java), [Booking.java](app-service/src/main/java/es/urjc/virtusfitness/model/Booking.java), [Review.java](app-service/src/main/java/es/urjc/virtusfitness/model/Review.java)   |
+|2| [Add controllers: Home, Class, Review](https://github.com/CodeURJC-SSDD-2025-26/practica-ssdd-2025-26-grupo-8/commit/427689e)  | [HomeController.java](app-service/src/main/java/es/urjc/virtusfitness/controller/HomeController.java), [ClassController.java](app-service/src/main/java/es/urjc/virtusfitness/controller/ClassController.java), [ReviewController.java](app-service/src/main/java/es/urjc/virtusfitness/controller/ReviewController.java)   |
+|3| [Add DataInitializer for sample data loading](https://github.com/CodeURJC-SSDD-2025-26/practica-ssdd-2025-26-grupo-8/commit/0d57af4)  | [DataInitializer.java](app-service/src/main/java/es/urjc/virtusfitness/init/DataInitializer.java)   |
+|4| [Add Thymeleaf templates: index, classes, class-detail, schedule, pricing, about, contact](https://github.com/CodeURJC-SSDD-2025-26/practica-ssdd-2025-26-grupo-8/commit/6d6009b)  | [index.html](app-service/src/main/resources/templates/index.html), [classes.html](app-service/src/main/resources/templates/classes.html), [class-detail.html](app-service/src/main/resources/templates/class-detail.html), [schedule.html](app-service/src/main/resources/templates/schedule.html), [pricing.html](app-service/src/main/resources/templates/pricing.html), [about.html](app-service/src/main/resources/templates/about.html), [contact.html](app-service/src/main/resources/templates/contact.html)   |
+|5| [Add VirtusFitnessApplication main class and ImageController](https://github.com/CodeURJC-SSDD-2025-26/practica-ssdd-2025-26-grupo-8/commit/39039af)  | [VirtusFitnessApplication.java](app-service/src/main/java/es/urjc/virtusfitness/VirtusFitnessApplication.java), [ImageController.java](app-service/src/main/java/es/urjc/virtusfitness/controller/ImageController.java)   |
+
 
 ---
 
 #### **Pablo Valdés Colomo**
 
-[Descripción de las tareas y responsabilidades principales en la Práctica 2]
+Responsable del panel de administración completo (gestión de clases y usuarios), el controlador de clases públicas, el sistema de reseñas y las páginas de error personalizadas. Implementó el CRUD completo de clases desde el panel admin con carga de imágenes a base de datos.
 
 | Nº    | Commits      | Files      |
 |:------------: |:------------:| :------------:|
-|1| [Add FitnessClass entity with attributes and relationships](https://github.com/CodeURJC-SSDD-2025-26/practica-ssdd-2025-26-grupo-8/commit/b8b2fe4) | [FitnessClass.java](https://github.com/CodeURJC-SSDD-2025-26/practica-ssdd-2025-26-grupo-8/blob/main/backend/src/main/java/es/urjc/virtusfitness/model/FitnessClass.java) |
-|2| [Descripción commit 2](URL_commit_2)  | [Archivo2](URL_archivo_2)   |
-|3| [Descripción commit 3](URL_commit_3)  | [Archivo3](URL_archivo_3)   |
-|4| [Descripción commit 4](URL_commit_4)  | [Archivo4](URL_archivo_4)   |
-|5| [Descripción commit 5](URL_commit_5)  | [Archivo5](URL_archivo_5)   |
+|1| [Add fitness class model, repository, service, admin controllers and templates](https://github.com/CodeURJC-SSDD-2025-26/practica-ssdd-2025-26-grupo-8/commit/45f7746)  | [AdminController.java](app-service/src/main/java/es/urjc/virtusfitness/controller/AdminController.java), [FitnessClass.java](app-service/src/main/java/es/urjc/virtusfitness/model/FitnessClass.java), [FitnessClassRepository.java](app-service/src/main/java/es/urjc/virtusfitness/repository/FitnessClassRepository.java), [FitnessClassService.java](app-service/src/main/java/es/urjc/virtusfitness/service/FitnessClassService.java), [index.html](app-service/src/main/resources/templates/admin/index.html), [classes.html](app-service/src/main/resources/templates/admin/classes.html), [users.html](app-service/src/main/resources/templates/admin/users.html), [user-detail.html](app-service/src/main/resources/templates/admin/user-detail.html), [class-form.html](app-service/src/main/resources/templates/class-form.html), [404.html](app-service/src/main/resources/templates/error/404.html), [500.html](app-service/src/main/resources/templates/error/500.html)   |
+
 
 ---
-
 ## 🛠 **Práctica 3: API REST, docker y despliegue**
 
 ### **Documentación de la API REST**
 
 #### **Especificación OpenAPI**
-📄 **[Especificación OpenAPI (YAML)](/api-docs/api-docs.yaml)**
+📄 **[Especificación OpenAPI (YAML)](api-docs/api-docs.yaml)**
 
 #### **Documentación HTML**
-📖 **[Documentación API REST (HTML)](https://raw.githack.com/[usuario]/[repositorio]/main/api-docs/api-docs.html)**
+📖 **[Documentación API REST (HTML)](https://raw.githack.com/Miguelreey/GRUPO-8-DISTRIBUIDOS/practica-3/api-docs/api-docs.html)**
 
-> La documentación de la API REST se encuentra en la carpeta `/api-docs` del repositorio. Se ha generado automáticamente con SpringDoc a partir de las anotaciones en el código Java.
+> Documentación generada automáticamente con SpringDoc a partir de las anotaciones `@Tag`, `@Operation` y `@ApiResponse` en el código Java. También disponible en tiempo de ejecución en `/swagger-ui.html`.
 
-### **Diagrama de Clases y Templates Actualizado**
+---
 
-Diagrama actualizado incluyendo los @RestController y su relación con los @Service compartidos:
+### **Diagrama de Clases Actualizado (Práctica 3)**
 
-![Diagrama de Clases Actualizado](images/complete-classes-diagram.png)
+Diagrama actualizado con los nuevos `@RestController` y los `@Service` compartidos:
 
-### **Instrucciones de Ejecución con Docker**
+![Diagrama de Clases Actualizado](docs/diagrams/complete-classes-diagram.png)
 
-#### **Requisitos previos:**
-- Docker instalado (versión 20.10 o superior)
-- Docker Compose instalado (versión 2.0 o superior)
+---
 
-#### **Pasos para ejecutar con docker-compose:**
+### **Diagrama de Servicios**
 
-1. **Clonar el repositorio** (si no lo has hecho ya):
-   ```bash
-   git clone https://github.com/[usuario]/[repositorio].git
-   cd [repositorio]
-   ```
+Comunicación entre `app-service` y `utility-service`:
 
-2. **AQUÍ LOS SIGUIENTES PASOS**:
+```
+┌─────────────────────────────────────┐        ┌──────────────────────────────┐
+│           app-service               │        │       utility-service        │
+│           :8443 (HTTPS)             │        │       :8080 (HTTP)           │
+│                                     │        │                              │
+│  Web @Controller  ──┐               │        │  POST /api/v1/pdfs/          │
+│                     ├──> @Service ──┼──HTTP──┤    booking-receipts          │
+│  REST @RestController─┘             │        │                              │
+│                                     │  JSON  │  Genera PDF con OpenPDF      │
+│  UtilityServiceClient ──────────────┼──────> │  y lo devuelve como          │
+│  (RestClient de Spring 6)           │  <──── │  application/pdf             │
+└─────────────────────────────────────┘        └──────────────────────────────┘
+                │
+                │ JDBC
+                ▼
+        ┌──────────────┐
+        │    MySQL     │
+        │   :3306      │
+        └──────────────┘
+```
 
-### **Construcción de la Imagen Docker**
+---
+
+### **Instrucciones de Ejecución con Docker Compose**
+
+#### **Opción A — Usando el OCI Artifact publicado en DockerHub (recomendado)**
+
+Solo necesitas Docker instalado. Sin clonar el repositorio:
+
+```bash
+# 1. Instalar oras CLI (https://oras.land)
+# 2. Descargar el docker-compose desde DockerHub
+oras pull registry-1.docker.io/pablocolomo/virtus-fitness-compose:latest
+
+# 3. Arrancar los 3 servicios
+docker compose -f docker_compose.yml up
+```
+
+La aplicación estará disponible en `https://localhost:8443`
+
+#### **Opción B — Clonando el repositorio**
+
+```bash
+git clone https://github.com/Miguelreey/GRUPO-8-DISTRIBUIDOS.git
+cd GRUPO-8-DISTRIBUIDOS
+docker compose -f docker/docker_compose.yml up
+```
+
+---
+
+### **Instrucciones para Construir y Publicar la Imagen Docker**
 
 #### **Requisitos:**
-- Docker instalado en el sistema
+- Docker instalado y en ejecución
 
-#### **Pasos para construir y publicar la imagen:**
+#### **0. Regenerar la documentación OpenAPI (opcional)**
+```bash
+cd app-service
+mvn verify "-Djavax.net.ssl.trustStore=src/main/resources/keystore.jks" \
+           "-Djavax.net.ssl.trustStorePassword=password"
+```
+Genera `api-docs/api-docs.yaml` automáticamente.
 
-1. **Navegar al directorio de Docker**:
-   ```bash
-   cd docker
-   ```
+#### **1. Construir las imágenes localmente**
+```bash
+bash docker/create_image.sh
+```
+Genera las imágenes `virtus-fitness/app-service:latest` y `virtus-fitness/utility-service:latest`.
 
-2. **AQUÍ LOS SIGUIENTES PASOS**
+#### **2. Publicar las imágenes en DockerHub**
+```bash
+DOCKERHUB_USERNAME=tu_usuario bash docker/publish_image.sh
+```
 
-### **Despliegue en Máquina Virtual**
+#### **3. Publicar el docker-compose como OCI Artifact**
+```bash
+# Requiere oras CLI (https://oras.land)
+DOCKERHUB_USERNAME=tu_usuario bash docker/publish_docker-compose.sh
+```
 
-#### **Requisitos:**
-- Acceso a la máquina virtual (SSH)
-- Clave privada para autenticación
-- Conexión a la red correspondiente o VPN configurada
+Las imágenes publicadas están disponibles en:
+- `pablocolomo/app-service:latest`
+- `pablocolomo/utility-service:latest`
+- `pablocolomo/virtus-fitness-compose:latest` (OCI Artifact)
 
-#### **Pasos para desplegar:**
+---
 
-1. **Conectar a la máquina virtual**:
-   ```bash
-   ssh -i [ruta/a/clave.key] [usuario]@[IP-o-dominio-VM]
-   ```
-   
-   Ejemplo:
-   ```bash
-   ssh -i ssh-keys/app.key vmuser@10.100.139.XXX
-   ```
+### **Credenciales de Usuarios de Ejemplo**
 
-2. **AQUÍ LOS SIGUIENTES PASOS**:
-
-### **URL de la Aplicación Desplegada**
-
-🌐 **URL de acceso**: `https://[nombre-app].etsii.urjc.es:8443`
-
-#### **Credenciales de Usuarios de Ejemplo**
-
-| Rol | Usuario | Contraseña |
+| Rol | Email | Contraseña |
 |:---|:---|:---|
-| Administrador | admin | admin123 |
-| Usuario Registrado | user1 | user123 |
-| Usuario Registrado | user2 | user123 |
+| Administrador | admin@virtusfitness.com | Admin1234! |
+| Usuario Registrado | maria.garcia@email.com | User1234! |
+| Usuario Registrado | carlos.ruiz@email.com | User1234! |
 
-### **OTRA DOCUMENTACIÓN ADICIONAL REQUERIDA EN LA PRÁCTICA**
+---
 
 ### **Participación de Miembros en la Práctica 3**
 
-#### **Alumno 1 - [Nombre Completo]**
+#### **Jorge Rodríguez Lázaro**
 
-[Descripción de las tareas y responsabilidades principales del alumno en el proyecto]
+Responsable de la seguridad de la API REST con JWT, el microservicio utility-service de generación de PDFs y la comunicación entre servicios mediante RestClient.
 
-| Nº    | Commits      | Files      |
-|:------------: |:------------:| :------------:|
-|1| [Descripción commit 1](URL_commit_1)  | [Archivo1](URL_archivo_1)   |
-|2| [Descripción commit 2](URL_commit_2)  | [Archivo2](URL_archivo_2)   |
-|3| [Descripción commit 3](URL_commit_3)  | [Archivo3](URL_archivo_3)   |
-|4| [Descripción commit 4](URL_commit_4)  | [Archivo4](URL_archivo_4)   |
-|5| [Descripción commit 5](URL_commit_5)  | [Archivo5](URL_archivo_5)   |
-
----
-
-#### **Alumno 2 - [Nombre Completo]**
-
-[Descripción de las tareas y responsabilidades principales del alumno en el proyecto]
-
-| Nº    | Commits      | Files      |
-|:------------: |:------------:| :------------:|
-|1| [Descripción commit 1](URL_commit_1)  | [Archivo1](URL_archivo_1)   |
-|2| [Descripción commit 2](URL_commit_2)  | [Archivo2](URL_archivo_2)   |
-|3| [Descripción commit 3](URL_commit_3)  | [Archivo3](URL_archivo_3)   |
-|4| [Descripción commit 4](URL_commit_4)  | [Archivo4](URL_archivo_4)   |
-|5| [Descripción commit 5](URL_commit_5)  | [Archivo5](URL_archivo_5)   |
+| Nº | Commits | Files |
+|:---:|:---:|:---:|
+| 1 | Add JWT authentication (SecurityConfig API chain) | [SecurityConfig.java](app-service/src/main/java/es/urjc/virtusfitness/security/SecurityConfig.java) |
+| 2 | Add BookingsRestController with OpenAPI annotations | [BookingsRestController.java](app-service/src/main/java/es/urjc/virtusfitness/rest/BookingsRestController.java) |
+| 3 | Add Booking DTOs and mapper | [BookingCreateDto.java](app-service/src/main/java/es/urjc/virtusfitness/dto/BookingCreateDto.java), [BookingDto.java](app-service/src/main/java/es/urjc/virtusfitness/dto/BookingDto.java), [BookingMapper.java](app-service/src/main/java/es/urjc/virtusfitness/mapper/BookingMapper.java) |
+| 4 | Add utility-service (PDF microservice) | [PdfRestController.java](utility-service/src/main/java/es/urjc/virtusfitness/utility/pdf/PdfRestController.java), [PdfService.java](utility-service/src/main/java/es/urjc/virtusfitness/utility/pdf/PdfService.java) |
+| 5 | Add UtilityServiceClient for inter-service HTTP communication | [UtilityServiceClient.java](app-service/src/main/java/es/urjc/virtusfitness/client/UtilityServiceClient.java), [UtilityServiceException.java](app-service/src/main/java/es/urjc/virtusfitness/client/UtilityServiceException.java) |
 
 ---
 
-#### **Alumno 3 - [Nombre Completo]**
+#### **Miguel Rey Carballo**
 
-[Descripción de las tareas y responsabilidades principales del alumno en el proyecto]
+Responsable de los endpoints REST de clases y reseñas con paginación y filtrado, los DTOs y mappers correspondientes, y la infraestructura Docker Compose.
 
-| Nº    | Commits      | Files      |
-|:------------: |:------------:| :------------:|
-|1| [Descripción commit 1](URL_commit_1)  | [Archivo1](URL_archivo_1)   |
-|2| [Descripción commit 2](URL_commit_2)  | [Archivo2](URL_archivo_2)   |
-|3| [Descripción commit 3](URL_commit_3)  | [Archivo3](URL_archivo_3)   |
-|4| [Descripción commit 4](URL_commit_4)  | [Archivo4](URL_archivo_4)   |
-|5| [Descripción commit 5](URL_commit_5)  | [Archivo5](URL_archivo_5)   |
+| Nº | Commits | Files |
+|:---:|:---:|:---:|
+| 1 | Add ClassesRestController with category filter and pagination | [ClassesRestController.java](app-service/src/main/java/es/urjc/virtusfitness/rest/ClassesRestController.java) |
+| 2 | Add FitnessClass DTOs and mapper | [FitnessClassDto.java](app-service/src/main/java/es/urjc/virtusfitness/dto/FitnessClassDto.java), [FitnessClassCreateDto.java](app-service/src/main/java/es/urjc/virtusfitness/dto/FitnessClassCreateDto.java), [FitnessClassMapper.java](app-service/src/main/java/es/urjc/virtusfitness/mapper/FitnessClassMapper.java) |
+| 3 | Add ReviewsRestController with OpenAPI annotations | [ReviewsRestController.java](app-service/src/main/java/es/urjc/virtusfitness/rest/ReviewsRestController.java) |
+| 4 | Add Review DTOs, mapper and PageResponse | [ReviewDto.java](app-service/src/main/java/es/urjc/virtusfitness/dto/ReviewDto.java), [ReviewMapper.java](app-service/src/main/java/es/urjc/virtusfitness/mapper/ReviewMapper.java), [PageResponse.java](app-service/src/main/java/es/urjc/virtusfitness/dto/PageResponse.java) |
+| 5 | Add Docker Compose and build/publish scripts | [docker_compose.yml](docker/docker_compose.yml), [create_image.sh](docker/create_image.sh), [publish_image.sh](docker/publish_image.sh) |
 
 ---
 
-#### **Alumno 4 - [Nombre Completo]**
+#### **Pablo Valdés Colomo**
 
-[Descripción de las tareas y responsabilidades principales del alumno en el proyecto]
+Responsable de los endpoints REST de usuarios, los Dockerfiles multi-stage, la colección Postman y la documentación OpenAPI/Swagger.
 
-| Nº    | Commits      | Files      |
-|:------------: |:------------:| :------------:|
-|1| [Descripción commit 1](URL_commit_1)  | [Archivo1](URL_archivo_1)   |
-|2| [Descripción commit 2](URL_commit_2)  | [Archivo2](URL_archivo_2)   |
-|3| [Descripción commit 3](URL_commit_3)  | [Archivo3](URL_archivo_3)   |
-|4| [Descripción commit 4](URL_commit_4)  | [Archivo4](URL_archivo_4)   |
-|5| [Descripción commit 5](URL_commit_5)  | [Archivo5](URL_archivo_5)   |
+| Nº | Commits | Files |
+|:---:|:---:|:---:|
+| 1 | Add UsersRestController with OpenAPI annotations | [UsersRestController.java](app-service/src/main/java/es/urjc/virtusfitness/rest/UsersRestController.java) |
+| 2 | Add User DTOs and mapper | [UserDto.java](app-service/src/main/java/es/urjc/virtusfitness/dto/UserDto.java), [UserCreateDto.java](app-service/src/main/java/es/urjc/virtusfitness/dto/UserCreateDto.java), [UserUpdateDto.java](app-service/src/main/java/es/urjc/virtusfitness/dto/UserUpdateDto.java), [UserMapper.java](app-service/src/main/java/es/urjc/virtusfitness/mapper/UserMapper.java) |
+| 3 | Add multi-stage Dockerfiles for app-service and utility-service | [app-service.Dockerfile](docker/app-service.Dockerfile), [utility-service.Dockerfile](docker/utility-service.Dockerfile) |
+| 4 | Add Postman collection with {{baseUrl}} variable | [api.postman_collection.json](api.postman_collection.json) |
+| 5 | Add OpenAPI/Swagger configuration and api-docs files | [api-docs.yaml](api-docs/api-docs.yaml), [api-docs.html](api-docs/api-docs.html) |
 
 ---

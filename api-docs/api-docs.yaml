@@ -1,0 +1,1053 @@
+openapi: 3.0.1
+info:
+  title: OpenAPI definition
+  version: v0
+servers:
+- url: https://localhost:9443
+  description: Generated server url
+tags:
+- name: Bookings
+  description: Class booking management.
+- name: Auth
+  description: Authentication endpoints.
+- name: Images
+  description: Image retrieval endpoints.
+- name: Reviews
+  description: Class review management.
+- name: Stats
+  description: Aggregated statistics for charts.
+- name: Classes
+  description: Fitness class management.
+- name: Users
+  description: User registration and management.
+paths:
+  /api/v1/users/{id}:
+    get:
+      tags:
+      - Users
+      summary: Get a user by ID. Requires ROLE_ADMIN or own account.
+      operationId: getById
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "404":
+          description: User not found.
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/UserDto'
+        "403":
+          description: Access denied.
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/UserDto'
+    put:
+      tags:
+      - Users
+      summary: Update a user. Requires ROLE_ADMIN or own account.
+      operationId: update
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserUpdateDto'
+        required: true
+      responses:
+        "404":
+          description: User not found.
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/UserDto'
+        "403":
+          description: Access denied.
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/UserDto'
+    delete:
+      tags:
+      - Users
+      summary: Delete a user. Requires ROLE_ADMIN.
+      operationId: delete
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "404":
+          description: User not found.
+        "204":
+          description: User deleted.
+  /api/v1/classes/{id}:
+    get:
+      tags:
+      - Classes
+      summary: Get a fitness class by ID.
+      operationId: getById_1
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "404":
+          description: Class not found.
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/FitnessClassDto'
+    put:
+      tags:
+      - Classes
+      summary: Update a class (partial update). Requires ROLE_ADMIN.
+      operationId: update_1
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FitnessClassUpdateDto'
+        required: true
+      responses:
+        "404":
+          description: Class not found.
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/FitnessClassDto'
+    delete:
+      tags:
+      - Classes
+      summary: Delete a class. Requires ROLE_ADMIN.
+      operationId: delete_2
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "404":
+          description: Class not found.
+        "204":
+          description: Class deleted.
+  /api/v1/users:
+    get:
+      tags:
+      - Users
+      summary: List all users (paginated). Requires ROLE_ADMIN.
+      operationId: list
+      parameters:
+      - name: pageable
+        in: query
+        required: true
+        schema:
+          $ref: '#/components/schemas/Pageable'
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/PageResponseUserDto'
+    post:
+      tags:
+      - Users
+      summary: Register a new user (public).
+      operationId: register
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserCreateDto'
+        required: true
+      responses:
+        "409":
+          description: Email already in use.
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/UserDto'
+        "201":
+          description: User created.
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/UserDto'
+  /api/v1/classes:
+    get:
+      tags:
+      - Classes
+      summary: List active classes. Filter by category with ?category=Yoga.
+      operationId: list_1
+      parameters:
+      - name: category
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: pageable
+        in: query
+        required: true
+        schema:
+          $ref: '#/components/schemas/Pageable'
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/PageResponseFitnessClassDto'
+    post:
+      tags:
+      - Classes
+      summary: Create a new class. Requires ROLE_ADMIN.
+      operationId: create
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FitnessClassCreateDto'
+        required: true
+      responses:
+        "201":
+          description: Class created.
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/FitnessClassDto'
+  /api/v1/classes/{classId}/reviews:
+    get:
+      tags:
+      - Reviews
+      summary: List reviews for a class (paginated). Public access.
+      operationId: list_2
+      parameters:
+      - name: classId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: pageable
+        in: query
+        required: true
+        schema:
+          $ref: '#/components/schemas/Pageable'
+      responses:
+        "404":
+          description: Class not found.
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/PageResponseReviewDto'
+    post:
+      tags:
+      - Reviews
+      summary: Add a review to a class. Requires authentication.
+      operationId: create_1
+      parameters:
+      - name: classId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ReviewCreateDto'
+        required: true
+      responses:
+        "201":
+          description: Review created.
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ReviewDto'
+        "404":
+          description: Class not found.
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ReviewDto'
+  /api/v1/bookings:
+    get:
+      tags:
+      - Bookings
+      summary: List bookings for the authenticated user (paginated).
+      operationId: myBookings
+      parameters:
+      - name: pageable
+        in: query
+        required: true
+        schema:
+          $ref: '#/components/schemas/Pageable'
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/PageResponseBookingDto'
+    post:
+      tags:
+      - Bookings
+      summary: Create a booking for the authenticated user.
+      operationId: create_2
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BookingCreateDto'
+        required: true
+      responses:
+        "409":
+          description: Already booked or on waiting list.
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/BookingDto'
+        "201":
+          description: Booking created.
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/BookingDto'
+  /api/v1/auth/login:
+    post:
+      tags:
+      - Auth
+      summary: Log in and obtain a JWT token.
+      description: Send email and password in the request body. Returns a Bearer JWT
+        token.
+      operationId: login
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoginRequestDto'
+        required: true
+      responses:
+        "200":
+          description: Login successful. Returns JWT token.
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/LoginResponseDto'
+        "401":
+          description: Invalid credentials.
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/LoginResponseDto'
+  /api/v1/users/me:
+    get:
+      tags:
+      - Users
+      summary: Get the currently authenticated user.
+      operationId: me
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/UserDto'
+  /api/v1/stats/bookings-per-class:
+    get:
+      tags:
+      - Stats
+      summary: Bookings per fitness class.
+      description: Returns labels (class names) and data (booking counts) for a bar
+        chart.
+      operationId: bookingsPerClass
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ChartDto'
+  /api/v1/images/users/{id}:
+    get:
+      tags:
+      - Images
+      summary: Get the avatar of a user.
+      operationId: userAvatar
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: Avatar returned.
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  type: string
+                  format: byte
+        "404":
+          description: User or avatar not found.
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  type: string
+                  format: byte
+  /api/v1/images/classes/{id}:
+    get:
+      tags:
+      - Images
+      summary: Get the image of a fitness class.
+      operationId: classImage
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: Image returned.
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  type: string
+                  format: byte
+        "404":
+          description: Class or image not found.
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  type: string
+                  format: byte
+  /api/v1/bookings/{id}:
+    get:
+      tags:
+      - Bookings
+      summary: Get a booking by ID. Requires ownership or ROLE_ADMIN.
+      operationId: getById_2
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "404":
+          description: Booking not found.
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/BookingDto'
+        "403":
+          description: Access denied.
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/BookingDto'
+    delete:
+      tags:
+      - Bookings
+      summary: Cancel a booking. Requires ownership or ROLE_ADMIN.
+      operationId: cancel
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "204":
+          description: Booking cancelled.
+        "404":
+          description: Booking not found.
+        "403":
+          description: Access denied.
+  /api/v1/bookings/{id}/pdf:
+    get:
+      tags:
+      - Bookings
+      summary: Download the PDF receipt for a booking.
+      operationId: downloadPdf
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: PDF file.
+          content:
+            application/pdf:
+              schema:
+                type: string
+                format: binary
+        "404":
+          description: Booking not found.
+          content:
+            application/pdf:
+              schema:
+                type: array
+                items:
+                  type: string
+                  format: byte
+        "403":
+          description: Access denied.
+          content:
+            application/pdf:
+              schema:
+                type: array
+                items:
+                  type: string
+                  format: byte
+  /api/v1/reviews/{id}:
+    delete:
+      tags:
+      - Reviews
+      summary: Delete a review. Requires ownership or ROLE_ADMIN.
+      operationId: delete_1
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "204":
+          description: Review deleted.
+        "403":
+          description: Access denied.
+        "404":
+          description: Review not found.
+components:
+  schemas:
+    UserUpdateDto:
+      type: object
+      properties:
+        username:
+          maxLength: 50
+          minLength: 3
+          type: string
+          example: maria
+        email:
+          type: string
+          example: maria.garcia@email.com
+        planType:
+          type: string
+          example: Premium
+        role:
+          type: string
+          description: Only honored for callers with ROLE_ADMIN.
+          example: ROLE_USER
+      description: "Payload for PUT /api/v1/users/{id}. All fields optional."
+    UserDto:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          example: 1
+        username:
+          type: string
+          example: maria
+        email:
+          type: string
+          example: maria.garcia@email.com
+        role:
+          type: string
+          example: ROLE_USER
+        planType:
+          type: string
+          example: Premium
+        hasAvatar:
+          type: boolean
+          description: True when the user has uploaded an avatar image.
+          example: true
+      description: Public projection of a user. Password is never exposed.
+    FitnessClassUpdateDto:
+      type: object
+      properties:
+        name:
+          maxLength: 200
+          minLength: 0
+          type: string
+          example: Yoga Flow Avanzado
+        description:
+          maxLength: 2000
+          minLength: 0
+          type: string
+          example: Updated description...
+        instructor:
+          type: string
+          example: Ana Martínez
+        duration:
+          type: integer
+          format: int32
+          example: 75
+        capacity:
+          type: integer
+          format: int32
+          example: 12
+        difficulty:
+          type: string
+          example: Intermedio
+        category:
+          type: string
+          example: Yoga
+        schedule:
+          type: string
+          example: Mar/Jue 18:00-19:15
+        price:
+          type: number
+          format: double
+          example: 14.0
+        active:
+          type: boolean
+          example: false
+      description: "Payload for PUT /api/v1/classes/{id}. All fields optional."
+    FitnessClassDto:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          example: 1
+        name:
+          type: string
+          example: CrossFit WOD
+        description:
+          type: string
+          example: Workout of the Day...
+        instructor:
+          type: string
+          example: Carlos Mendoza
+        duration:
+          type: integer
+          format: int32
+          example: 45
+        capacity:
+          type: integer
+          format: int32
+          example: 20
+        difficulty:
+          type: string
+          example: Avanzado
+        category:
+          type: string
+          example: CrossFit
+        schedule:
+          type: string
+          example: Lun/Mié/Vie 18:00-18:45
+        price:
+          type: number
+          format: double
+          example: 15.0
+        active:
+          type: boolean
+          example: true
+        hasImage:
+          type: boolean
+          description: True when an image has been uploaded.
+          example: true
+        availableSpots:
+          type: integer
+          description: Spots still available based on confirmed bookings.
+          format: int32
+          example: 5
+        averageRating:
+          type: number
+          description: Average rating across all reviews (0.0 if none).
+          format: double
+          example: 4.5
+      description: Read-only projection of a fitness class.
+    UserCreateDto:
+      required:
+      - email
+      - password
+      - username
+      type: object
+      properties:
+        username:
+          maxLength: 50
+          minLength: 3
+          type: string
+          example: maria
+        email:
+          type: string
+          example: maria.garcia@email.com
+        password:
+          maxLength: 100
+          minLength: 8
+          type: string
+          example: Secret1234!
+        planType:
+          type: string
+          description: Subscription plan. Defaults to 'Básico' when omitted.
+          example: Premium
+      description: Payload for POST /api/v1/users (user registration).
+    FitnessClassCreateDto:
+      required:
+      - name
+      type: object
+      properties:
+        name:
+          maxLength: 200
+          minLength: 0
+          type: string
+          example: Yoga Flow
+        description:
+          maxLength: 2000
+          minLength: 0
+          type: string
+          example: Long description...
+        instructor:
+          type: string
+          example: Ana Martínez
+        duration:
+          minimum: 1
+          type: integer
+          format: int32
+          example: 60
+        capacity:
+          minimum: 1
+          type: integer
+          format: int32
+          example: 15
+        difficulty:
+          type: string
+          example: Principiante
+        category:
+          type: string
+          example: Yoga
+        schedule:
+          type: string
+          example: Mar/Jue 17:00-18:00
+        price:
+          type: number
+          format: double
+          example: 12.0
+        active:
+          type: boolean
+          example: true
+      description: Payload for POST /api/v1/classes (admin only).
+    ReviewCreateDto:
+      type: object
+      properties:
+        rating:
+          maximum: 5
+          minimum: 1
+          type: integer
+          description: 1 to 5.
+          format: int32
+          example: 5
+        comment:
+          maxLength: 1000
+          minLength: 0
+          type: string
+          example: ¡Genial!
+      description: Payload to create a review on a class. The user is the authenticated
+        caller.
+    ReviewDto:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          example: 10
+        userId:
+          type: integer
+          format: int64
+          example: 2
+        userName:
+          type: string
+          example: maria
+        fitnessClassId:
+          type: integer
+          format: int64
+          example: 1
+        rating:
+          type: integer
+          description: Rating from 1 to 5.
+          format: int32
+          example: 5
+        comment:
+          type: string
+          example: Increíble clase. Carlos es un instructor fantástico.
+        date:
+          type: string
+          format: date-time
+      description: Read-only projection of a class review.
+    BookingCreateDto:
+      required:
+      - classId
+      type: object
+      properties:
+        classId:
+          type: integer
+          description: ID of the fitness class to book.
+          format: int64
+          example: 1
+      description: Payload to create a booking for the authenticated user.
+    BookingDto:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          example: 42
+        userId:
+          type: integer
+          format: int64
+          example: 2
+        userName:
+          type: string
+          example: maria
+        fitnessClassId:
+          type: integer
+          format: int64
+          example: 1
+        fitnessClassName:
+          type: string
+          example: CrossFit WOD
+        status:
+          type: string
+          description: "One of CONFIRMADA, LISTA_ESPERA, CANCELADA, PENDIENTE."
+          example: CONFIRMADA
+        bookingDate:
+          type: string
+          format: date-time
+      description: Read-only projection of a booking. Embeds enough user/class context
+        to render listings without follow-up requests.
+    LoginRequestDto:
+      required:
+      - email
+      - password
+      type: object
+      properties:
+        email:
+          type: string
+          example: maria.garcia@email.com
+        password:
+          type: string
+          example: User1234!
+      description: Credentials for login.
+    LoginResponseDto:
+      type: object
+      properties:
+        type:
+          type: string
+          example: Bearer
+        token:
+          type: string
+          example: eyJhbGci...
+        email:
+          type: string
+          example: maria.garcia@email.com
+        role:
+          type: string
+          example: ROLE_USER
+      description: JWT token returned after successful login.
+    Pageable:
+      type: object
+      properties:
+        page:
+          minimum: 0
+          type: integer
+          format: int32
+        size:
+          minimum: 1
+          type: integer
+          format: int32
+        sort:
+          type: array
+          items:
+            type: string
+    PageResponseUserDto:
+      type: object
+      properties:
+        content:
+          type: array
+          description: Items on the current page.
+          items:
+            $ref: '#/components/schemas/UserDto'
+        page:
+          type: integer
+          description: Zero-based index of the current page.
+          format: int32
+          example: 0
+        size:
+          type: integer
+          description: Maximum number of items per page.
+          format: int32
+          example: 10
+        totalElements:
+          type: integer
+          description: Total items across every page.
+          format: int64
+          example: 42
+        totalPages:
+          type: integer
+          description: Total number of pages.
+          format: int32
+          example: 5
+        last:
+          type: boolean
+          description: True when this is the last page.
+          example: false
+      description: Paginated response wrapper.
+    ChartDto:
+      type: object
+      properties:
+        labels:
+          type: array
+          items:
+            type: string
+        data:
+          type: array
+          items:
+            type: integer
+            format: int64
+    PageResponseFitnessClassDto:
+      type: object
+      properties:
+        content:
+          type: array
+          description: Items on the current page.
+          items:
+            $ref: '#/components/schemas/FitnessClassDto'
+        page:
+          type: integer
+          description: Zero-based index of the current page.
+          format: int32
+          example: 0
+        size:
+          type: integer
+          description: Maximum number of items per page.
+          format: int32
+          example: 10
+        totalElements:
+          type: integer
+          description: Total items across every page.
+          format: int64
+          example: 42
+        totalPages:
+          type: integer
+          description: Total number of pages.
+          format: int32
+          example: 5
+        last:
+          type: boolean
+          description: True when this is the last page.
+          example: false
+      description: Paginated response wrapper.
+    PageResponseReviewDto:
+      type: object
+      properties:
+        content:
+          type: array
+          description: Items on the current page.
+          items:
+            $ref: '#/components/schemas/ReviewDto'
+        page:
+          type: integer
+          description: Zero-based index of the current page.
+          format: int32
+          example: 0
+        size:
+          type: integer
+          description: Maximum number of items per page.
+          format: int32
+          example: 10
+        totalElements:
+          type: integer
+          description: Total items across every page.
+          format: int64
+          example: 42
+        totalPages:
+          type: integer
+          description: Total number of pages.
+          format: int32
+          example: 5
+        last:
+          type: boolean
+          description: True when this is the last page.
+          example: false
+      description: Paginated response wrapper.
+    PageResponseBookingDto:
+      type: object
+      properties:
+        content:
+          type: array
+          description: Items on the current page.
+          items:
+            $ref: '#/components/schemas/BookingDto'
+        page:
+          type: integer
+          description: Zero-based index of the current page.
+          format: int32
+          example: 0
+        size:
+          type: integer
+          description: Maximum number of items per page.
+          format: int32
+          example: 10
+        totalElements:
+          type: integer
+          description: Total items across every page.
+          format: int64
+          example: 42
+        totalPages:
+          type: integer
+          description: Total number of pages.
+          format: int32
+          example: 5
+        last:
+          type: boolean
+          description: True when this is the last page.
+          example: false
+      description: Paginated response wrapper.
